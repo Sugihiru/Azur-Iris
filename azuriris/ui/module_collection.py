@@ -5,12 +5,8 @@ from shipfu_table_model import ShipfuTableModel
 
 
 class ModuleCollection(QWidget, Ui_ModuleCollection):
-    def __init__(self):
+    def __init__(self, shipfus):
         super().__init__()
-        self.setupUi()
-
-    def setupUi(self):
-        super().setupUi(self)
-
-        self.model = ShipfuTableModel()
+        self.setupUi(self)
+        self.model = ShipfuTableModel(shipfus)
         self.shipTableView.setModel(self.model)
