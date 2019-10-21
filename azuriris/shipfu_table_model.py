@@ -1,4 +1,5 @@
 from PySide2 import QtCore
+
 from PySide2.QtCore import Qt
 
 import user_data
@@ -23,10 +24,12 @@ class ShipfuTableModel(QtCore.QAbstractTableModel):
         return len(self.headers)
 
     def data(self, index, role=Qt.DisplayRole):
-        if role == Qt.DisplayRole:
-            row = index.row()
-            column = index.column()
+        row = index.row()
+        column = index.column()
+        if role == Qt.TextAlignmentRole:
+            return Qt.AlignCenter
 
+        if role == Qt.DisplayRole:
             shipfu_id = str(self.shipfus[row].Shipfu.shipfu_id)
             try:
                 shipfu_user_data = self.user_shipfus_data[shipfu_id]
@@ -34,7 +37,7 @@ class ShipfuTableModel(QtCore.QAbstractTableModel):
                 shipfu_user_data = user_data.init_shipfu_data()
                 self.user_shipfus_data[shipfu_id] = shipfu_user_data
 
-            values = ("None",
+            values = (self.shipfus[row].Shipfu.image,
                       self.shipfus[row].Shipfu.name,
                       self.shipfus[row].Rarity.name,
                       self.shipfus[row].ShipType.name,

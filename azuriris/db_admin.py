@@ -82,8 +82,11 @@ def insert_datas():
     data.append(db_models.Nation(nation_id=14,
                                  name="KizunaAI", prefix=""))
 
-    data.append(db_models.Shipfu(image=None, name="Cleveland", rarity_id=3,
-                                 ship_type_id=1, nation_id=1))
+    # Ships
+    with open("ClevelandIcon.png", "rb") as f:
+        blob = f.read()
+    data.append(db_models.Shipfu(image=blob, name="Cleveland", rarity_id=3,
+                                 ship_type_id=2, nation_id=2))
 
     db_models.session.add_all(data)
     db_models.session.commit()
