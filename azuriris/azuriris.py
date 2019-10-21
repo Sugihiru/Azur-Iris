@@ -10,7 +10,9 @@ def main():
     mw = MainWindow()
 
     mw.showMaximized()
-    sys.exit(app.exec_())
+    ret = app.exec_()
+    mw.user_data.save()
+    sys.exit(ret)
 
 
 if __name__ == '__main__':

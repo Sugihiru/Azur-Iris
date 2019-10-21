@@ -6,10 +6,10 @@ from shipfu_table_model import ShipfuTableModel
 
 
 class ModuleCollection(QWidget, Ui_ModuleCollection):
-    def __init__(self, shipfus):
+    def __init__(self, shipfus, user_shipfus_data):
         super().__init__()
         self.setupUi(self)
-        self.model = ShipfuTableModel(shipfus)
+        self.model = ShipfuTableModel(shipfus, user_shipfus_data)
         self.shipTableView.setModel(self.model)
         for col_idx in (5, 6, 7, 8):
             self.shipTableView.setItemDelegateForColumn(
