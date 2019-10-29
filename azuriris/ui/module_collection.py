@@ -11,11 +11,11 @@ class ModuleCollection(QWidget, Ui_ModuleCollection):
         self.setupUi(self)
         self.model = ShipfuTableModel(shipfus, user_shipfus_data)
         self.shipTableView.setModel(self.model)
-        for col_idx in (5, 6, 7, 8):
+        for col_idx in (6, 7, 8, 9):
             self.shipTableView.setItemDelegateForColumn(
                 col_idx, CheckBoxDelegate(self.shipTableView))
         self.shipTableView.setItemDelegateForColumn(
-            0, PixmapDelegate(self.shipTableView))
+            1, PixmapDelegate(self.shipTableView))
 
 
 class CheckBoxDelegate(QtWidgets.QItemDelegate):

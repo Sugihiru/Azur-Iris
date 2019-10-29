@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'module_collection.ui',
 # licensing of 'module_collection.ui' applies.
 #
-# Created: Mon Oct 21 15:40:58 2019
+# Created: Tue Oct 29 11:38:16 2019
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -23,6 +23,8 @@ class Ui_ModuleCollection(object):
         self.shipTableView.setHorizontalScrollMode(QtWidgets.QAbstractItemView.ScrollPerPixel)
         self.shipTableView.setSortingEnabled(True)
         self.shipTableView.setObjectName("shipTableView")
+        self.shipTableView.verticalHeader().setDefaultSectionSize(50)
+        self.shipTableView.verticalHeader().setMinimumSectionSize(50)
         self.verticalLayout_2.addWidget(self.shipTableView)
 
         self.retranslateUi(ModuleCollection)

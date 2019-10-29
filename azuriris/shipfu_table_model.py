@@ -3,6 +3,7 @@ from PySide2 import QtCore
 from PySide2.QtCore import Qt
 
 import user_data
+import db_manager
 
 
 class ShipfuTableModel(QtCore.QAbstractTableModel):
@@ -13,9 +14,10 @@ class ShipfuTableModel(QtCore.QAbstractTableModel):
         else:
             self.shipfus = list()
         self.user_shipfus_data = user_shipfus_data
-        self.headers = ["Image", "Name", "Rarity", "Type", "Nation", "Owned",
-                        "MLB", "Level 120", "Max Affection"]
-        self.checkboxes_columns_idx = (5, 6, 7, 8)
+        self.headers = ["Id", "Image", "Name", "Rarity", "Type", "Nation",
+                        "Owned", "MLB", "Level 120", "Max Affection",
+                        "How to obtain"]
+        self.checkboxes_columns_idx = (6, 7, 8, 9)
 
     def rowCount(self, parent=None):
         return len(self.shipfus)
@@ -37,7 +39,8 @@ class ShipfuTableModel(QtCore.QAbstractTableModel):
                 shipfu_user_data = user_data.init_shipfu_data()
                 self.user_shipfus_data[shipfu_id] = shipfu_user_data
 
-            values = (self.shipfus[row].Shipfu.image,
+            values = (self.shipfus[row].Shipfu.shipfu_id,
+                      self.shipfus[row].Shipfu.image,
                       self.shipfus[row].Shipfu.name,
                       self.shipfus[row].Rarity.name,
                       self.shipfus[row].ShipType.name,
@@ -45,7 +48,9 @@ class ShipfuTableModel(QtCore.QAbstractTableModel):
                       shipfu_user_data["owned"],
                       shipfu_user_data["mlb"],
                       shipfu_user_data["max_level"],
-                      shipfu_user_data["max_affection"])
+                      shipfu_user_data["max_affection"],
+                      db_manager.get_shipfu_obtention_method(
+                          self.shipfus[row].Shipfu))
 
             return values[column]
 
@@ -53,10 +58,10 @@ class ShipfuTableModel(QtCore.QAbstractTableModel):
         if index.column() in self.checkboxes_columns_idx:
             shipfu_id = str(self.shipfus[index.row()].Shipfu.shipfu_id)
             shipfus_data_keys = {
-                5: "owned",
-                6: "mlb",
-                7: "max_level",
-                8: "max_affection"
+                6: "owned",
+                7: "mlb",
+                8: "max_level",
+                9: "max_affection"
             }
             shipfus_data_key = shipfus_data_keys[index.column()]
             self.user_shipfus_data[shipfu_id][shipfus_data_key] = value
