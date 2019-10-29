@@ -18,6 +18,8 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
 
         self.collectionTab = ModuleCollection(
-            self.data.shipfus, self.user_data.data["shipfus"])
+            self.data.shipfus,
+            self.data.retrofit_shipfus,
+            self.user_data.data["shipfus"])
         self.ui.tabWidget.addTab(self.collectionTab, "")
         self.ui.tabWidget.setTabText(0, self.tr("Collection"))

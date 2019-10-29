@@ -2,20 +2,30 @@ from PySide2.QtWidgets import QWidget
 from PySide2 import QtCore, QtWidgets, QtGui
 
 from .ui.module_collection import Ui_ModuleCollection
-from shipfu_table_model import ShipfuTableModel
+from shipfu_table_model import ShipfuTableModel, ProxyShipfuTableModel
+from retrofit_shipfu_table_model import RetrofitShipfuTableModel
 
 
 class ModuleCollection(QWidget, Ui_ModuleCollection):
-    def __init__(self, shipfus, user_shipfus_data):
+    def __init__(self, shipfus, retrofit_shipfus, user_shipfus_data):
         super().__init__()
         self.setupUi(self)
         self.model = ShipfuTableModel(shipfus, user_shipfus_data)
-        self.shipTableView.setModel(self.model)
+        self.proxyModel = ProxyShipfuTableModel()
+        self.proxyModel.setSourceModel(self.model)
+        self.retrofitModel = RetrofitShipfuTableModel(
+            retrofit_shipfus, user_shipfus_data)
+        self.shipTableView.setModel(self.proxyModel)
         for col_idx in (6, 7, 8, 9):
             self.shipTableView.setItemDelegateForColumn(
                 col_idx, CheckBoxDelegate(self.shipTableView))
         self.shipTableView.setItemDelegateForColumn(
             1, PixmapDelegate(self.shipTableView))
+
+        self.retrofitTableView.setModel(self.retrofitModel)
+        self.retrofitTableView.setItemDelegateForColumn(
+            self.retrofitModel.columnCount() - 1,
+            CheckBoxDelegate(self.retrofitTableView))
 
 
 class CheckBoxDelegate(QtWidgets.QItemDelegate):
