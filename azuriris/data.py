@@ -27,3 +27,16 @@ class Data():
                              .filter(db_models.Shipfu.name.endswith(" Kai"))
                              .order_by(db_models.Shipfu.shipfu_id)
                              .all())
+
+        self.rarities = (db_models.session.query(db_models.Rarity)
+                                          .order_by(db_models.Rarity.rarity_id)
+                                          .all())
+
+        self.nations = (db_models.session.query(db_models.Nation)
+                                         .order_by(db_models.Nation.nation_id)
+                                         .all())
+
+        self.ship_types = (
+            db_models.session.query(db_models.ShipType)
+                             .order_by(db_models.ShipType.ship_type_id)
+                             .all())

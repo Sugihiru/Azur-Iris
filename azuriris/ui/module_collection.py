@@ -2,30 +2,50 @@ from PySide2.QtWidgets import QWidget
 from PySide2 import QtCore, QtWidgets, QtGui
 
 from .ui.module_collection import Ui_ModuleCollection
+from .shipfu_filter import ShipfuFilter
 from shipfu_table_model import ShipfuTableModel, ProxyShipfuTableModel
 from retrofit_shipfu_table_model import RetrofitShipfuTableModel
 
 
 class ModuleCollection(QWidget, Ui_ModuleCollection):
-    def __init__(self, shipfus, retrofit_shipfus, user_shipfus_data):
+    def __init__(self, data, user_shipfus_data):
         super().__init__()
         self.setupUi(self)
-        self.model = ShipfuTableModel(shipfus, user_shipfus_data)
-        self.proxyModel = ProxyShipfuTableModel()
+        self.model = ShipfuTableModel(data.shipfus, user_shipfus_data)
+        self.proxyModel = ProxyShipfuTableModel(data.rarities)
         self.proxyModel.setSourceModel(self.model)
-        self.retrofitModel = RetrofitShipfuTableModel(
-            retrofit_shipfus, user_shipfus_data)
         self.shipTableView.setModel(self.proxyModel)
+
+        self.retrofitModel = RetrofitShipfuTableModel(
+            data.retrofit_shipfus, user_shipfus_data)
+        self.retrofitTableView.setModel(self.retrofitModel)
+
         for col_idx in (6, 7, 8, 9):
             self.shipTableView.setItemDelegateForColumn(
                 col_idx, CheckBoxDelegate(self.shipTableView))
         self.shipTableView.setItemDelegateForColumn(
             1, PixmapDelegate(self.shipTableView))
 
-        self.retrofitTableView.setModel(self.retrofitModel)
         self.retrofitTableView.setItemDelegateForColumn(
             self.retrofitModel.columnCount() - 1,
             CheckBoxDelegate(self.retrofitTableView))
+
+        self.filters = ShipfuFilter(data)
+        for filterComboBox in (self.filters.rarityComboBox,
+                               self.filters.nationComboBox,
+                               self.filters.shipTypeComboBox):
+            filterComboBox.currentIndexChanged.connect(self.onFilterChanged)
+        self.collectionGridLayout.addWidget(self.filters, 0, 0)
+
+    def onFilterChanged(self, new_index):
+        self.proxyModel.rarity_filter = self.filters.rarityComboBox.itemData(
+            self.filters.rarityComboBox.currentIndex())
+        self.proxyModel.nation_filter = self.filters.nationComboBox.itemData(
+            self.filters.nationComboBox.currentIndex())
+        self.proxyModel.shiptype_filter = \
+            self.filters.shipTypeComboBox.itemData(
+                self.filters.shipTypeComboBox.currentIndex())
+        self.proxyModel.invalidateFilter()
 
 
 class CheckBoxDelegate(QtWidgets.QItemDelegate):

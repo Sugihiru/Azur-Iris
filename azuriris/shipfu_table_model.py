@@ -83,11 +83,28 @@ class ShipfuTableModel(QtCore.QAbstractTableModel):
 
 
 class ProxyShipfuTableModel(QtCore.QSortFilterProxyModel):
-    def __init__(self):
+    def __init__(self, rarities):
         super().__init__()
-        self.rarity_order = (
-            "Normal", "Rare", "Elite", "Super Rare", "Ultra Rare",
-            "Priority", "Decisive")
+        # Rarity is already ordered
+        self.rarity_order = [rarity.name for rarity in rarities]
+        self.rarity_filter = None
+        self.nation_filter = None
+        self.shiptype_filter = None
+
+    def filterAcceptsRow(self, sourceRow, sourceParent):
+        if sourceRow >= self.sourceModel().rowCount():
+            return False
+
+        shipfu = self.sourceModel().shipfus[sourceRow]
+        for (shipfu_value, shipfu_filter) in (
+                (shipfu.Rarity, self.rarity_filter),
+                (shipfu.Nation, self.nation_filter),
+                (shipfu.ShipType, self.shiptype_filter)):
+            if shipfu_filter and shipfu_value != shipfu_filter:
+                return False
+
+        return True
+        # return self.match_fields(self.filterRegExp(), song)
 
     def lessThan(self, source_left, source_right):
         unsortable_columns_idx = (6, 7, 8, 9, 10)
