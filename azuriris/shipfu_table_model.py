@@ -103,8 +103,8 @@ class ProxyShipfuTableModel(QtCore.QSortFilterProxyModel):
             if shipfu_filter and shipfu_value != shipfu_filter:
                 return False
 
-        return True
-        # return self.match_fields(self.filterRegExp(), song)
+        pattern = self.filterRegExp().pattern().lower()
+        return pattern in shipfu.Shipfu.name.lower()
 
     def lessThan(self, source_left, source_right):
         unsortable_columns_idx = (6, 7, 8, 9, 10)

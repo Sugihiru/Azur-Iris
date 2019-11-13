@@ -10,43 +10,88 @@
     <height>300</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="0">
-    <widget class="QLabel" name="nationLabel">
-     <property name="text">
-      <string>Nation</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="0">
-    <widget class="QLabel" name="rarityLabel">
-     <property name="text">
-      <string>Rarity</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="1">
-    <widget class="QComboBox" name="nationComboBox"/>
-   </item>
-   <item row="0" column="1">
-    <widget class="QComboBox" name="rarityComboBox">
-     <property name="currentText">
-      <string/>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0">
+   <item row="0" column="7">
     <widget class="QLabel" name="shipTypeLabel">
      <property name="text">
       <string>Ship type</string>
      </property>
     </widget>
    </item>
-   <item row="2" column="1">
+   <item row="0" column="4">
+    <widget class="QComboBox" name="rarityComboBox">
+     <property name="currentText">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="5">
+    <widget class="QLabel" name="nationLabel">
+     <property name="text">
+      <string>Nation</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="8">
     <widget class="QComboBox" name="shipTypeComboBox"/>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="nameLabel">
+     <property name="text">
+      <string>Name</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="6">
+    <widget class="QComboBox" name="nationComboBox"/>
+   </item>
+   <item row="0" column="1">
+    <widget class="QLineEdit" name="nameLineEdit">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>128</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="placeholderText">
+      <string>Ship name</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="3">
+    <widget class="QLabel" name="rarityLabel">
+     <property name="text">
+      <string>Rarity</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="9">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
    </item>
   </layout>
  </widget>

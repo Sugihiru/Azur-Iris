@@ -35,6 +35,7 @@ class ModuleCollection(QWidget, Ui_ModuleCollection):
                                self.filters.nationComboBox,
                                self.filters.shipTypeComboBox):
             filterComboBox.currentIndexChanged.connect(self.onFilterChanged)
+        self.filters.nameLineEdit.textChanged.connect(self.onFilterChanged)
         self.collectionGridLayout.addWidget(self.filters, 0, 0)
 
     def onFilterChanged(self, new_index):
@@ -45,6 +46,7 @@ class ModuleCollection(QWidget, Ui_ModuleCollection):
         self.proxyModel.shiptype_filter = \
             self.filters.shipTypeComboBox.itemData(
                 self.filters.shipTypeComboBox.currentIndex())
+        self.proxyModel.setFilterRegExp(self.filters.nameLineEdit.text())
         self.proxyModel.invalidateFilter()
 
 
