@@ -6,6 +6,9 @@ import user_data
 import db_manager
 
 
+CHECKBOXES_COLUMNS_IDX = (6, 7, 8, 9)
+
+
 class ShipfuTableModel(QtCore.QAbstractTableModel):
     def __init__(self, shipfus, user_shipfus_data):
         super().__init__()
@@ -17,7 +20,6 @@ class ShipfuTableModel(QtCore.QAbstractTableModel):
         self.headers = ["Id", "Image", "Name", "Rarity", "Type", "Nation",
                         "Owned", "MLB", "Level 120", "Max Affection",
                         "How to obtain"]
-        self.checkboxes_columns_idx = (6, 7, 8, 9)
 
     def rowCount(self, parent=None):
         return len(self.shipfus)
@@ -55,13 +57,13 @@ class ShipfuTableModel(QtCore.QAbstractTableModel):
             return values[column]
 
     def setData(self, index, value, role=QtCore.Qt.DisplayRole):
-        if index.column() in self.checkboxes_columns_idx:
+        if index.column() in CHECKBOXES_COLUMNS_IDX:
             shipfu_id = str(self.shipfus[index.row()].Shipfu.shipfu_id)
             shipfus_data_keys = {
-                6: "owned",
-                7: "mlb",
-                8: "max_level",
-                9: "max_affection"
+                CHECKBOXES_COLUMNS_IDX[0]: "owned",
+                CHECKBOXES_COLUMNS_IDX[1]: "mlb",
+                CHECKBOXES_COLUMNS_IDX[2]: "max_level",
+                CHECKBOXES_COLUMNS_IDX[3]: "max_affection"
             }
             shipfus_data_key = shipfus_data_keys[index.column()]
             self.user_shipfus_data[shipfu_id][shipfus_data_key] = value
@@ -77,7 +79,7 @@ class ShipfuTableModel(QtCore.QAbstractTableModel):
 
         if not index.isValid():
             return None
-        if index.column() in self.checkboxes_columns_idx:
+        if index.column() in CHECKBOXES_COLUMNS_IDX:
             return default_flags | QtCore.Qt.ItemIsEditable
         return default_flags
 
@@ -107,9 +109,6 @@ class ProxyShipfuTableModel(QtCore.QSortFilterProxyModel):
         return pattern in shipfu.Shipfu.name.lower()
 
     def lessThan(self, source_left, source_right):
-        unsortable_columns_idx = (6, 7, 8, 9, 10)
-        if source_left.column() in unsortable_columns_idx:
-            return False
         if source_left.column() == 3:  # Sort by rarity
             left_rarity_index = self.rarity_order.index(source_left.data())
             right_rarity_index = self.rarity_order.index(source_right.data())
