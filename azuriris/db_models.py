@@ -31,6 +31,7 @@ class Shipfu(Base):
     is_in_heavy_build = Column(Boolean, nullable=False)
     is_in_special_build = Column(Boolean, nullable=False)
     is_event_ship = Column(Boolean, nullable=False)
+    is_collection_ship = Column(Boolean, nullable=False)
     buyable_source = Column(Integer, ForeignKey("shops.shop_id"))
 
     def __repr__(self):
@@ -86,10 +87,25 @@ class Shipfu(Base):
             obtention_methods.append(f"Buyable in {self.shop_name}")
 
         # Research shipfus
-        if self.rarity_id == 6 or self.rarity_id == 7:
+        if self.is_pr_ship():
             obtention_methods.append("Research")
 
+        # Collection
+        if self.is_collection_ship:
+            obtention_methods.append("Collection")
+
         self.obtention_methods = "\n".join(obtention_methods)
+
+    def is_buildable(self):
+        return (self.is_in_light_build or
+                self.is_in_heavy_build or
+                self.is_in_special_build)
+
+    def is_buyable(self):
+        return self.buyable_source is not None
+
+    def is_pr_ship(self):
+        return self.rarity_id in (6, 7)
 
 
 class ShipfuDrop(Base):

@@ -91,6 +91,13 @@ class ProxyShipfuTableModel(QtCore.QSortFilterProxyModel):
         self.nation_filter = None
         self.shiptype_filter = None
 
+        self.build_filter = True
+        self.drop_filter = True
+        self.shop_filter = True
+        self.event_filter = True
+        self.research_filter = True
+        self.collection_filter = True
+
     def filterAcceptsRow(self, sourceRow, sourceParent):
         if sourceRow >= self.sourceModel().rowCount():
             return False
@@ -102,6 +109,18 @@ class ProxyShipfuTableModel(QtCore.QSortFilterProxyModel):
                 (shipfu.ShipType, self.shiptype_filter)):
             if shipfu_filter and shipfu_value != shipfu_filter:
                 return False
+
+        obtention_filters = (
+            (self.build_filter and shipfu.Shipfu.is_buildable()) or
+            (self.drop_filter and shipfu.Shipfu.drops) or
+            (self.shop_filter and shipfu.Shipfu.is_buyable()) or
+            (self.event_filter and shipfu.Shipfu.is_event_ship) or
+            (self.research_filter and shipfu.Shipfu.is_pr_ship()) or
+            (self.collection_filter and shipfu.Shipfu.is_collection_ship)
+        )
+
+        if not obtention_filters:
+            return False
 
         pattern = self.filterRegExp().pattern().lower()
         return pattern in shipfu.Shipfu.name.lower()

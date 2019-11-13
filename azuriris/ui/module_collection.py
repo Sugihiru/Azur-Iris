@@ -36,6 +36,14 @@ class ModuleCollection(QWidget, Ui_ModuleCollection):
                                self.filters.shipTypeComboBox):
             filterComboBox.currentIndexChanged.connect(self.onFilterChanged)
         self.filters.nameLineEdit.textChanged.connect(self.onFilterChanged)
+
+        for cb in (self.filters.buildCheckBox,
+                   self.filters.dropCheckBox,
+                   self.filters.shopCheckBox,
+                   self.filters.eventCheckBox,
+                   self.filters.researchCheckBox,
+                   self.filters.collectionCheckBox):
+            cb.stateChanged.connect(self.onFilterChanged)
         self.collectionGridLayout.addWidget(self.filters, 0, 0)
 
     def onFilterChanged(self, new_index):
@@ -46,7 +54,18 @@ class ModuleCollection(QWidget, Ui_ModuleCollection):
         self.proxyModel.shiptype_filter = \
             self.filters.shipTypeComboBox.itemData(
                 self.filters.shipTypeComboBox.currentIndex())
+
         self.proxyModel.setFilterRegExp(self.filters.nameLineEdit.text())
+
+        self.proxyModel.build_filter = self.filters.buildCheckBox.isChecked()
+        self.proxyModel.drop_filter = self.filters.dropCheckBox.isChecked()
+        self.proxyModel.shop_filter = self.filters.shopCheckBox.isChecked()
+        self.proxyModel.event_filter = self.filters.eventCheckBox.isChecked()
+        self.proxyModel.research_filter = \
+            self.filters.researchCheckBox.isChecked()
+        self.proxyModel.collection_filter = \
+            self.filters.collectionCheckBox.isChecked()
+
         self.proxyModel.invalidateFilter()
 
 

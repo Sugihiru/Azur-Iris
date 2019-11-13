@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>584</width>
     <height>300</height>
    </rect>
   </property>
@@ -20,67 +20,27 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="7">
-    <widget class="QLabel" name="shipTypeLabel">
-     <property name="text">
-      <string>Ship type</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="4">
-    <widget class="QComboBox" name="rarityComboBox">
-     <property name="currentText">
-      <string/>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="5">
-    <widget class="QLabel" name="nationLabel">
-     <property name="text">
-      <string>Nation</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="8">
-    <widget class="QComboBox" name="shipTypeComboBox"/>
-   </item>
-   <item row="0" column="0">
-    <widget class="QLabel" name="nameLabel">
-     <property name="text">
-      <string>Name</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="6">
-    <widget class="QComboBox" name="nationComboBox"/>
-   </item>
-   <item row="0" column="1">
-    <widget class="QLineEdit" name="nameLineEdit">
+   <item row="0" column="0" colspan="9">
+    <widget class="QLabel" name="filterTitle1Label">
      <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+      <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
-     <property name="minimumSize">
-      <size>
-       <width>128</width>
-       <height>0</height>
-      </size>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
-     <property name="placeholderText">
-      <string>Ship name</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="3">
-    <widget class="QLabel" name="rarityLabel">
      <property name="text">
-      <string>Rarity</string>
+      <string>Basic filters</string>
      </property>
     </widget>
    </item>
-   <item row="0" column="9">
+   <item row="2" column="9">
     <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -92,6 +52,210 @@
       </size>
      </property>
     </spacer>
+   </item>
+   <item row="1" column="0" colspan="9">
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QLabel" name="nameLabel">
+       <property name="text">
+        <string>Name</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="nameLineEdit">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>128</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="placeholderText">
+        <string>Ship name</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="rarityLabel">
+       <property name="text">
+        <string>Rarity</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="rarityComboBox">
+       <property name="currentText">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="nationLabel">
+       <property name="text">
+        <string>Nation</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="nationComboBox"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="shipTypeLabel">
+       <property name="text">
+        <string>Ship type</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="shipTypeComboBox"/>
+     </item>
+    </layout>
+   </item>
+   <item row="4" column="1">
+    <layout class="QHBoxLayout" name="dropHLayout">
+     <item>
+      <widget class="QLabel" name="dropLabel">
+       <property name="text">
+        <string>Drops</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="dropCheckBox">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="4" column="0">
+    <layout class="QHBoxLayout" name="buildHLayout">
+     <item>
+      <widget class="QLabel" name="buildLabel">
+       <property name="text">
+        <string>Builds</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="buildCheckBox">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="0" colspan="9">
+    <widget class="QLabel" name="filterTitle2Label">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Obtention filters</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="2">
+    <layout class="QHBoxLayout" name="shopHLayout">
+     <item>
+      <widget class="QLabel" name="shopLabel">
+       <property name="text">
+        <string>Shops</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="shopCheckBox">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="4" column="3">
+    <layout class="QHBoxLayout" name="eventHLayout">
+     <item>
+      <widget class="QLabel" name="eventLabel">
+       <property name="text">
+        <string>Events</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="eventCheckBox">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="4" column="4">
+    <layout class="QHBoxLayout" name="researchHLayout">
+     <item>
+      <widget class="QLabel" name="researchLabel">
+       <property name="text">
+        <string>Researches</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="researchCheckBox">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="4" column="5">
+    <layout class="QHBoxLayout" name="collectionHLayout">
+     <item>
+      <widget class="QLabel" name="collectionLabel">
+       <property name="text">
+        <string>Collection</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="collectionCheckBox">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>

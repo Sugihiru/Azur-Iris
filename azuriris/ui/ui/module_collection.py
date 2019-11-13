@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'module_collection.ui',
 # licensing of 'module_collection.ui' applies.
 #
-# Created: Wed Nov 13 11:49:54 2019
+# Created: Wed Nov 13 16:24:07 2019
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
