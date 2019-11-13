@@ -28,6 +28,12 @@ class Data():
                              .order_by(db_models.Shipfu.shipfu_id)
                              .all())
 
+        for shipfu in self.shipfus + self.retrofit_shipfus:
+            shipfu.Shipfu.set_drops()
+            if shipfu.Shipfu.buyable_source:
+                shipfu.Shipfu.set_shop_name()
+            shipfu.Shipfu.build_obtention_method_string()
+
         self.rarities = (db_models.session.query(db_models.Rarity)
                                           .order_by(db_models.Rarity.rarity_id)
                                           .all())

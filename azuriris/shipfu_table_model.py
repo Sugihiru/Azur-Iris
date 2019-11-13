@@ -3,7 +3,6 @@ from PySide2 import QtCore
 from PySide2.QtCore import Qt
 
 import user_data
-import db_manager
 
 
 CHECKBOXES_COLUMNS_IDX = (6, 7, 8, 9)
@@ -51,8 +50,7 @@ class ShipfuTableModel(QtCore.QAbstractTableModel):
                       shipfu_user_data["mlb"],
                       shipfu_user_data["max_level"],
                       shipfu_user_data["max_affection"],
-                      db_manager.get_shipfu_obtention_method(
-                          self.shipfus[row].Shipfu))
+                      self.shipfus[row].Shipfu.obtention_methods)
 
             return values[column]
 

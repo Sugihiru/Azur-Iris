@@ -39,6 +39,58 @@ class Shipfu(Base):
                     self.name, self.rarity_id,
                     self.ship_type_id, self.nation_id))
 
+    def set_drops(self):
+        self.drops = (session.query(ShipfuDrop)
+                             .filter_by(shipfu_id=self.shipfu_id)
+                             .order_by(ShipfuDrop.world,
+                                       ShipfuDrop.subworld).all())
+
+    def set_shop_name(self):
+        self.shop_name = (session.query(Shop.name)
+                                 .filter_by(shop_id=self.buyable_source)
+                                 .first())[0]
+
+    def build_obtention_method_string(self):
+        """
+        Build a string stored in self.obtention_methods that contains
+        human-readable informations about how to obtain the shipfu
+        """
+        obtention_methods = list()
+
+        # Builds
+        build_sources = list()
+        if self.is_in_light_build:
+            build_sources.append("Light build")
+        if self.is_in_heavy_build:
+            build_sources.append("Heavy build")
+        if self.is_in_special_build:
+            build_sources.append("Special build")
+        if build_sources:
+            obtention_methods.append(
+                "Buildable in " + ", ".join(build_sources))
+
+        # Drops
+        if self.drops:
+            drop_msg = list()
+            for drop in self.drops:
+                drop_msg.append(f"{drop.world}-{drop.subworld}")
+            drop_msg = "Droppable in " + ", ".join(drop_msg)
+            obtention_methods.append(drop_msg)
+
+        # Event
+        if self.is_event_ship:
+            obtention_methods.append("Event")
+
+        # Shop
+        if self.buyable_source:
+            obtention_methods.append(f"Buyable in {self.shop_name}")
+
+        # Research shipfus
+        if self.rarity_id == 6 or self.rarity_id == 7:
+            obtention_methods.append("Research")
+
+        self.obtention_methods = "\n".join(obtention_methods)
+
 
 class ShipfuDrop(Base):
     __tablename__ = "shipfu_drops"
