@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'shipfu_filter.ui',
 # licensing of 'shipfu_filter.ui' applies.
 #
-# Created: Wed Nov 13 16:24:07 2019
+# Created: Sat Nov 30 15:28:49 2019
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -144,6 +144,17 @@ class Ui_ShipfuFilter(object):
         self.collectionCheckBox.setObjectName("collectionCheckBox")
         self.collectionHLayout.addWidget(self.collectionCheckBox)
         self.gridLayout.addLayout(self.collectionHLayout, 4, 5, 1, 1)
+        self.loginRewardHLayout = QtWidgets.QHBoxLayout()
+        self.loginRewardHLayout.setObjectName("loginRewardHLayout")
+        self.loginRewardLabel = QtWidgets.QLabel(ShipfuFilter)
+        self.loginRewardLabel.setObjectName("loginRewardLabel")
+        self.loginRewardHLayout.addWidget(self.loginRewardLabel)
+        self.loginRewardCheckBox = QtWidgets.QCheckBox(ShipfuFilter)
+        self.loginRewardCheckBox.setText("")
+        self.loginRewardCheckBox.setChecked(True)
+        self.loginRewardCheckBox.setObjectName("loginRewardCheckBox")
+        self.loginRewardHLayout.addWidget(self.loginRewardCheckBox)
+        self.gridLayout.addLayout(self.loginRewardHLayout, 4, 6, 1, 1)
 
         self.retranslateUi(ShipfuFilter)
         QtCore.QMetaObject.connectSlotsByName(ShipfuFilter)
@@ -163,4 +174,5 @@ class Ui_ShipfuFilter(object):
         self.eventLabel.setText(QtWidgets.QApplication.translate("ShipfuFilter", "Events", None, -1))
         self.researchLabel.setText(QtWidgets.QApplication.translate("ShipfuFilter", "Researches", None, -1))
         self.collectionLabel.setText(QtWidgets.QApplication.translate("ShipfuFilter", "Collection", None, -1))
+        self.loginRewardLabel.setText(QtWidgets.QApplication.translate("ShipfuFilter", "Login Reward", None, -1))
 

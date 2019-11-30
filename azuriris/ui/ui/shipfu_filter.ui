@@ -257,6 +257,27 @@
      </item>
     </layout>
    </item>
+   <item row="4" column="6">
+    <layout class="QHBoxLayout" name="loginRewardHLayout">
+     <item>
+      <widget class="QLabel" name="loginRewardLabel">
+       <property name="text">
+        <string>Login Reward</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="loginRewardCheckBox">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
   </layout>
  </widget>
  <resources/>

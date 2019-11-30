@@ -32,6 +32,7 @@ class Shipfu(Base):
     is_in_special_build = Column(Boolean, nullable=False)
     is_event_ship = Column(Boolean, nullable=False)
     is_collection_ship = Column(Boolean, nullable=False)
+    is_login_reward_ship = Column(Boolean, nullable=False)
     buyable_source = Column(Integer, ForeignKey("shops.shop_id"))
 
     def __repr__(self):
@@ -94,6 +95,10 @@ class Shipfu(Base):
         if self.is_collection_ship:
             obtention_methods.append("Collection")
 
+        # Login reward
+        if self.is_login_reward_ship:
+            obtention_methods.append("Monthly login reward")
+
         self.obtention_methods = "\n".join(obtention_methods)
 
     def is_buildable(self):
@@ -124,8 +129,8 @@ class ShipfuWeaponSlot(Base):
     shipfu_weapon_slot_id = Column(Integer, primary_key=True)
     shipfu_id = Column(String, ForeignKey("shipfus.shipfu_id"), nullable=False)
     weapon_slot_nb = Column(Integer, nullable=False)
-    min_efficiency = Column(Integer, nullable=False)
-    max_efficiency = Column(Integer, nullable=False)
+    min_efficiency = Column(Integer)
+    max_efficiency = Column(Integer)
     weapon_type_id = Column(Integer, ForeignKey("weapon_types.weapon_type_id"),
                             nullable=False)
 

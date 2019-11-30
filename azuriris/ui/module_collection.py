@@ -42,7 +42,8 @@ class ModuleCollection(QWidget, Ui_ModuleCollection):
                    self.filters.shopCheckBox,
                    self.filters.eventCheckBox,
                    self.filters.researchCheckBox,
-                   self.filters.collectionCheckBox):
+                   self.filters.collectionCheckBox,
+                   self.filters.loginRewardCheckBox):
             cb.stateChanged.connect(self.onFilterChanged)
         self.collectionGridLayout.addWidget(self.filters, 0, 0)
 
@@ -65,6 +66,8 @@ class ModuleCollection(QWidget, Ui_ModuleCollection):
             self.filters.researchCheckBox.isChecked()
         self.proxyModel.collection_filter = \
             self.filters.collectionCheckBox.isChecked()
+        self.proxyModel.login_reward_filter = \
+            self.filters.loginRewardCheckBox.isChecked()
 
         self.proxyModel.invalidateFilter()
 

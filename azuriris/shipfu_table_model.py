@@ -97,6 +97,7 @@ class ProxyShipfuTableModel(QtCore.QSortFilterProxyModel):
         self.event_filter = True
         self.research_filter = True
         self.collection_filter = True
+        self.login_reward_filter = True
 
     def filterAcceptsRow(self, sourceRow, sourceParent):
         if sourceRow >= self.sourceModel().rowCount():
@@ -116,10 +117,12 @@ class ProxyShipfuTableModel(QtCore.QSortFilterProxyModel):
             (self.shop_filter and shipfu.Shipfu.is_buyable()) or
             (self.event_filter and shipfu.Shipfu.is_event_ship) or
             (self.research_filter and shipfu.Shipfu.is_pr_ship()) or
-            (self.collection_filter and shipfu.Shipfu.is_collection_ship)
+            (self.collection_filter and shipfu.Shipfu.is_collection_ship) or
+            (self.login_reward_filter and shipfu.Shipfu.is_login_reward_ship)
         )
 
         if not obtention_filters:
+            print(shipfu.Shipfu)
             return False
 
         pattern = self.filterRegExp().pattern().lower()
