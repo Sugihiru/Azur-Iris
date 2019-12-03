@@ -11,24 +11,10 @@ class Data():
                              .join(db_models.Rarity)
                              .join(db_models.ShipType)
                              .join(db_models.Nation)
-                             .filter(
-                                 ~db_models.Shipfu.name.endswith(" Kai"))
                              .order_by(db_models.Shipfu.shipfu_id)
                              .all())
 
-        self.retrofit_shipfus = (
-            db_models.session.query(db_models.Shipfu,
-                                    db_models.Rarity,
-                                    db_models.ShipType,
-                                    db_models.Nation)
-                             .join(db_models.Rarity)
-                             .join(db_models.ShipType)
-                             .join(db_models.Nation)
-                             .filter(db_models.Shipfu.name.endswith(" Kai"))
-                             .order_by(db_models.Shipfu.shipfu_id)
-                             .all())
-
-        for shipfu in self.shipfus + self.retrofit_shipfus:
+        for shipfu in self.shipfus:
             shipfu.Shipfu.set_drops()
             if shipfu.Shipfu.buyable_source:
                 shipfu.Shipfu.set_shop_name()
@@ -46,3 +32,9 @@ class Data():
             db_models.session.query(db_models.ShipType)
                              .order_by(db_models.ShipType.ship_type_id)
                              .all())
+
+        self.non_retrofit_shipfus = [x for x in self.shipfus
+                                     if not x.Shipfu.name.endswith(" Kai")]
+
+        self.retrofit_shipfus = [x for x in self.shipfus
+                                 if x.Shipfu.name.endswith(" Kai")]
