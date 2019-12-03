@@ -46,6 +46,7 @@ class ComparisonShipfuTableModel(QtCore.QAbstractTableModel):
                 self.id_shipfus_to_compare.append(shipfu_id)
             else:
                 self.id_shipfus_to_compare.remove(shipfu_id)
+            self.dataChanged.emit(QtCore.QModelIndex(), QtCore.QModelIndex())
             return value
         return value
 
@@ -64,6 +65,11 @@ class ComparisonShipfuTableModel(QtCore.QAbstractTableModel):
 
     def reset(self):
         self.id_shipfus_to_compare = list()
+
+    def get_selected_shipfus(self):
+        return [shipfu for shipfu in self.shipfus
+                if shipfu.Shipfu.shipfu_id
+                in self.id_shipfus_to_compare]
 
 
 class ProxyComparisonShipfuTableModel(QtCore.QSortFilterProxyModel):

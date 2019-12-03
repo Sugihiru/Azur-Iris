@@ -14,6 +14,7 @@ class ModuleComparison(QWidget, Ui_ModuleComparison):
         self.setupUi(self)
 
         self.model = ComparisonShipfuTableModel(data.shipfus)
+        self.model.dataChanged.connect(self.displaySelectedShipfus)
         self.proxyModel = ProxyComparisonShipfuTableModel(data.rarities)
         self.proxyModel.setSourceModel(self.model)
         self.shipTableView.setModel(self.proxyModel)
@@ -31,7 +32,15 @@ class ModuleComparison(QWidget, Ui_ModuleComparison):
 
         self.compareButton = QPushButton("Compare selected ships")
         self.compareButton.clicked.connect(self.compareShipfus)
-        self.comparisonGridLayout.addWidget(self.compareButton, 1, 0)
+        self.comparisonGridLayout.addWidget(self.compareButton, 3, 0)
+
+    def displaySelectedShipfus(self, *_):
+        shipfus_to_compare = self.model.get_selected_shipfus()
+        if not shipfus_to_compare:
+            self.selectedLabel.setText("None")
+        else:
+            self.selectedLabel.setText(
+                ", ".join([x.Shipfu.name for x in shipfus_to_compare]))
 
     def onFilterChanged(self, new_index):
         self.proxyModel.rarity_filter = self.filters.rarityComboBox.itemData(
@@ -48,10 +57,10 @@ class ModuleComparison(QWidget, Ui_ModuleComparison):
     def reset(self):
         self.filters.reset()
         self.model.reset()
+        self.selectedLabel.setText("None")
 
     def compareShipfus(self):
-        id_shipfus_to_compare = self.model.id_shipfus_to_compare
-        if len(id_shipfus_to_compare) < 2:
+        if len(self.model.id_shipfus_to_compare) < 2:
             messageBox = QMessageBox()
             messageBox.warning(None, "Error",
                                "Please select at least 2 ships to compare")
@@ -59,9 +68,7 @@ class ModuleComparison(QWidget, Ui_ModuleComparison):
             messageBox.show()
             return
 
-        shipfus_to_compare = [shipfu for shipfu in self.model.shipfus
-                              if shipfu.Shipfu.shipfu_id
-                              in id_shipfus_to_compare]
+        shipfus_to_compare = self.model.get_selected_shipfus()
 
         if len(shipfus_to_compare) == 2:
             widget = ComparisonTwoShips(*shipfus_to_compare)
