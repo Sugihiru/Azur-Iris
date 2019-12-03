@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ComparisonTwoShips</class>
+ <widget class="QWidget" name="ComparisonTwoShips">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="1">
+    <layout class="QGridLayout" name="ship1GridLayout">
+     <item row="15" column="0">
+      <widget class="QLabel" name="ship1AntisubTitleLabel">
+       <property name="text">
+        <string>Anti-sub:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="ship1TorpedoTitleLabel">
+       <property name="text">
+        <string>Torpedo:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="ship1FirepowerTitleLabel">
+       <property name="text">
+        <string>Firepower:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="ship1TypeLabel">
+       <property name="text">
+        <string>Type1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="ship1NationLabel">
+       <property name="text">
+        <string>Nation1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <widget class="QLabel" name="ship1ReloadLabel">
+       <property name="text">
+        <string>Reload1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="1">
+      <widget class="QLabel" name="ship1CostLabel">
+       <property name="text">
+        <string>Cost1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="ship1RarityTitleLabel">
+       <property name="text">
+        <string>Rarity:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="1">
+      <widget class="QLabel" name="ship1LuckLabel">
+       <property name="text">
+        <string>Luck1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="ship1ArmorTypeTitleLabel">
+       <property name="text">
+        <string>Armor Type</string>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="0">
+      <widget class="QLabel" name="ship1CostTitleLabel">
+       <property name="text">
+        <string>Cost:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="0">
+      <widget class="QLabel" name="ship1AviationTitleLabel">
+       <property name="text">
+        <string>Aviation:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLabel" name="ship1FirepowerLabel">
+       <property name="text">
+        <string>Firepower1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="0">
+      <widget class="QLabel" name="ship1AntiairTitleLabel">
+       <property name="text">
+        <string>Anti-air:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="17" column="1">
+      <widget class="QLabel" name="ship1OxygenLabel">
+       <property name="text">
+        <string>Oxygen1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="ship1NationTitleLabel">
+       <property name="text">
+        <string>Nation:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="1">
+      <widget class="QLabel" name="ship1AviationLabel">
+       <property name="text">
+        <string>Aviation1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLabel" name="ship1HealthLabel">
+       <property name="text">
+        <string>Health1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="ship1EvasionTitleLabel">
+       <property name="text">
+        <string>Evasion:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="1">
+      <widget class="QLabel" name="ship1AntisubLabel">
+       <property name="text">
+        <string>Antisub1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="0">
+      <widget class="QLabel" name="ship1SpeedTitleLabel">
+       <property name="text">
+        <string>Speed:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="17" column="0">
+      <widget class="QLabel" name="ship1OxygenTitleLabel">
+       <property name="text">
+        <string>Oxygen:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLabel" name="ship1ArmorTypeLabel">
+       <property name="text">
+        <string>ArmorType1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="0">
+      <widget class="QLabel" name="ship1LuckTitleLabel">
+       <property name="text">
+        <string>Luck:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="ship1TypeTitleLabel">
+       <property name="text">
+        <string>Type: </string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="1">
+      <widget class="QLabel" name="ship1AntiairLabel">
+       <property name="text">
+        <string>Anti-air1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="2">
+      <widget class="QLabel" name="ship1NameLabel">
+       <property name="text">
+        <string>Name1</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLabel" name="ship1TorpedoLabel">
+       <property name="text">
+        <string>Torpedo1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0">
+      <widget class="QLabel" name="ship1ReloadTitleLabel">
+       <property name="text">
+        <string>Reload:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="1">
+      <widget class="QLabel" name="ship1AccuracyLabel">
+       <property name="text">
+        <string>Accuracy1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="ship1HealthTitleLabel">
+       <property name="text">
+        <string>Health:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="QLabel" name="ship1EvasionLabel">
+       <property name="text">
+        <string>Evasion1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="0">
+      <widget class="QLabel" name="ship1AccuracyTitleLabel">
+       <property name="text">
+        <string>Accuracy:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLabel" name="ship1RarityLabel">
+       <property name="text">
+        <string>Rarity1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="1">
+      <widget class="QLabel" name="ship1SpeedLabel">
+       <property name="text">
+        <string>Speed1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="18" column="0">
+      <widget class="QLabel" name="ship1AmmunitionTitleLabel">
+       <property name="text">
+        <string>Ammunition:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="18" column="1">
+      <widget class="QLabel" name="ship1AmmunitionLabel">
+       <property name="text">
+        <string>Ammunition1</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="0" column="2">
+    <widget class="QComboBox" name="levelComboBox">
+     <item>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>100</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>120</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <layout class="QGridLayout" name="ship2GridLayout">
+     <item row="2" column="0">
+      <widget class="QLabel" name="ship2NationTitleLabel">
+       <property name="text">
+        <string>Nation:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="0">
+      <widget class="QLabel" name="ship2LuckTitleLabel">
+       <property name="text">
+        <string>Luck:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="ship2TypeLabel">
+       <property name="text">
+        <string>Type2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="ship2HealthTitleLabel">
+       <property name="text">
+        <string>Health:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLabel" name="ship2HealthLabel">
+       <property name="text">
+        <string>Health2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="ship2RarityTitleLabel">
+       <property name="text">
+        <string>Rarity:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="1">
+      <widget class="QLabel" name="ship2AntisubLabel">
+       <property name="text">
+        <string>Antisub2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="ship2TorpedoTitleLabel">
+       <property name="text">
+        <string>Torpedo:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="1">
+      <widget class="QLabel" name="ship2LuckLabel">
+       <property name="text">
+        <string>Luck2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="1">
+      <widget class="QLabel" name="ship2CostLabel">
+       <property name="text">
+        <string>Cost2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="QLabel" name="ship2EvasionLabel">
+       <property name="text">
+        <string>Evasion2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="1">
+      <widget class="QLabel" name="ship2AntiairLabel">
+       <property name="text">
+        <string>Anti-air2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="0">
+      <widget class="QLabel" name="ship2AviationTitleLabel">
+       <property name="text">
+        <string>Aviation:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLabel" name="ship2ArmorTypeLabel">
+       <property name="text">
+        <string>ArmorType2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="0">
+      <widget class="QLabel" name="ship2SpeedTitleLabel">
+       <property name="text">
+        <string>Speed:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="1">
+      <widget class="QLabel" name="ship2SpeedLabel">
+       <property name="text">
+        <string>Speed2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="ship2FirepowerTitleLabel">
+       <property name="text">
+        <string>Firepower:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="ship2EvasionTitleLabel">
+       <property name="text">
+        <string>Evasion:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="17" column="1">
+      <widget class="QLabel" name="ship2OxygenLabel">
+       <property name="text">
+        <string>Oxygen2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="ship2NationLabel">
+       <property name="text">
+        <string>Nation2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="0">
+      <widget class="QLabel" name="ship2AntiairTitleLabel">
+       <property name="text">
+        <string>Anti-air:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="ship2ArmorTypeTitleLabel">
+       <property name="text">
+        <string>Armor Type</string>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="0">
+      <widget class="QLabel" name="ship2AccuracyTitleLabel">
+       <property name="text">
+        <string>Accuracy:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLabel" name="ship2TorpedoLabel">
+       <property name="text">
+        <string>Torpedo2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="2">
+      <widget class="QLabel" name="ship2NameLabel">
+       <property name="text">
+        <string>Name2</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="ship2TypeTitleLabel">
+       <property name="text">
+        <string>Type:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="1">
+      <widget class="QLabel" name="ship2AviationLabel">
+       <property name="text">
+        <string>Aviation2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLabel" name="ship2FirepowerLabel">
+       <property name="text">
+        <string>Firepower2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="0">
+      <widget class="QLabel" name="ship2CostTitleLabel">
+       <property name="text">
+        <string>Cost:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="17" column="0">
+      <widget class="QLabel" name="ship2OxygenTitleLabel">
+       <property name="text">
+        <string>Oxygen:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0">
+      <widget class="QLabel" name="ship2ReloadTitleLabel">
+       <property name="text">
+        <string>Reload:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="0">
+      <widget class="QLabel" name="ship2AntisubTitleLabel">
+       <property name="text">
+        <string>Anti-sub:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLabel" name="ship2RarityLabel">
+       <property name="text">
+        <string>Rarity2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="1">
+      <widget class="QLabel" name="ship2AccuracyLabel">
+       <property name="text">
+        <string>Accuracy2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <widget class="QLabel" name="ship2ReloadLabel">
+       <property name="text">
+        <string>Reload2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="18" column="0">
+      <widget class="QLabel" name="ship2AmmunitionTitleLabel">
+       <property name="text">
+        <string>Ammunition:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="18" column="1">
+      <widget class="QLabel" name="ship2AmmunitionLabel">
+       <property name="text">
+        <string>Ammunition2</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="0" column="1">
+    <widget class="QLabel" name="levelLabel">
+     <property name="text">
+      <string>Level:</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

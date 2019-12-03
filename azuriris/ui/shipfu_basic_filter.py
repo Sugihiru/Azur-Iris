@@ -21,3 +21,10 @@ class ShipfuBasicFilter(QWidget, Ui_ShipfuBasicFilter):
             comboBox.addItems([data.name for data in data_set])
             for i, data in enumerate(data_set):
                 comboBox.setItemData(i + 1, data)
+
+    def reset(self):
+        self.nameLineEdit.setText("")
+        for comboBox in (self.rarityComboBox,
+                         self.nationComboBox,
+                         self.shipTypeComboBox):
+            comboBox.setCurrentIndex(0)

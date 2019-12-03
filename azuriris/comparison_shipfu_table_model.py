@@ -13,7 +13,7 @@ class ComparisonShipfuTableModel(QtCore.QAbstractTableModel):
             self.shipfus = shipfus
         else:
             self.shipfus = list()
-        self.shipfus_to_compare = list()
+        self.id_shipfus_to_compare = list()
         self.headers = ["Id", "Compare", "Name", "Rarity", "Type", "Nation"]
 
     def rowCount(self, parent=None):
@@ -31,7 +31,7 @@ class ComparisonShipfuTableModel(QtCore.QAbstractTableModel):
         if role == Qt.DisplayRole:
             shipfu_id = self.shipfus[row].Shipfu.shipfu_id
             values = (shipfu_id,
-                      shipfu_id in self.shipfus_to_compare,
+                      shipfu_id in self.id_shipfus_to_compare,
                       self.shipfus[row].Shipfu.name,
                       self.shipfus[row].Rarity.name,
                       self.shipfus[row].ShipType.name,
@@ -43,9 +43,9 @@ class ComparisonShipfuTableModel(QtCore.QAbstractTableModel):
         if index.column() in CHECKBOXES_COLUMNS_IDX:
             shipfu_id = self.shipfus[index.row()].Shipfu.shipfu_id
             if value:
-                self.shipfus_to_compare.append(shipfu_id)
+                self.id_shipfus_to_compare.append(shipfu_id)
             else:
-                self.shipfus_to_compare.remove(shipfu_id)
+                self.id_shipfus_to_compare.remove(shipfu_id)
             return value
         return value
 
@@ -61,6 +61,9 @@ class ComparisonShipfuTableModel(QtCore.QAbstractTableModel):
         if index.column() in CHECKBOXES_COLUMNS_IDX:
             return default_flags | QtCore.Qt.ItemIsEditable
         return default_flags
+
+    def reset(self):
+        self.id_shipfus_to_compare = list()
 
 
 class ProxyComparisonShipfuTableModel(QtCore.QSortFilterProxyModel):

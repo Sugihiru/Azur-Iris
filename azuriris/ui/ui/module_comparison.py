@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'module_comparison.ui',
 # licensing of 'module_comparison.ui' applies.
 #
-# Created: Tue Dec  3 16:11:53 2019
+# Created: Tue Dec  3 18:17:17 2019
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!

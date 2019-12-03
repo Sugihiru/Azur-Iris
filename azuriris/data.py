@@ -38,3 +38,10 @@ class Data():
 
         self.retrofit_shipfus = [x for x in self.shipfus
                                  if x.Shipfu.name.endswith(" Kai")]
+
+
+def getStatsForShipfu(shipfu_id):
+    return (db_models.session.query(db_models.ShipfuStat)
+                             .filter_by(shipfu_id=shipfu_id)
+                             .order_by(db_models.ShipfuStat.level)
+                             .all())

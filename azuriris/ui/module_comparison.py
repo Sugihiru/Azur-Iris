@@ -1,6 +1,7 @@
 from PySide2.QtWidgets import QWidget, QPushButton, QMessageBox
 
 from .ui.module_comparison import Ui_ModuleComparison
+from .comparison_two_ships import ComparisonTwoShips
 from .checkbox_delegate import CheckBoxDelegate
 from .shipfu_basic_filter import ShipfuBasicFilter
 from comparison_shipfu_table_model import (ComparisonShipfuTableModel,
@@ -44,12 +45,35 @@ class ModuleComparison(QWidget, Ui_ModuleComparison):
         self.proxyModel.setFilterRegExp(self.filters.nameLineEdit.text())
         self.proxyModel.invalidateFilter()
 
+    def reset(self):
+        self.filters.reset()
+        self.model.reset()
+
     def compareShipfus(self):
-        shipfus_to_compare = self.model.shipfus_to_compare
-        if len(shipfus_to_compare) < 2:
+        id_shipfus_to_compare = self.model.id_shipfus_to_compare
+        if len(id_shipfus_to_compare) < 2:
             messageBox = QMessageBox()
             messageBox.warning(None, "Error",
                                "Please select at least 2 ships to compare")
             messageBox.setFixedSize(500, 200)
             messageBox.show()
             return
+
+        shipfus_to_compare = [shipfu for shipfu in self.model.shipfus
+                              if shipfu.Shipfu.shipfu_id
+                              in id_shipfus_to_compare]
+
+        if len(shipfus_to_compare) == 2:
+            widget = ComparisonTwoShips(*shipfus_to_compare)
+        else:
+            widget = ComparisonTwoShips(*shipfus_to_compare[:2])
+
+        prev_widget = self.tabWidget.widget(1)
+        if prev_widget:
+            del prev_widget
+            self.tabWidget.removeTab(1)
+
+        self.reset()
+
+        idx = self.tabWidget.addTab(widget, "Results")
+        self.tabWidget.setCurrentIndex(idx)
