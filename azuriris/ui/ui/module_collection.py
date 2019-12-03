@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'module_collection.ui',
 # licensing of 'module_collection.ui' applies.
 #
-# Created: Tue Dec  3 15:34:41 2019
+# Created: Tue Dec  3 16:11:53 2019
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -71,6 +71,6 @@ class Ui_ModuleCollection(object):
 
     def retranslateUi(self, ModuleCollection):
         ModuleCollection.setWindowTitle(QtWidgets.QApplication.translate("ModuleCollection", "Form", None, -1))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.collectionTab), QtWidgets.QApplication.translate("ModuleCollection", "All Shipfus", None, -1))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.retrofitTab), QtWidgets.QApplication.translate("ModuleCollection", "Retrofits", None, -1))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.collectionTab), QtWidgets.QApplication.translate("ModuleCollection", "Non-retrofit Shipfus", None, -1))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.retrofitTab), QtWidgets.QApplication.translate("ModuleCollection", "Retrofit Shipfus", None, -1))
 

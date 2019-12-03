@@ -21,7 +21,7 @@
      </property>
      <widget class="QWidget" name="collectionTab">
       <attribute name="title">
-       <string>All Shipfus</string>
+       <string>Non-retrofit Shipfus</string>
       </attribute>
       <layout class="QGridLayout" name="collectionGridLayout">
        <property name="sizeConstraint">
@@ -78,7 +78,7 @@
      </widget>
      <widget class="QWidget" name="retrofitTab">
       <attribute name="title">
-       <string>Retrofits</string>
+       <string>Retrofit Shipfus</string>
       </attribute>
       <layout class="QGridLayout" name="retrofitGridLayout">
        <item row="1" column="0">

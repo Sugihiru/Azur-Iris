@@ -1,4 +1,4 @@
-from PySide2.QtWidgets import QWidget
+from PySide2.QtWidgets import QWidget, QPushButton, QMessageBox
 
 from .ui.module_comparison import Ui_ModuleComparison
 from .checkbox_delegate import CheckBoxDelegate
@@ -18,7 +18,7 @@ class ModuleComparison(QWidget, Ui_ModuleComparison):
         self.shipTableView.setModel(self.proxyModel)
 
         self.shipTableView.setItemDelegateForColumn(
-            0, CheckBoxDelegate(self.shipTableView))
+            1, CheckBoxDelegate(self.shipTableView))
 
         self.filters = ShipfuBasicFilter(data)
         for filterComboBox in (self.filters.rarityComboBox,
@@ -28,7 +28,9 @@ class ModuleComparison(QWidget, Ui_ModuleComparison):
         self.filters.nameLineEdit.textChanged.connect(self.onFilterChanged)
         self.comparisonGridLayout.addWidget(self.filters, 0, 0)
 
-        # Add "Compare" button
+        self.compareButton = QPushButton("Compare selected ships")
+        self.compareButton.clicked.connect(self.compareShipfus)
+        self.comparisonGridLayout.addWidget(self.compareButton, 1, 0)
 
     def onFilterChanged(self, new_index):
         self.proxyModel.rarity_filter = self.filters.rarityComboBox.itemData(
@@ -41,3 +43,13 @@ class ModuleComparison(QWidget, Ui_ModuleComparison):
 
         self.proxyModel.setFilterRegExp(self.filters.nameLineEdit.text())
         self.proxyModel.invalidateFilter()
+
+    def compareShipfus(self):
+        shipfus_to_compare = self.model.shipfus_to_compare
+        if len(shipfus_to_compare) < 2:
+            messageBox = QMessageBox()
+            messageBox.warning(None, "Error",
+                               "Please select at least 2 ships to compare")
+            messageBox.setFixedSize(500, 200)
+            messageBox.show()
+            return

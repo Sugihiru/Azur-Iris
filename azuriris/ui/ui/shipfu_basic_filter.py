@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'shipfu_basic_filter.ui',
 # licensing of 'shipfu_basic_filter.ui' applies.
 #
-# Created: Tue Dec  3 15:34:42 2019
+# Created: Tue Dec  3 16:11:53 2019
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!

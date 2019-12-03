@@ -3,7 +3,7 @@ from PySide2 import QtCore
 from PySide2.QtCore import Qt
 
 
-CHECKBOXES_COLUMNS_IDX = (0,)
+CHECKBOXES_COLUMNS_IDX = (1,)
 
 
 class ComparisonShipfuTableModel(QtCore.QAbstractTableModel):
@@ -14,7 +14,7 @@ class ComparisonShipfuTableModel(QtCore.QAbstractTableModel):
         else:
             self.shipfus = list()
         self.shipfus_to_compare = list()
-        self.headers = ["Compare", "Id", "Name", "Rarity", "Type", "Nation"]
+        self.headers = ["Id", "Compare", "Name", "Rarity", "Type", "Nation"]
 
     def rowCount(self, parent=None):
         return len(self.shipfus)
@@ -30,8 +30,8 @@ class ComparisonShipfuTableModel(QtCore.QAbstractTableModel):
 
         if role == Qt.DisplayRole:
             shipfu_id = self.shipfus[row].Shipfu.shipfu_id
-            values = (shipfu_id in self.shipfus_to_compare,
-                      shipfu_id,
+            values = (shipfu_id,
+                      shipfu_id in self.shipfus_to_compare,
                       self.shipfus[row].Shipfu.name,
                       self.shipfus[row].Rarity.name,
                       self.shipfus[row].ShipType.name,
