@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'module_collection.ui',
 # licensing of 'module_collection.ui' applies.
 #
-# Created: Tue Dec  3 15:15:04 2019
+# Created: Tue Dec  3 15:34:41 2019
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -14,8 +14,8 @@ class Ui_ModuleCollection(object):
     def setupUi(self, ModuleCollection):
         ModuleCollection.setObjectName("ModuleCollection")
         ModuleCollection.resize(400, 300)
-        self.verticalLayout = QtWidgets.QVBoxLayout(ModuleCollection)
-        self.verticalLayout.setObjectName("verticalLayout")
+        self.gridLayout = QtWidgets.QGridLayout(ModuleCollection)
+        self.gridLayout.setObjectName("gridLayout")
         self.tabWidget = QtWidgets.QTabWidget(ModuleCollection)
         self.tabWidget.setObjectName("tabWidget")
         self.collectionTab = QtWidgets.QWidget()
@@ -50,17 +50,20 @@ class Ui_ModuleCollection(object):
         self.tabWidget.addTab(self.collectionTab, "")
         self.retrofitTab = QtWidgets.QWidget()
         self.retrofitTab.setObjectName("retrofitTab")
-        self.retrofitHorizontalLayout = QtWidgets.QHBoxLayout(self.retrofitTab)
-        self.retrofitHorizontalLayout.setObjectName("retrofitHorizontalLayout")
+        self.retrofitGridLayout = QtWidgets.QGridLayout(self.retrofitTab)
+        self.retrofitGridLayout.setObjectName("retrofitGridLayout")
         self.retrofitTableView = QtWidgets.QTableView(self.retrofitTab)
         self.retrofitTableView.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
         self.retrofitTableView.setVerticalScrollMode(QtWidgets.QAbstractItemView.ScrollPerPixel)
         self.retrofitTableView.setHorizontalScrollMode(QtWidgets.QAbstractItemView.ScrollPerPixel)
         self.retrofitTableView.setSortingEnabled(True)
         self.retrofitTableView.setObjectName("retrofitTableView")
-        self.retrofitHorizontalLayout.addWidget(self.retrofitTableView)
+        self.retrofitGridLayout.addWidget(self.retrofitTableView, 1, 0, 1, 1)
+        self.widget_2 = QtWidgets.QWidget(self.retrofitTab)
+        self.widget_2.setObjectName("widget_2")
+        self.retrofitGridLayout.addWidget(self.widget_2, 0, 0, 1, 1)
         self.tabWidget.addTab(self.retrofitTab, "")
-        self.verticalLayout.addWidget(self.tabWidget)
+        self.gridLayout.addWidget(self.tabWidget, 0, 0, 1, 1)
 
         self.retranslateUi(ModuleCollection)
         self.tabWidget.setCurrentIndex(0)

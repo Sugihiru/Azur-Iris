@@ -3,9 +3,11 @@ from PySide2 import QtWidgets, QtGui
 
 from .ui.module_collection import Ui_ModuleCollection
 from .shipfu_filter import ShipfuFilter
+from .shipfu_basic_filter import ShipfuBasicFilter
 from .checkbox_delegate import CheckBoxDelegate
 from shipfu_table_model import ShipfuTableModel, ProxyShipfuTableModel
-from retrofit_shipfu_table_model import RetrofitShipfuTableModel
+from retrofit_shipfu_table_model import (RetrofitShipfuTableModel,
+                                         ProxyRetrofitShipfuTableModel)
 
 
 class ModuleCollection(QWidget, Ui_ModuleCollection):
@@ -20,7 +22,9 @@ class ModuleCollection(QWidget, Ui_ModuleCollection):
 
         self.retrofitModel = RetrofitShipfuTableModel(
             data.retrofit_shipfus, user_shipfus_data)
-        self.retrofitTableView.setModel(self.retrofitModel)
+        self.proxyRetrofitModel = ProxyRetrofitShipfuTableModel(data.rarities)
+        self.proxyRetrofitModel.setSourceModel(self.retrofitModel)
+        self.retrofitTableView.setModel(self.proxyRetrofitModel)
 
         for col_idx in (6, 7, 8, 9):
             self.shipTableView.setItemDelegateForColumn(
@@ -38,7 +42,6 @@ class ModuleCollection(QWidget, Ui_ModuleCollection):
                                self.filters.shipTypeComboBox):
             filterComboBox.currentIndexChanged.connect(self.onFilterChanged)
         self.filters.nameLineEdit.textChanged.connect(self.onFilterChanged)
-
         for cb in (self.filters.buildCheckBox,
                    self.filters.dropCheckBox,
                    self.filters.shopCheckBox,
@@ -48,6 +51,16 @@ class ModuleCollection(QWidget, Ui_ModuleCollection):
                    self.filters.loginRewardCheckBox):
             cb.stateChanged.connect(self.onFilterChanged)
         self.collectionGridLayout.addWidget(self.filters, 0, 0)
+
+        self.retrofitFilters = ShipfuBasicFilter(data)
+        for filterComboBox in (self.retrofitFilters.rarityComboBox,
+                               self.retrofitFilters.nationComboBox,
+                               self.retrofitFilters.shipTypeComboBox):
+            filterComboBox.currentIndexChanged.connect(
+                self.onRetrofitFilterChanged)
+        self.retrofitFilters.nameLineEdit.textChanged.connect(
+            self.onRetrofitFilterChanged)
+        self.retrofitGridLayout.addWidget(self.retrofitFilters, 0, 0)
 
     def onFilterChanged(self, new_index):
         self.proxyModel.rarity_filter = self.filters.rarityComboBox.itemData(
@@ -72,6 +85,22 @@ class ModuleCollection(QWidget, Ui_ModuleCollection):
             self.filters.loginRewardCheckBox.isChecked()
 
         self.proxyModel.invalidateFilter()
+
+    def onRetrofitFilterChanged(self, nex_index):
+        self.proxyRetrofitModel.rarity_filter = \
+            self.retrofitFilters.rarityComboBox.itemData(
+                self.retrofitFilters.rarityComboBox.currentIndex())
+        self.proxyRetrofitModel.nation_filter = \
+            self.retrofitFilters.nationComboBox.itemData(
+                self.retrofitFilters.nationComboBox.currentIndex())
+        self.proxyRetrofitModel.shiptype_filter = \
+            self.retrofitFilters.shipTypeComboBox.itemData(
+                self.retrofitFilters.shipTypeComboBox.currentIndex())
+
+        self.proxyRetrofitModel.setFilterRegExp(
+            self.retrofitFilters.nameLineEdit.text())
+
+        self.proxyRetrofitModel.invalidateFilter()
 
 
 class PixmapDelegate(QtWidgets.QItemDelegate):

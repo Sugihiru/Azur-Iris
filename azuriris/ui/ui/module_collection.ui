@@ -13,8 +13,8 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
       <number>0</number>
@@ -80,8 +80,8 @@
       <attribute name="title">
        <string>Retrofits</string>
       </attribute>
-      <layout class="QHBoxLayout" name="retrofitHorizontalLayout">
-       <item>
+      <layout class="QGridLayout" name="retrofitGridLayout">
+       <item row="1" column="0">
         <widget class="QTableView" name="retrofitTableView">
          <property name="selectionBehavior">
           <enum>QAbstractItemView::SelectRows</enum>
@@ -96,6 +96,9 @@
           <bool>true</bool>
          </property>
         </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QWidget" name="widget_2" native="true"/>
        </item>
       </layout>
      </widget>
