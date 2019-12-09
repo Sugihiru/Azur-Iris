@@ -21,3 +21,21 @@ class ShipfuFilter(QWidget, Ui_ShipfuFilter):
             comboBox.addItems([data.name for data in data_set])
             for i, data in enumerate(data_set):
                 comboBox.setItemData(i + 1, data)
+
+        self.resetFiltersPushButton.clicked.connect(self.reset)
+
+    def reset(self):
+        self.nameLineEdit.setText("")
+        for comboBox in (self.rarityComboBox,
+                         self.nationComboBox,
+                         self.shipTypeComboBox):
+            comboBox.setCurrentIndex(0)
+
+        for checkbox in (self.buildCheckBox,
+                         self.dropCheckBox,
+                         self.shopCheckBox,
+                         self.eventCheckBox,
+                         self.researchCheckBox,
+                         self.collectionCheckBox,
+                         self.loginRewardCheckBox):
+            checkbox.setChecked(True)

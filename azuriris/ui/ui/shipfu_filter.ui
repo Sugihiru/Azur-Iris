@@ -20,14 +20,8 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0" colspan="9">
-    <widget class="QLabel" name="filterTitle1Label">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
+   <item row="2" column="0" colspan="9">
+    <widget class="QLabel" name="filterTitle2Label">
      <property name="font">
       <font>
        <pointsize>10</pointsize>
@@ -36,22 +30,30 @@
       </font>
      </property>
      <property name="text">
-      <string>Basic filters</string>
+      <string>Obtention filters</string>
      </property>
     </widget>
    </item>
-   <item row="2" column="9">
-    <spacer name="horizontalSpacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
+   <item row="4" column="4">
+    <layout class="QHBoxLayout" name="researchHLayout">
+     <item>
+      <widget class="QLabel" name="researchLabel">
+       <property name="text">
+        <string>Researches</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="researchCheckBox">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item row="1" column="0" colspan="9">
     <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -117,83 +119,6 @@
      </item>
     </layout>
    </item>
-   <item row="4" column="1">
-    <layout class="QHBoxLayout" name="dropHLayout">
-     <item>
-      <widget class="QLabel" name="dropLabel">
-       <property name="text">
-        <string>Drops</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QCheckBox" name="dropCheckBox">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="4" column="0">
-    <layout class="QHBoxLayout" name="buildHLayout">
-     <item>
-      <widget class="QLabel" name="buildLabel">
-       <property name="text">
-        <string>Builds</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QCheckBox" name="buildCheckBox">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="2" column="0" colspan="9">
-    <widget class="QLabel" name="filterTitle2Label">
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>Obtention filters</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="2">
-    <layout class="QHBoxLayout" name="shopHLayout">
-     <item>
-      <widget class="QLabel" name="shopLabel">
-       <property name="text">
-        <string>Shops</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QCheckBox" name="shopCheckBox">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
    <item row="4" column="3">
     <layout class="QHBoxLayout" name="eventHLayout">
      <item>
@@ -215,17 +140,17 @@
      </item>
     </layout>
    </item>
-   <item row="4" column="4">
-    <layout class="QHBoxLayout" name="researchHLayout">
+   <item row="4" column="1">
+    <layout class="QHBoxLayout" name="dropHLayout">
      <item>
-      <widget class="QLabel" name="researchLabel">
+      <widget class="QLabel" name="dropLabel">
        <property name="text">
-        <string>Researches</string>
+        <string>Drops</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="researchCheckBox">
+      <widget class="QCheckBox" name="dropCheckBox">
        <property name="text">
         <string/>
        </property>
@@ -277,6 +202,88 @@
       </widget>
      </item>
     </layout>
+   </item>
+   <item row="4" column="0">
+    <layout class="QHBoxLayout" name="buildHLayout">
+     <item>
+      <widget class="QLabel" name="buildLabel">
+       <property name="text">
+        <string>Builds</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="buildCheckBox">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="0" column="0" colspan="9">
+    <widget class="QLabel" name="filterTitle1Label">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Basic filters</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="9">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="4" column="2">
+    <layout class="QHBoxLayout" name="shopHLayout">
+     <item>
+      <widget class="QLabel" name="shopLabel">
+       <property name="text">
+        <string>Shops</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="shopCheckBox">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="5" column="0">
+    <widget class="QPushButton" name="resetFiltersPushButton">
+     <property name="text">
+      <string>Reset filters</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'shipfu_basic_filter.ui',
-# licensing of 'shipfu_basic_filter.ui' applies.
+# Form implementation generated from reading ui file '.\shipfu_basic_filter.ui',
+# licensing of '.\shipfu_basic_filter.ui' applies.
 #
-# Created: Tue Dec  3 18:17:17 2019
+# Created: Mon Dec  9 13:21:52 2019
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -13,11 +13,9 @@ from PySide2 import QtCore, QtGui, QtWidgets
 class Ui_ShipfuBasicFilter(object):
     def setupUi(self, ShipfuBasicFilter):
         ShipfuBasicFilter.setObjectName("ShipfuBasicFilter")
-        ShipfuBasicFilter.resize(400, 300)
+        ShipfuBasicFilter.resize(544, 300)
         self.gridLayout = QtWidgets.QGridLayout(ShipfuBasicFilter)
         self.gridLayout.setObjectName("gridLayout")
-        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem, 0, 1, 1, 1)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.nameLabel = QtWidgets.QLabel(ShipfuBasicFilter)
@@ -65,6 +63,16 @@ class Ui_ShipfuBasicFilter(object):
         self.filterTitle1Label.setFont(font)
         self.filterTitle1Label.setObjectName("filterTitle1Label")
         self.gridLayout.addWidget(self.filterTitle1Label, 0, 0, 1, 1)
+        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout.addItem(spacerItem, 0, 1, 1, 1)
+        self.resetFiltersPushButton = QtWidgets.QPushButton(ShipfuBasicFilter)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.resetFiltersPushButton.sizePolicy().hasHeightForWidth())
+        self.resetFiltersPushButton.setSizePolicy(sizePolicy)
+        self.resetFiltersPushButton.setObjectName("resetFiltersPushButton")
+        self.gridLayout.addWidget(self.resetFiltersPushButton, 2, 0, 1, 1)
 
         self.retranslateUi(ShipfuBasicFilter)
         QtCore.QMetaObject.connectSlotsByName(ShipfuBasicFilter)
@@ -77,4 +85,5 @@ class Ui_ShipfuBasicFilter(object):
         self.nationLabel.setText(QtWidgets.QApplication.translate("ShipfuBasicFilter", "Nation", None, -1))
         self.shipTypeLabel.setText(QtWidgets.QApplication.translate("ShipfuBasicFilter", "Ship type", None, -1))
         self.filterTitle1Label.setText(QtWidgets.QApplication.translate("ShipfuBasicFilter", "Basic filters", None, -1))
+        self.resetFiltersPushButton.setText(QtWidgets.QApplication.translate("ShipfuBasicFilter", "Reset filters", None, -1))
 

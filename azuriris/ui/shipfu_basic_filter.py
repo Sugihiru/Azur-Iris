@@ -22,6 +22,8 @@ class ShipfuBasicFilter(QWidget, Ui_ShipfuBasicFilter):
             for i, data in enumerate(data_set):
                 comboBox.setItemData(i + 1, data)
 
+        self.resetFiltersPushButton.clicked.connect(self.reset)
+
     def reset(self):
         self.nameLineEdit.setText("")
         for comboBox in (self.rarityComboBox,
