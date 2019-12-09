@@ -2,6 +2,7 @@ from PySide2.QtWidgets import QWidget, QPushButton, QMessageBox
 
 from .ui.module_comparison import Ui_ModuleComparison
 from .comparison_two_ships import ComparisonTwoShips
+from .comparison_multiple_ships import ComparisonMultipleShips
 from .checkbox_delegate import CheckBoxDelegate
 from .shipfu_basic_filter import ShipfuBasicFilter
 from comparison_shipfu_table_model import (ComparisonShipfuTableModel,
@@ -12,6 +13,7 @@ class ModuleComparison(QWidget, Ui_ModuleComparison):
     def __init__(self, data):
         super().__init__()
         self.setupUi(self)
+        self.data = data
 
         self.model = ComparisonShipfuTableModel(data.shipfus)
         self.model.dataChanged.connect(self.displaySelectedShipfus)
@@ -73,7 +75,8 @@ class ModuleComparison(QWidget, Ui_ModuleComparison):
         if len(shipfus_to_compare) == 2:
             widget = ComparisonTwoShips(*shipfus_to_compare)
         else:
-            widget = ComparisonTwoShips(*shipfus_to_compare[:2])
+            widget = ComparisonMultipleShips(shipfus_to_compare,
+                                             self.data.rarities)
 
         prev_widget = self.tabWidget.widget(1)
         if prev_widget:
