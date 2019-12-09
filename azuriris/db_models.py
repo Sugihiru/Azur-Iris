@@ -202,3 +202,21 @@ class Shop(Base):
     __tablename__ = "shops"
     shop_id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
+
+
+class RetrofitCost(Base):
+    __tablename__ = "retrofit_costs"
+    retrofit_cost_id = Column(Integer, primary_key=True)
+    shipfu_id = Column(String, ForeignKey("shipfus.shipfu_id"), nullable=False)
+    bp_type_id = Column(Integer, ForeignKey("ship_types.ship_type_id"),
+                        nullable=False)
+    t1_bp = Column(Integer, nullable=False)
+    t2_bp = Column(Integer, nullable=False)
+    t3_bp = Column(Integer, nullable=False)
+    gold = Column(Integer, nullable=False)
+    general_plates = Column(Integer)
+    gun_plates = Column(Integer)
+    torpedo_plates = Column(Integer)
+    aircraft_plates = Column(Integer)
+    antiair_plates = Column(Integer)
+    aux_plates = Column(Integer)

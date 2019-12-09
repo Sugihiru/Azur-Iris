@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/blueprints">
+        <file>BattleshipT1BP.png</file>
+        <file>BattleshipT2BP.png</file>
+        <file>BattleshipT3BP.png</file>
+        <file>CarrierT1BP.png</file>
+        <file>CarrierT2BP.png</file>
+        <file>CarrierT3BP.png</file>
+        <file>CruiserT1BP.png</file>
+        <file>CruiserT2BP.png</file>
+        <file>CruiserT3BP.png</file>
+        <file>DestroyerT1BP.png</file>
+        <file>DestroyerT2BP.png</file>
+        <file>DestroyerT3BP.png</file>
+    </qresource>
+</RCC>

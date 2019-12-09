@@ -3,6 +3,7 @@ from PySide2.QtWidgets import QMainWindow
 from .ui.mainwindow import Ui_MainWindow
 from .module_collection import ModuleCollection
 from .module_comparison import ModuleComparison
+from .module_retrofit import ModuleRetrofit
 from data import Data
 from user_data import UserData
 
@@ -26,3 +27,7 @@ class MainWindow(QMainWindow):
         self.comparisonTab = ModuleComparison(self.data)
         self.ui.tabWidget.addTab(self.comparisonTab, "")
         self.ui.tabWidget.setTabText(1, self.tr("Comparison"))
+
+        self.retrofitTab = ModuleRetrofit(self.data)
+        self.ui.tabWidget.addTab(self.retrofitTab, "")
+        self.ui.tabWidget.setTabText(2, self.tr("Retrofit"))

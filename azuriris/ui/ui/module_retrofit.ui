@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ModuleRetrofit</class>
+ <widget class="QWidget" name="ModuleRetrofit">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>560</width>
+    <height>403</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="2" column="0">
+    <widget class="QLabel" name="destroyersT2NbLabel">
+     <property name="text">
+      <string>T2Nb</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="5">
+    <widget class="QLabel" name="battleshipsT1IconLabel">
+     <property name="text">
+      <string>BBT1Icon</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="6">
+    <widget class="QLabel" name="carriersT1NbLabel">
+     <property name="text">
+      <string>T1Nb</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="destroyersT1NbLabel">
+     <property name="text">
+      <string>T1Nb</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="destroyersT3NbLabel">
+     <property name="text">
+      <string>T3Nb</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="2">
+    <widget class="QLabel" name="destroyersLabel">
+     <property name="text">
+      <string>Destroyers</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="3">
+    <widget class="QLabel" name="cruisersT1IconLabel">
+     <property name="text">
+      <string>CLT1Icon</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLabel" name="destroyersT1IconLabel">
+     <property name="text">
+      <string>DDT1Icon</string>
+     </property>
+     <property name="textFormat">
+      <enum>Qt::RichText</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QLabel" name="destroyersT3IconLabel">
+     <property name="text">
+      <string>DDT3Icon</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="4">
+    <widget class="QLabel" name="battleshipsT1NbLabel">
+     <property name="text">
+      <string>T1Nb</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <widget class="QLabel" name="cruisersT1NbLabel">
+     <property name="text">
+      <string>T1Nb</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2" colspan="2">
+    <widget class="QLabel" name="cruisersLabel">
+     <property name="text">
+      <string>Cruisers</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QLabel" name="destroyersT2IconLabel">
+     <property name="text">
+      <string>DDT2Icon</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="7">
+    <widget class="QLabel" name="carriersT1IconLabel">
+     <property name="text">
+      <string>CVT1Icon</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="4" colspan="2">
+    <widget class="QLabel" name="battleshipsLabel">
+     <property name="text">
+      <string>Battleships</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="6" colspan="2">
+    <widget class="QLabel" name="carriersLabel">
+     <property name="text">
+      <string>Carriers</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="2">
+    <widget class="QLabel" name="cruisersT2NbLabel">
+     <property name="text">
+      <string>T2Nb</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="2">
+    <widget class="QLabel" name="cruisersT3NbLabel">
+     <property name="text">
+      <string>T3Nb</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="3">
+    <widget class="QLabel" name="cruisersT2IconLabel">
+     <property name="text">
+      <string>CLT2Icon</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="3">
+    <widget class="QLabel" name="cruisersT3IconLabel">
+     <property name="text">
+      <string>CLT3Icon</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="4">
+    <widget class="QLabel" name="battleshipsT2NbLabel">
+     <property name="text">
+      <string>T2Nb</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="4">
+    <widget class="QLabel" name="battleshipsT3NbLabel">
+     <property name="text">
+      <string>T3Nb</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="5">
+    <widget class="QLabel" name="battleshipsT2IconLabel">
+     <property name="text">
+      <string>BBT2Icon</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="5">
+    <widget class="QLabel" name="battleshipsT3IconLabel">
+     <property name="text">
+      <string>BBT3Icon</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="6">
+    <widget class="QLabel" name="carriersT2NbLabel">
+     <property name="text">
+      <string>T2Nb</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="7">
+    <widget class="QLabel" name="carriersT2IconLabel">
+     <property name="text">
+      <string>CVT2Icon</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="6">
+    <widget class="QLabel" name="carriersT3NbLabel">
+     <property name="text">
+      <string>T3Nb</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="7">
+    <widget class="QLabel" name="carriersT3IconLabel">
+     <property name="text">
+      <string>CVT3Icon</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

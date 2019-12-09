@@ -45,3 +45,7 @@ def getStatsForShipfu(shipfu_id):
                              .filter_by(shipfu_id=shipfu_id)
                              .order_by(db_models.ShipfuStat.level)
                              .all())
+
+
+def getRetrofitCosts():
+    return db_models.session.query(db_models.RetrofitCost).all()
