@@ -34,7 +34,9 @@ class ModuleComparison(QWidget, Ui_ModuleComparison):
 
         self.compareButton = QPushButton("Compare selected ships")
         self.compareButton.clicked.connect(self.compareShipfus)
-        self.comparisonGridLayout.addWidget(self.compareButton, 3, 0)
+        self.comparisonGridLayout.addWidget(self.compareButton, 6, 0)
+        self.resetSelectedShipsPushButton.clicked.connect(
+            self.resetSelectedShips)
 
     def displaySelectedShipfus(self, *_):
         shipfus_to_compare = self.model.get_selected_shipfus()
@@ -58,8 +60,12 @@ class ModuleComparison(QWidget, Ui_ModuleComparison):
 
     def reset(self):
         self.filters.reset()
+        self.resetSelectedShips()
+
+    def resetSelectedShips(self):
         self.model.reset()
         self.selectedLabel.setText("None")
+        self.shipTableView.viewport().repaint()
 
     def compareShipfus(self):
         if len(self.model.id_shipfus_to_compare) < 2:

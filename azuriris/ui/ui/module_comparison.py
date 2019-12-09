@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file '.\module_comparison.ui',
 # licensing of '.\module_comparison.ui' applies.
 #
-# Created: Tue Dec  3 19:12:21 2019
+# Created: Mon Dec  9 13:42:04 2019
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -48,12 +48,20 @@ class Ui_ModuleComparison(object):
         self.selectedLabel.setObjectName("selectedLabel")
         self.horizontalLayout.addWidget(self.selectedLabel)
         self.comparisonGridLayout.addLayout(self.horizontalLayout, 2, 0, 1, 2)
-        self.widget_2 = QtWidgets.QWidget(self.shipDisplayTab)
-        self.widget_2.setObjectName("widget_2")
-        self.comparisonGridLayout.addWidget(self.widget_2, 3, 0, 1, 2)
         self.widget = QtWidgets.QWidget(self.shipDisplayTab)
         self.widget.setObjectName("widget")
         self.comparisonGridLayout.addWidget(self.widget, 0, 0, 1, 2)
+        self.resetSelectedShipsPushButton = QtWidgets.QPushButton(self.shipDisplayTab)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.resetSelectedShipsPushButton.sizePolicy().hasHeightForWidth())
+        self.resetSelectedShipsPushButton.setSizePolicy(sizePolicy)
+        self.resetSelectedShipsPushButton.setObjectName("resetSelectedShipsPushButton")
+        self.comparisonGridLayout.addWidget(self.resetSelectedShipsPushButton, 5, 0, 1, 1)
+        self.widget_2 = QtWidgets.QWidget(self.shipDisplayTab)
+        self.widget_2.setObjectName("widget_2")
+        self.comparisonGridLayout.addWidget(self.widget_2, 6, 0, 1, 1)
         self.tabWidget.addTab(self.shipDisplayTab, "")
         self.generalGridLayout.addWidget(self.tabWidget, 0, 0, 1, 1)
 
@@ -65,5 +73,6 @@ class Ui_ModuleComparison(object):
         ModuleComparison.setWindowTitle(QtWidgets.QApplication.translate("ModuleComparison", "Form", None, -1))
         self.selectedTitleLabel.setText(QtWidgets.QApplication.translate("ModuleComparison", "Selected:", None, -1))
         self.selectedLabel.setText(QtWidgets.QApplication.translate("ModuleComparison", "None", None, -1))
+        self.resetSelectedShipsPushButton.setText(QtWidgets.QApplication.translate("ModuleComparison", "Reset selected ships", None, -1))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.shipDisplayTab), QtWidgets.QApplication.translate("ModuleComparison", "All Shipfus", None, -1))
 
