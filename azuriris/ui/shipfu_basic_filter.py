@@ -1,14 +1,16 @@
 from PySide2.QtWidgets import QWidget
 
+from data import Data
+
 from .ui.shipfu_basic_filter import Ui_ShipfuBasicFilter
 
 
 class ShipfuBasicFilter(QWidget, Ui_ShipfuBasicFilter):
-    def __init__(self, data):
+    def __init__(self):
         super().__init__()
-        self.rarities = data.rarities
-        self.nations = data.nations
-        self.ship_types = data.ship_types
+        self.rarities = Data.getRarities()
+        self.nations = Data.getNations()
+        self.ship_types = Data.getShipTypes()
         self.setupUi()
 
     def setupUi(self):

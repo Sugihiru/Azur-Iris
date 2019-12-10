@@ -1,27 +1,26 @@
 from PySide2.QtWidgets import QWidget
 from PySide2.QtGui import QPixmap
 
+from data import Data
 
-import data
 from .ui.module_retrofit import Ui_ModuleRetrofit
-
 # Qt compiled resource file
 from .resources import resources  # noqa
 
 
 class ModuleRetrofit(QWidget, Ui_ModuleRetrofit):
-    def __init__(self, data_obj):
+    def __init__(self):
         super().__init__()
-        self.retrofitCosts = data.getRetrofitCosts()
+        self.retrofitCosts = Data.getRetrofitCosts()
 
-        self.DD_TYPE_ID = next(x.ship_type_id for x in data_obj.ship_types
+        ship_types = Data.getShipTypes()
+        self.DD_TYPE_ID = next(x.ship_type_id for x in ship_types
                                if x.abbreviation == "DD")
-        self.CRUISER_TYPE_ID = next(x.ship_type_id for x in data_obj.ship_types
+        self.CRUISER_TYPE_ID = next(x.ship_type_id for x in ship_types
                                     if x.abbreviation == "CL")
-        self.BATTLESHIP_TYPE_ID = next(
-            x.ship_type_id for x in data_obj.ship_types
-            if x.abbreviation == "BB")
-        self.CARRIER_TYPE_ID = next(x.ship_type_id for x in data_obj.ship_types
+        self.BATTLESHIP_TYPE_ID = next(x.ship_type_id for x in ship_types
+                                       if x.abbreviation == "BB")
+        self.CARRIER_TYPE_ID = next(x.ship_type_id for x in ship_types
                                     if x.abbreviation == "CV")
 
         self.setupUi()

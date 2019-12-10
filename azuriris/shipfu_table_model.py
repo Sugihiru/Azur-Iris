@@ -1,7 +1,7 @@
 from PySide2 import QtCore
-
 from PySide2.QtCore import Qt
 
+from data import Data
 import user_data
 
 
@@ -37,7 +37,7 @@ class ShipfuTableModel(QtCore.QAbstractTableModel):
             try:
                 shipfu_user_data = self.user_shipfus_data[shipfu_id]
             except KeyError:
-                shipfu_user_data = user_data.init_shipfu_data()
+                shipfu_user_data = user_data.initShipfuData()
                 self.user_shipfus_data[shipfu_id] = shipfu_user_data
 
             values = (self.shipfus[row].Shipfu.shipfu_id,
@@ -54,7 +54,7 @@ class ShipfuTableModel(QtCore.QAbstractTableModel):
 
             return values[column]
 
-    def setData(self, index, value, role=QtCore.Qt.DisplayRole):
+    def setData(self, index, value, role=Qt.DisplayRole):
         if index.column() in CHECKBOXES_COLUMNS_IDX:
             shipfu_id = str(self.shipfus[index.row()].Shipfu.shipfu_id)
             shipfus_data_keys = {
@@ -73,20 +73,20 @@ class ShipfuTableModel(QtCore.QAbstractTableModel):
             return self.headers[section]
 
     def flags(self, index):
-        default_flags = QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsSelectable
+        default_flags = Qt.ItemIsEnabled | Qt.ItemIsSelectable
 
         if not index.isValid():
             return None
         if index.column() in CHECKBOXES_COLUMNS_IDX:
-            return default_flags | QtCore.Qt.ItemIsEditable
+            return default_flags | Qt.ItemIsEditable
         return default_flags
 
 
 class ProxyShipfuTableModel(QtCore.QSortFilterProxyModel):
-    def __init__(self, rarities):
+    def __init__(self):
         super().__init__()
         # Rarity is already ordered
-        self.rarity_order = [rarity.name for rarity in rarities]
+        self.rarity_order = [rarity.name for rarity in Data.getRarities()]
         self.rarity_filter = None
         self.nation_filter = None
         self.shiptype_filter = None

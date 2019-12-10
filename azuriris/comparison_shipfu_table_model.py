@@ -1,18 +1,15 @@
 from PySide2 import QtCore
-
 from PySide2.QtCore import Qt
 
+from data import Data
 
 CHECKBOXES_COLUMNS_IDX = (1,)
 
 
 class ComparisonShipfuTableModel(QtCore.QAbstractTableModel):
-    def __init__(self, shipfus):
+    def __init__(self):
         super().__init__()
-        if shipfus:
-            self.shipfus = shipfus
-        else:
-            self.shipfus = list()
+        self.shipfus = Data.getShipfus()
         self.id_shipfus_to_compare = list()
         self.headers = ["Id", "Compare", "Name", "Rarity", "Type", "Nation"]
 
@@ -39,7 +36,7 @@ class ComparisonShipfuTableModel(QtCore.QAbstractTableModel):
 
             return values[column]
 
-    def setData(self, index, value, role=QtCore.Qt.DisplayRole):
+    def setData(self, index, value, role=Qt.DisplayRole):
         if index.column() in CHECKBOXES_COLUMNS_IDX:
             shipfu_id = self.shipfus[index.row()].Shipfu.shipfu_id
             if value:
@@ -55,28 +52,28 @@ class ComparisonShipfuTableModel(QtCore.QAbstractTableModel):
             return self.headers[section]
 
     def flags(self, index):
-        default_flags = QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsSelectable
+        default_flags = Qt.ItemIsEnabled | Qt.ItemIsSelectable
 
         if not index.isValid():
             return None
         if index.column() in CHECKBOXES_COLUMNS_IDX:
-            return default_flags | QtCore.Qt.ItemIsEditable
+            return default_flags | Qt.ItemIsEditable
         return default_flags
 
     def reset(self):
         self.id_shipfus_to_compare = list()
 
-    def get_selected_shipfus(self):
+    def getSelectedShipfus(self):
         return [shipfu for shipfu in self.shipfus
                 if shipfu.Shipfu.shipfu_id
                 in self.id_shipfus_to_compare]
 
 
 class ProxyComparisonShipfuTableModel(QtCore.QSortFilterProxyModel):
-    def __init__(self, rarities):
+    def __init__(self):
         super().__init__()
         # Rarity is already ordered
-        self.rarity_order = [rarity.name for rarity in rarities]
+        self.rarity_order = [rarity.name for rarity in Data.getRarities()]
         self.rarity_filter = None
         self.nation_filter = None
         self.shiptype_filter = None

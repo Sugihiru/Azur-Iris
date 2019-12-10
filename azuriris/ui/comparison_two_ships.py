@@ -1,7 +1,7 @@
 from PySide2.QtWidgets import QWidget
 
+from data import Data
 from .ui.comparison_two_ships import Ui_ComparisonTwoShips
-import data
 
 
 class ComparisonTwoShips(QWidget, Ui_ComparisonTwoShips):
@@ -11,8 +11,8 @@ class ComparisonTwoShips(QWidget, Ui_ComparisonTwoShips):
         self.higherStatStyleSheet = "color: green"
         self.lowerStatStyleSheet = "color: red"
 
-        self.shipfuStats1 = data.getStatsForShipfu(shipfu1.Shipfu.shipfu_id)
-        self.shipfuStats2 = data.getStatsForShipfu(shipfu2.Shipfu.shipfu_id)
+        self.shipfuStats1 = Data.getStatsForShipfu(shipfu1.Shipfu.shipfu_id)
+        self.shipfuStats2 = Data.getStatsForShipfu(shipfu2.Shipfu.shipfu_id)
 
         # In case of retrofits, there is no data for level 1
         # so we just cut the data to compare data at levels 100 and 120

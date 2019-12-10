@@ -1,7 +1,7 @@
 from PySide2.QtWidgets import QWidget
 from PySide2 import QtWidgets, QtGui
 
-from .ui.module_collection import Ui_ModuleCollection
+from data import Data
 from .shipfu_filter import ShipfuFilter
 from .shipfu_basic_filter import ShipfuBasicFilter
 from .checkbox_delegate import CheckBoxDelegate
@@ -9,20 +9,22 @@ from shipfu_table_model import ShipfuTableModel, ProxyShipfuTableModel
 from retrofit_shipfu_table_model import (RetrofitShipfuTableModel,
                                          ProxyRetrofitShipfuTableModel)
 
+from .ui.module_collection import Ui_ModuleCollection
+
 
 class ModuleCollection(QWidget, Ui_ModuleCollection):
-    def __init__(self, data, user_shipfus_data):
+    def __init__(self, user_shipfus_data):
         super().__init__()
         self.setupUi(self)
-        self.model = ShipfuTableModel(data.non_retrofit_shipfus,
+        self.model = ShipfuTableModel(Data.getNonRetrofitShipfus(),
                                       user_shipfus_data)
-        self.proxyModel = ProxyShipfuTableModel(data.rarities)
+        self.proxyModel = ProxyShipfuTableModel()
         self.proxyModel.setSourceModel(self.model)
         self.shipTableView.setModel(self.proxyModel)
 
         self.retrofitModel = RetrofitShipfuTableModel(
-            data.retrofit_shipfus, user_shipfus_data)
-        self.proxyRetrofitModel = ProxyRetrofitShipfuTableModel(data.rarities)
+            Data.getRetrofitShipfus(), user_shipfus_data)
+        self.proxyRetrofitModel = ProxyRetrofitShipfuTableModel()
         self.proxyRetrofitModel.setSourceModel(self.retrofitModel)
         self.retrofitTableView.setModel(self.proxyRetrofitModel)
 
@@ -36,7 +38,7 @@ class ModuleCollection(QWidget, Ui_ModuleCollection):
             self.retrofitModel.columnCount() - 1,
             CheckBoxDelegate(self.retrofitTableView))
 
-        self.filters = ShipfuFilter(data)
+        self.filters = ShipfuFilter()
         for filterComboBox in (self.filters.rarityComboBox,
                                self.filters.nationComboBox,
                                self.filters.shipTypeComboBox):
@@ -52,7 +54,7 @@ class ModuleCollection(QWidget, Ui_ModuleCollection):
             cb.stateChanged.connect(self.onFilterChanged)
         self.collectionGridLayout.addWidget(self.filters, 0, 0)
 
-        self.retrofitFilters = ShipfuBasicFilter(data)
+        self.retrofitFilters = ShipfuBasicFilter()
         for filterComboBox in (self.retrofitFilters.rarityComboBox,
                                self.retrofitFilters.nationComboBox,
                                self.retrofitFilters.shipTypeComboBox):
