@@ -23,6 +23,10 @@ class UserData():
             with open(USER_DATA_FILENAME, 'w') as f:
                 json.dump(self.data, f, sort_keys=True, indent=4)
 
+    def isOwnedShipfu(self, shipfu_id):
+        return (shipfu_id in self.data["shipfus"] and
+                self.data["shipfus"][shipfu_id]["owned"])
+
 
 def initShipfuData():
     """Default values for a shipfu in the user data file"""

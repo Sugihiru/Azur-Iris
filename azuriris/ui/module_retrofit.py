@@ -9,8 +9,9 @@ from .resources import resources  # noqa
 
 
 class ModuleRetrofit(QWidget, Ui_ModuleRetrofit):
-    def __init__(self):
+    def __init__(self, user_data):
         super().__init__()
+        self.user_data = user_data
         self.retrofitCosts = Data.getRetrofitCosts()
 
         ship_types = Data.getShipTypes()
@@ -56,7 +57,9 @@ class ModuleRetrofit(QWidget, Ui_ModuleRetrofit):
 
     def setTotalRetrofitCostPerType(self):
         destroyerRetrofitCosts = [x for x in self.retrofitCosts
-                                  if x.bp_type_id == self.DD_TYPE_ID]
+                                  if x.bp_type_id == self.DD_TYPE_ID and
+                                  not self.user_data.isOwnedShipfu(x.shipfu_id)
+                                  ]
         self.destroyersT1NbLabel.setText(str(
             sum(x.t1_bp for x in destroyerRetrofitCosts)))
         self.destroyersT2NbLabel.setText(str(
@@ -65,7 +68,9 @@ class ModuleRetrofit(QWidget, Ui_ModuleRetrofit):
             sum(x.t3_bp for x in destroyerRetrofitCosts)))
 
         cruiserRetrofitCosts = [x for x in self.retrofitCosts
-                                if x.bp_type_id == self.CRUISER_TYPE_ID]
+                                if x.bp_type_id == self.CRUISER_TYPE_ID and
+                                not self.user_data.isOwnedShipfu(x.shipfu_id)
+                                ]
         self.cruisersT1NbLabel.setText(str(
             sum(x.t1_bp for x in cruiserRetrofitCosts)))
         self.cruisersT2NbLabel.setText(str(
@@ -73,8 +78,11 @@ class ModuleRetrofit(QWidget, Ui_ModuleRetrofit):
         self.cruisersT3NbLabel.setText(str(
             sum(x.t3_bp for x in cruiserRetrofitCosts)))
 
-        battleshipRetrofitCosts = [x for x in self.retrofitCosts
-                                   if x.bp_type_id == self.BATTLESHIP_TYPE_ID]
+        battleshipRetrofitCosts = [
+            x for x in self.retrofitCosts
+            if x.bp_type_id == self.BATTLESHIP_TYPE_ID and
+            not self.user_data.isOwnedShipfu(x.shipfu_id)
+        ]
         self.battleshipsT1NbLabel.setText(str(
             sum(x.t1_bp for x in battleshipRetrofitCosts)))
         self.battleshipsT2NbLabel.setText(str(
@@ -83,7 +91,9 @@ class ModuleRetrofit(QWidget, Ui_ModuleRetrofit):
             sum(x.t3_bp for x in battleshipRetrofitCosts)))
 
         carrierRetrofitCosts = [x for x in self.retrofitCosts
-                                if x.bp_type_id == self.CARRIER_TYPE_ID]
+                                if x.bp_type_id == self.CARRIER_TYPE_ID and
+                                not self.user_data.isOwnedShipfu(x.shipfu_id)
+                                ]
         self.carriersT1NbLabel.setText(str(
             sum(x.t1_bp for x in carrierRetrofitCosts)))
         self.carriersT2NbLabel.setText(str(

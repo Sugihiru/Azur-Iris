@@ -26,6 +26,12 @@ class MainWindow(QMainWindow):
         self.ui.tabWidget.addTab(self.comparisonTab, "")
         self.ui.tabWidget.setTabText(1, self.tr("Comparison"))
 
-        self.retrofitTab = ModuleRetrofit()
+        self.retrofitTab = ModuleRetrofit(self.user_data)
         self.ui.tabWidget.addTab(self.retrofitTab, "")
         self.ui.tabWidget.setTabText(2, self.tr("Retrofit"))
+
+        self.ui.tabWidget.currentChanged.connect(self.onTabChange)
+
+    def onTabChange(self, index):
+        if index == 2:
+            self.retrofitTab.setTotalRetrofitCostPerType()
