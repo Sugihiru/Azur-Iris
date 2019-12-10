@@ -34,26 +34,50 @@ class ModuleRetrofit(QWidget, Ui_ModuleRetrofit):
                                 ":/blueprints/DestroyerT2BP.png"),
                                (self.destroyersT3IconLabel,
                                 ":/blueprints/DestroyerT3BP.png"),
+                               (self.destroyersGoldIconLabel,
+                                ":/general/Coin.png"),
                                (self.cruisersT1IconLabel,
                                 ":/blueprints/CruiserT1BP.png"),
                                (self.cruisersT2IconLabel,
                                 ":/blueprints/CruiserT2BP.png"),
                                (self.cruisersT3IconLabel,
                                 ":/blueprints/CruiserT3BP.png"),
+                               (self.cruisersGoldIconLabel,
+                                ":/general/Coin.png"),
                                (self.battleshipsT1IconLabel,
                                 ":/blueprints/BattleshipT1BP.png"),
                                (self.battleshipsT2IconLabel,
                                 ":/blueprints/BattleshipT2BP.png"),
                                (self.battleshipsT3IconLabel,
                                 ":/blueprints/BattleshipT3BP.png"),
+                               (self.battleshipsGoldIconLabel,
+                                ":/general/Coin.png"),
                                (self.carriersT1IconLabel,
                                 ":/blueprints/CarrierT1BP.png"),
                                (self.carriersT2IconLabel,
                                 ":/blueprints/CarrierT2BP.png"),
                                (self.carriersT3IconLabel,
-                                ":/blueprints/CarrierT3BP.png")):
+                                ":/blueprints/CarrierT3BP.png"),
+                               (self.carriersGoldIconLabel,
+                                ":/general/Coin.png"),
+                               (self.totalGoldIconLabel,
+                                ":/general/Coin.png"),
+                               (self.gunPlatesIconLabel,
+                                ":/plates/GunT3Plate.png"),
+                               (self.torpedoPlatesIconLabel,
+                                ":/plates/TorpT3Plate.png"),
+                               (self.aircraftPlatesIconLabel,
+                                ":/plates/PlaneT3Plate.png"),
+                               (self.antiairPlatesIconLabel,
+                                ":/plates/AAT3Plate.png"),
+                               (self.auxPlatesIconLabel,
+                                ":/plates/AuxT3Plate.png"),):
             label.setPixmap(QPixmap(imgpath))
+        self.setTotalRetrofitCostInfos()
+
+    def setTotalRetrofitCostInfos(self):
         self.setTotalRetrofitCostPerType()
+        self.setTotalRetrofitCostGlobal()
 
     def setTotalRetrofitCostPerType(self):
         destroyerRetrofitCosts = [x for x in self.retrofitCosts
@@ -66,6 +90,10 @@ class ModuleRetrofit(QWidget, Ui_ModuleRetrofit):
             sum(x.t2_bp for x in destroyerRetrofitCosts)))
         self.destroyersT3NbLabel.setText(str(
             sum(x.t3_bp for x in destroyerRetrofitCosts)))
+        # Use ' ' as a group of 3 separator for numbers (ISO 31-0)
+        self.destroyersGoldNbLabel.setText(
+            f'{sum(x.gold for x in destroyerRetrofitCosts):,}'
+            .replace(',', ' '))
 
         cruiserRetrofitCosts = [x for x in self.retrofitCosts
                                 if x.bp_type_id == self.CRUISER_TYPE_ID and
@@ -77,6 +105,9 @@ class ModuleRetrofit(QWidget, Ui_ModuleRetrofit):
             sum(x.t2_bp for x in cruiserRetrofitCosts)))
         self.cruisersT3NbLabel.setText(str(
             sum(x.t3_bp for x in cruiserRetrofitCosts)))
+        self.cruisersGoldNbLabel.setText(
+            f'{sum(x.gold for x in cruiserRetrofitCosts):,}'
+            .replace(',', ' '))
 
         battleshipRetrofitCosts = [
             x for x in self.retrofitCosts
@@ -89,6 +120,9 @@ class ModuleRetrofit(QWidget, Ui_ModuleRetrofit):
             sum(x.t2_bp for x in battleshipRetrofitCosts)))
         self.battleshipsT3NbLabel.setText(str(
             sum(x.t3_bp for x in battleshipRetrofitCosts)))
+        self.battleshipsGoldNbLabel.setText(
+            f'{sum(x.gold for x in battleshipRetrofitCosts):,}'
+            .replace(',', ' '))
 
         carrierRetrofitCosts = [x for x in self.retrofitCosts
                                 if x.bp_type_id == self.CARRIER_TYPE_ID and
@@ -100,3 +134,35 @@ class ModuleRetrofit(QWidget, Ui_ModuleRetrofit):
             sum(x.t2_bp for x in carrierRetrofitCosts)))
         self.carriersT3NbLabel.setText(str(
             sum(x.t3_bp for x in carrierRetrofitCosts)))
+        self.carriersGoldNbLabel.setText(
+            f'{sum(x.gold for x in carrierRetrofitCosts):,}'
+            .replace(',', ' '))
+
+    def setTotalRetrofitCostGlobal(self):
+        retrofitCosts = [x for x in self.retrofitCosts
+                         if not self.user_data.isOwnedShipfu(x.shipfu_id)]
+
+        self.totalGoldNbLabel.setText(
+            f'{sum(x.gold for x in retrofitCosts):,}'
+            .replace(',', ' '))
+
+        nb_gun_plates_needed = str(
+            sum(x.gun_plates for x in retrofitCosts if x.gun_plates))
+        nb_torpedo_plates_needed = str(
+            sum(x.torpedo_plates for x in retrofitCosts if x.torpedo_plates))
+        nb_aircraft_plates_needed = str(
+            sum(x.aircraft_plates for x in retrofitCosts if x.aircraft_plates))
+        nb_antiair_plates_needed = str(
+            sum(x.antiair_plates for x in retrofitCosts if x.antiair_plates))
+        nb_aux_plates_needed = str(
+            sum(x.aux_plates for x in retrofitCosts if x.aux_plates))
+
+        nbs_plates_needed = (nb_gun_plates_needed, nb_torpedo_plates_needed,
+                             nb_aircraft_plates_needed,
+                             nb_antiair_plates_needed, nb_aux_plates_needed)
+        labels = (self.gunPlatesNbLabel, self.torpedoPlatesNbLabel,
+                  self.aircraftPlatesNbLabel, self.antiairPlatesNbLabel,
+                  self.auxPlatesNbLabel)
+
+        for label, nb_plate in zip(labels, nbs_plates_needed):
+            label.setText(label.text().replace("{nb}", nb_plate))

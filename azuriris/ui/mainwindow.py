@@ -34,4 +34,4 @@ class MainWindow(QMainWindow):
 
     def onTabChange(self, index):
         if index == 2:
-            self.retrofitTab.setTotalRetrofitCostPerType()
+            self.retrofitTab.setTotalRetrofitCostInfos()

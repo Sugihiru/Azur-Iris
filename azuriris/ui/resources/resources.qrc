@@ -13,4 +13,14 @@
         <file>DestroyerT2BP.png</file>
         <file>DestroyerT3BP.png</file>
     </qresource>
+    <qresource prefix="/general">
+        <file>Coin.png</file>
+    </qresource>
+    <qresource prefix="/plates">
+        <file>AAT3Plate.png</file>
+        <file>AuxT3Plate.png</file>
+        <file>GunT3Plate.png</file>
+        <file>PlaneT3Plate.png</file>
+        <file>TorpT3Plate.png</file>
+    </qresource>
 </RCC>
