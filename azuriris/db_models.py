@@ -214,7 +214,6 @@ class RetrofitCost(Base):
     t2_bp = Column(Integer, nullable=False)
     t3_bp = Column(Integer, nullable=False)
     gold = Column(Integer, nullable=False)
-    general_plates = Column(Integer)
     gun_plates = Column(Integer)
     torpedo_plates = Column(Integer)
     aircraft_plates = Column(Integer)
