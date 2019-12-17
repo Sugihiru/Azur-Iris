@@ -1,4 +1,5 @@
 from PySide2.QtWidgets import QWidget
+from PySide2.QtGui import QPixmap, QImage
 
 from data import Data
 from .ui.comparison_two_ships import Ui_ComparisonTwoShips
@@ -46,6 +47,12 @@ class ComparisonTwoShips(QWidget, Ui_ComparisonTwoShips):
 
         for (label, info) in label_infos_corresp:
             label.setText(str(info))
+
+        for (label, img) in [(self.ship1ImageLabel, shipfu1.Shipfu.image),
+                             (self.ship2ImageLabel, shipfu2.Shipfu.image)]:
+            qimg = QImage.fromData(img)
+            pixmap = QPixmap.fromImage(qimg)
+            label.setPixmap(pixmap)
 
     def setLabels(self, level_idx=0):
         stats = self.shipfuStats1[level_idx]
