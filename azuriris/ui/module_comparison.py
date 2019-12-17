@@ -58,10 +58,6 @@ class ModuleComparison(QWidget, Ui_ModuleComparison):
         self.proxyModel.setFilterRegExp(self.filters.nameLineEdit.text())
         self.proxyModel.invalidateFilter()
 
-    def reset(self):
-        self.filters.reset()
-        self.resetSelectedShips()
-
     def resetSelectedShips(self):
         self.model.reset()
         self.selectedLabel.setText("None")
@@ -88,8 +84,6 @@ class ModuleComparison(QWidget, Ui_ModuleComparison):
         if prev_widget:
             del prev_widget
             self.tabWidget.removeTab(1)
-
-        self.reset()
 
         idx = self.tabWidget.addTab(widget, "Results")
         self.tabWidget.setCurrentIndex(idx)
