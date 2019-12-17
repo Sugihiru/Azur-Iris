@@ -7,6 +7,7 @@ from .shipfu_basic_filter import ShipfuBasicFilter
 from comparison_shipfu_table_model import (ComparisonShipfuTableModel,
                                            ProxyComparisonShipfuTableModel)
 from .ui.module_comparison import Ui_ModuleComparison
+from data import Data
 
 
 class ModuleComparison(QWidget, Ui_ModuleComparison):
@@ -81,7 +82,7 @@ class ModuleComparison(QWidget, Ui_ModuleComparison):
             widget = ComparisonTwoShips(*shipfus_to_compare)
         else:
             widget = ComparisonMultipleShips(shipfus_to_compare,
-                                             self.data.rarities)
+                                             Data.getRarities())
 
         prev_widget = self.tabWidget.widget(1)
         if prev_widget:

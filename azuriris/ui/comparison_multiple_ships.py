@@ -1,7 +1,7 @@
 from PySide2.QtWidgets import QWidget
 
 from .ui.comparison_multiple_ships import Ui_ComparisonMultipleShips
-import data
+from data import Data
 from comparison_multiple_shipfus_table_model import (
     ComparisonMultipleShipfusTableModel,
     ProxyComparisonMultipleShipfusTableModel)
@@ -14,7 +14,7 @@ class ComparisonMultipleShips(QWidget, Ui_ComparisonMultipleShips):
 
         self.shipfuStats = dict()
         for shipfu in shipfus:
-            self.shipfuStats[shipfu] = data.getStatsForShipfu(
+            self.shipfuStats[shipfu] = Data.getStatsForShipfu(
                 shipfu.Shipfu.shipfu_id)
 
         nb_levels = len(max(self.shipfuStats.values(), key=lambda x: len(x)))
