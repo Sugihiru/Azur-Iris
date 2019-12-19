@@ -59,8 +59,8 @@ class ShipfuRetrofitCostTableModel(QtCore.QAbstractTableModel):
                 else:
                     dataElement.append("")
                 self.retrofitCosts.append(dataElement)
-        self.headers = ["Id", "Image", "Name", "BP Type", "T1Icon", "T2Icon",
-                        "T3Icon", "Gold", "Other"]
+        self.headers = ["Id", "Image", "Name", "BP Type", "T1 BP", "T2 BP",
+                        "T3 BP", "Gold", "Other"]
 
     def rowCount(self, parent=None):
         return len(self.retrofitCosts)
