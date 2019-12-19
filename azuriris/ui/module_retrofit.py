@@ -32,6 +32,7 @@ class ModuleRetrofit(QWidget, Ui_ModuleRetrofit):
         # self.proxyModel = ProxyComparisonMultipleShipfusTableModel(rarities)
         # self.proxyModel.setSourceModel(self.model)
         self.resourcesPerShipTableView.setModel(self.model)
+        self.resourcesPerShipTableView.resizeColumnsToContents()
 
     def setupUi(self):
         super().setupUi(self)

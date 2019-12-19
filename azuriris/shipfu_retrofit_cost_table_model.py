@@ -7,13 +7,65 @@ from data import Data
 class ShipfuRetrofitCostTableModel(QtCore.QAbstractTableModel):
     def __init__(self, retrofitCosts):
         super().__init__()
-        self.retrofitCosts = retrofitCosts
-        self.nbShipfus = len(set(x.shipfu_id for x in self.retrofitCosts))
-        self.headers = ["Id", "Image", "Name", "T1Icon", "T2Icon",
+        self.retrofitCosts = list()
+        for retrofitCost in retrofitCosts:
+            if (self.retrofitCosts and
+                    retrofitCost.shipfu_id == self.retrofitCosts[-1][0]):
+                if retrofitCost.t1_bp:
+                    self.retrofitCosts[-1][4] = "{} + {} {} blueprints".format(
+                        self.retrofitCosts[-1][4],
+                        retrofitCost.t1_bp,
+                        retrofitCost.shipTypeIdToName())
+                if retrofitCost.t2_bp:
+                    self.retrofitCosts[-1][5] = "{} + {} {} blueprints".format(
+                        self.retrofitCosts[-1][5],
+                        retrofitCost.t2_bp,
+                        retrofitCost.shipTypeIdToName())
+                if retrofitCost.t3_bp:
+                    self.retrofitCosts[-1][6] = "{} + {} {} blueprints".format(
+                        self.retrofitCosts[-1][6],
+                        retrofitCost.t3_bp,
+                        retrofitCost.shipTypeIdToName())
+            else:
+                shipfu = Data.getShipfuFromId(retrofitCost.shipfu_id)
+
+                dataElement = [shipfu.Shipfu.shipfu_id,
+                               shipfu.Shipfu.image,
+                               shipfu.Shipfu.name,
+                               retrofitCost.shipTypeIdToName(),
+                               retrofitCost.t1_bp,
+                               retrofitCost.t2_bp,
+                               retrofitCost.t3_bp,
+                               retrofitCost.gold]
+
+                if retrofitCost.hasPlatesReq:
+                    otherReq = list()
+                    if retrofitCost.gun_plates:
+                        otherReq.append(
+                            f"{retrofitCost.gun_plates} gun plates")
+                    if retrofitCost.torpedo_plates:
+                        otherReq.append(
+                            f"{retrofitCost.torpedo_plates} torpedo plates")
+                    if retrofitCost.aircraft_plates:
+                        otherReq.append(
+                            f"{retrofitCost.aircraft_plates} aircraft plates")
+                    if retrofitCost.antiair_plates:
+                        otherReq.append(
+                            f"{retrofitCost.antiair_plates} anti-air plates")
+                    if retrofitCost.aux_plates:
+                        otherReq.append(
+                            f"{retrofitCost.aux_plates} auxiliary plates")
+                    dataElement.append(", ".join(otherReq))
+                else:
+                    dataElement.append("")
+                self.retrofitCosts.append(dataElement)
+        # self.retrofitCosts = retrofitCosts
+        # self.nbShipfus = len(set(x.shipfu_id for x in self.retrofitCosts))
+        self.headers = ["Id", "Image", "Name", "BP Type", "T1Icon", "T2Icon",
                         "T3Icon", "Gold", "Other"]
 
     def rowCount(self, parent=None):
-        return self.nbShipfus
+        return len(self.retrofitCosts)
 
     def columnCount(self, parent=None):
         return len(self.headers)
@@ -25,23 +77,13 @@ class ShipfuRetrofitCostTableModel(QtCore.QAbstractTableModel):
             return Qt.AlignCenter
 
         if role == Qt.DisplayRole:
-            retrofitCost = self.retrofitCosts[row]
-            shipfu = Data.getShifpuFromId(retrofitCost.shipfu_id)
-
-            values = (shipfu.Shipfu.shipfu_id,
-                      shipfu.Shipfu.image,
-                      shipfu.Shipfu.name,
-                      retrofitCost.t1_bp,
-                      retrofitCost.t2_bp,
-                      retrofitCost.t3_bp,
-                      retrofitCost.gold,
-                      "placeholder")
-
-            return values[column]
+            return self.retrofitCosts[row][column]
 
     def headerData(self, section, orientation, role):
         if role == Qt.DisplayRole and orientation == Qt.Horizontal:
             return self.headers[section]
+
+
 
 
 class ProxyShipfuTableModel(QtCore.QSortFilterProxyModel):

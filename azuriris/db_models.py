@@ -219,3 +219,18 @@ class RetrofitCost(Base):
     aircraft_plates = Column(Integer)
     antiair_plates = Column(Integer)
     aux_plates = Column(Integer)
+
+    def hasPlatesReq(self):
+        return (self.gun_plates or self.torpedo_plates or
+                self.aircraft_plates or self.antiair_plates or self.aux_plates)
+
+    def shipTypeIdToName(self):
+        if self.bp_type_id == 1:
+            return "Destroyer"
+        if self.bp_type_id == 2:
+            return "Cruiser"
+        if self.bp_type_id == 5:
+            return "Battleship"
+        if self.bp_type_id == 9:
+            return "Aircraft Carrier"
+        return "Unknown"

@@ -36,7 +36,7 @@ class Data():
         return cls._shipfus
 
     @classmethod
-    def getShifpuFromId(cls, shipfu_id):
+    def getShipfuFromId(cls, shipfu_id):
         return next(x for x in cls._shipfus if x.Shipfu.shipfu_id == shipfu_id)
 
     @classmethod
@@ -63,7 +63,8 @@ class Data():
     def getRetrofitCosts(cls):
         if not cls._retrofit_costs:
             cls._retrofit_costs = db_models.session.query(
-                db_models.RetrofitCost).all()
+                db_models.RetrofitCost).order_by(
+                db_models.RetrofitCost.shipfu_id).all()
         return cls._retrofit_costs
 
     @staticmethod
