@@ -4,7 +4,8 @@ from PySide2.QtGui import QPixmap
 from data import Data
 
 from .ui.module_retrofit import Ui_ModuleRetrofit
-from shipfu_retrofit_cost_table_model import ShipfuRetrofitCostTableModel
+from shipfu_retrofit_cost_table_model import (
+    ShipfuRetrofitCostTableModel, ProxyShipfuRetrofitCostTableModel)
 # Qt compiled resource file
 from .resources import resources  # noqa
 
@@ -29,9 +30,9 @@ class ModuleRetrofit(QWidget, Ui_ModuleRetrofit):
         self.setupUi()
 
         self.model = ShipfuRetrofitCostTableModel(self.retrofitCosts)
-        # self.proxyModel = ProxyComparisonMultipleShipfusTableModel(rarities)
-        # self.proxyModel.setSourceModel(self.model)
-        self.resourcesPerShipTableView.setModel(self.model)
+        self.proxyModel = ProxyShipfuRetrofitCostTableModel()
+        self.proxyModel.setSourceModel(self.model)
+        self.resourcesPerShipTableView.setModel(self.proxyModel)
         self.resourcesPerShipTableView.resizeColumnsToContents()
 
     def setupUi(self):
