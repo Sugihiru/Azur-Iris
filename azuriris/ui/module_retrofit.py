@@ -4,6 +4,7 @@ from PySide2.QtGui import QPixmap
 from data import Data
 
 from .ui.module_retrofit import Ui_ModuleRetrofit
+from shipfu_retrofit_cost_table_model import ShipfuRetrofitCostTableModel
 # Qt compiled resource file
 from .resources import resources  # noqa
 
@@ -12,7 +13,8 @@ class ModuleRetrofit(QWidget, Ui_ModuleRetrofit):
     def __init__(self, user_data):
         super().__init__()
         self.user_data = user_data
-        self.retrofitCosts = Data.getRetrofitCosts()
+        self.retrofitCosts = [x for x in Data.getRetrofitCosts()
+                              if not self.user_data.isOwnedShipfu(x.shipfu_id)]
 
         ship_types = Data.getShipTypes()
         self.DD_TYPE_ID = next(x.ship_type_id for x in ship_types
@@ -25,6 +27,11 @@ class ModuleRetrofit(QWidget, Ui_ModuleRetrofit):
                                     if x.abbreviation == "CV")
 
         self.setupUi()
+
+        self.model = ShipfuRetrofitCostTableModel(self.retrofitCosts)
+        # self.proxyModel = ProxyComparisonMultipleShipfusTableModel(rarities)
+        # self.proxyModel.setSourceModel(self.model)
+        self.resourcesPerShipTableView.setModel(self.model)
 
     def setupUi(self):
         super().setupUi(self)
@@ -81,9 +88,7 @@ class ModuleRetrofit(QWidget, Ui_ModuleRetrofit):
 
     def setTotalRetrofitCostPerType(self):
         destroyerRetrofitCosts = [x for x in self.retrofitCosts
-                                  if x.bp_type_id == self.DD_TYPE_ID and
-                                  not self.user_data.isOwnedShipfu(x.shipfu_id)
-                                  ]
+                                  if x.bp_type_id == self.DD_TYPE_ID]
         self.destroyersT1NbLabel.setText(str(
             sum(x.t1_bp for x in destroyerRetrofitCosts)))
         self.destroyersT2NbLabel.setText(str(
@@ -96,9 +101,7 @@ class ModuleRetrofit(QWidget, Ui_ModuleRetrofit):
             .replace(',', ' '))
 
         cruiserRetrofitCosts = [x for x in self.retrofitCosts
-                                if x.bp_type_id == self.CRUISER_TYPE_ID and
-                                not self.user_data.isOwnedShipfu(x.shipfu_id)
-                                ]
+                                if x.bp_type_id == self.CRUISER_TYPE_ID]
         self.cruisersT1NbLabel.setText(str(
             sum(x.t1_bp for x in cruiserRetrofitCosts)))
         self.cruisersT2NbLabel.setText(str(
@@ -109,11 +112,8 @@ class ModuleRetrofit(QWidget, Ui_ModuleRetrofit):
             f'{sum(x.gold for x in cruiserRetrofitCosts):,}'
             .replace(',', ' '))
 
-        battleshipRetrofitCosts = [
-            x for x in self.retrofitCosts
-            if x.bp_type_id == self.BATTLESHIP_TYPE_ID and
-            not self.user_data.isOwnedShipfu(x.shipfu_id)
-        ]
+        battleshipRetrofitCosts = [x for x in self.retrofitCosts
+                                   if x.bp_type_id == self.BATTLESHIP_TYPE_ID]
         self.battleshipsT1NbLabel.setText(str(
             sum(x.t1_bp for x in battleshipRetrofitCosts)))
         self.battleshipsT2NbLabel.setText(str(
@@ -125,9 +125,7 @@ class ModuleRetrofit(QWidget, Ui_ModuleRetrofit):
             .replace(',', ' '))
 
         carrierRetrofitCosts = [x for x in self.retrofitCosts
-                                if x.bp_type_id == self.CARRIER_TYPE_ID and
-                                not self.user_data.isOwnedShipfu(x.shipfu_id)
-                                ]
+                                if x.bp_type_id == self.CARRIER_TYPE_ID]
         self.carriersT1NbLabel.setText(str(
             sum(x.t1_bp for x in carrierRetrofitCosts)))
         self.carriersT2NbLabel.setText(str(
@@ -139,23 +137,23 @@ class ModuleRetrofit(QWidget, Ui_ModuleRetrofit):
             .replace(',', ' '))
 
     def setTotalRetrofitCostGlobal(self):
-        retrofitCosts = [x for x in self.retrofitCosts
-                         if not self.user_data.isOwnedShipfu(x.shipfu_id)]
-
         self.totalGoldNbLabel.setText(
-            f'{sum(x.gold for x in retrofitCosts):,}'
+            f'{sum(x.gold for x in self.retrofitCosts):,}'
             .replace(',', ' '))
 
         nb_gun_plates_needed = str(
-            sum(x.gun_plates for x in retrofitCosts if x.gun_plates))
+            sum(x.gun_plates for x in self.retrofitCosts if x.gun_plates))
         nb_torpedo_plates_needed = str(
-            sum(x.torpedo_plates for x in retrofitCosts if x.torpedo_plates))
+            sum(x.torpedo_plates for x in self.retrofitCosts
+                if x.torpedo_plates))
         nb_aircraft_plates_needed = str(
-            sum(x.aircraft_plates for x in retrofitCosts if x.aircraft_plates))
+            sum(x.aircraft_plates for x in self.retrofitCosts
+                if x.aircraft_plates))
         nb_antiair_plates_needed = str(
-            sum(x.antiair_plates for x in retrofitCosts if x.antiair_plates))
+            sum(x.antiair_plates for x in self.retrofitCosts
+                if x.antiair_plates))
         nb_aux_plates_needed = str(
-            sum(x.aux_plates for x in retrofitCosts if x.aux_plates))
+            sum(x.aux_plates for x in self.retrofitCosts if x.aux_plates))
 
         nbs_plates_needed = (nb_gun_plates_needed, nb_torpedo_plates_needed,
                              nb_aircraft_plates_needed,

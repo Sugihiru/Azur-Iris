@@ -7,45 +7,15 @@
     <x>0</x>
     <y>0</y>
     <width>697</width>
-    <height>472</height>
+    <height>672</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="4" column="9">
-    <widget class="QLabel" name="carriersT2NbLabel">
-     <property name="text">
-      <string>T2Nb</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="6">
-    <widget class="QLabel" name="battleshipsT1NbLabel">
-     <property name="text">
-      <string>T1Nb</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="0">
-    <widget class="QLabel" name="destroyersT2NbLabel">
-     <property name="text">
-      <string>T2Nb</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="0" colspan="11">
-    <widget class="QLabel" name="titlePerShipTypeLabel">
+   <item row="22" column="0" colspan="12">
+    <widget class="QLabel" name="resourcesPerShipLabel">
      <property name="font">
       <font>
        <weight>75</weight>
@@ -53,196 +23,16 @@
       </font>
      </property>
      <property name="text">
-      <string>Resources needed per ship type</string>
+      <string>Resources needed per ship</string>
      </property>
     </widget>
    </item>
-   <item row="3" column="10">
-    <widget class="QLabel" name="carriersT1IconLabel">
-     <property name="text">
-      <string>CVT1Icon</string>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="3">
-    <widget class="QLabel" name="cruisersGoldNbLabel">
-     <property name="text">
-      <string>GoldNb</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="6">
-    <widget class="QLabel" name="battleshipsT3NbLabel">
-     <property name="text">
-      <string>T3Nb</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="7">
-    <widget class="QLabel" name="battleshipsT3IconLabel">
-     <property name="text">
-      <string>BBT3Icon</string>
-     </property>
-    </widget>
-   </item>
-   <item row="8" column="0" colspan="11">
-    <widget class="QLabel" name="titleGlobalNeededLabel">
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>Global resources needed</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="10">
-    <widget class="QLabel" name="carriersT2IconLabel">
-     <property name="text">
-      <string>CVT2Icon</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="3">
-    <widget class="QLabel" name="cruisersT1NbLabel">
-     <property name="text">
-      <string>T1Nb</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="0">
-    <widget class="QLabel" name="destroyersT1NbLabel">
-     <property name="text">
-      <string>T1Nb</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="10">
-    <widget class="QLabel" name="carriersGoldIconLabel">
-     <property name="text">
-      <string>GoldIcon</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="3" colspan="2">
-    <widget class="QLabel" name="cruisersLabel">
-     <property name="text">
-      <string>Cruisers</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="3">
-    <widget class="QLabel" name="cruisersT3NbLabel">
-     <property name="text">
-      <string>T3Nb</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="0">
-    <widget class="QLabel" name="destroyersT3NbLabel">
-     <property name="text">
-      <string>T3Nb</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="7" column="0" colspan="11">
-    <widget class="Line" name="line_6">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="6" colspan="2">
-    <widget class="QLabel" name="battleshipsLabel">
-     <property name="text">
-      <string>Battleships</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="9" column="1">
-    <widget class="QLabel" name="totalGoldIconLabel">
-     <property name="text">
-      <string>GoldIcon</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="10">
-    <widget class="QLabel" name="carriersT3IconLabel">
-     <property name="text">
-      <string>CVT3Icon</string>
-     </property>
-    </widget>
-   </item>
-   <item row="9" column="0">
-    <widget class="QLabel" name="totalGoldNbLabel">
-     <property name="text">
-      <string>TotalGoldNb</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="7">
-    <widget class="QLabel" name="battleshipsT2IconLabel">
-     <property name="text">
-      <string>BBT2Icon</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="4">
-    <widget class="QLabel" name="cruisersT1IconLabel">
-     <property name="text">
-      <string>CLT1Icon</string>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="1">
-    <widget class="QLabel" name="destroyersGoldIconLabel">
-     <property name="text">
-      <string>GoldIcon</string>
-     </property>
-    </widget>
-   </item>
-   <item row="10" column="0" colspan="11">
+   <item row="21" column="0" colspan="12">
     <layout class="QGridLayout" name="platesGridLayout">
-     <item row="0" column="2" rowspan="2">
-      <widget class="Line" name="line_4">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="antiairPlatesNbLabel">
+     <item row="1" column="3">
+      <widget class="QLabel" name="auxPlatesNbLabel">
        <property name="text">
-        <string>{nb} T3 anti-air plates</string>
+        <string>{nb} T3 auxiliary plates</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -266,44 +56,10 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="4">
-      <widget class="QLabel" name="auxPlatesIconLabel">
-       <property name="text">
-        <string>AuxPlatesIcon</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="4">
-      <widget class="QLabel" name="torpedoPlatesIconLabel">
-       <property name="text">
-        <string>TorpedoPlatesIcon</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="gunPlatesIconLabel">
-       <property name="text">
-        <string>GunPlatesIcon</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="6">
-      <widget class="QLabel" name="aircraftPlatesNbLabel">
-       <property name="text">
-        <string>{nb} T3 aircraft plates</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="3">
-      <widget class="QLabel" name="auxPlatesNbLabel">
-       <property name="text">
-        <string>{nb} T3 auxiliary plates</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     <item row="0" column="5">
+      <widget class="Line" name="line_5">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
       </widget>
      </item>
@@ -324,225 +80,559 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="5">
-      <widget class="Line" name="line_5">
+     <item row="1" column="0">
+      <widget class="QLabel" name="antiairPlatesNbLabel">
+       <property name="text">
+        <string>{nb} T3 anti-air plates</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="gunPlatesIconLabel">
+       <property name="text">
+        <string>GunPlatesIcon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2" rowspan="2">
+      <widget class="Line" name="line_4">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
       </widget>
      </item>
+     <item row="0" column="6">
+      <widget class="QLabel" name="aircraftPlatesNbLabel">
+       <property name="text">
+        <string>{nb} T3 aircraft plates</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="4">
+      <widget class="QLabel" name="auxPlatesIconLabel">
+       <property name="text">
+        <string>AuxPlatesIcon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="4">
+      <widget class="QLabel" name="torpedoPlatesIconLabel">
+       <property name="text">
+        <string>TorpedoPlatesIcon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="8" rowspan="2">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
     </layout>
    </item>
-   <item row="3" column="7">
-    <widget class="QLabel" name="battleshipsT1IconLabel">
+   <item row="0" column="0" colspan="12">
+    <widget class="QLabel" name="titlePerShipTypeLabel">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="text">
-      <string>BBT1Icon</string>
+      <string>Resources needed per ship type</string>
      </property>
     </widget>
    </item>
-   <item row="6" column="4">
-    <widget class="QLabel" name="cruisersGoldIconLabel">
+   <item row="15" column="0" colspan="12">
+    <widget class="QLabel" name="titleGlobalNeededLabel">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="text">
-      <string>GoldIcon</string>
+      <string>Global resources needed</string>
      </property>
     </widget>
    </item>
-   <item row="5" column="9">
-    <widget class="QLabel" name="carriersT3NbLabel">
-     <property name="text">
-      <string>T3Nb</string>
+   <item row="23" column="0" colspan="12">
+    <widget class="QTableView" name="resourcesPerShipTableView">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
      </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
      </property>
-    </widget>
-   </item>
-   <item row="6" column="6">
-    <widget class="QLabel" name="battleshipsGoldNbLabel">
-     <property name="text">
-      <string>GoldNb</string>
+     <property name="verticalScrollMode">
+      <enum>QAbstractItemView::ScrollPerPixel</enum>
      </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     <property name="horizontalScrollMode">
+      <enum>QAbstractItemView::ScrollPerPixel</enum>
      </property>
-    </widget>
-   </item>
-   <item row="4" column="6">
-    <widget class="QLabel" name="battleshipsT2NbLabel">
-     <property name="text">
-      <string>T2Nb</string>
+     <property name="sortingEnabled">
+      <bool>true</bool>
      </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     <property name="wordWrap">
+      <bool>true</bool>
      </property>
     </widget>
    </item>
-   <item row="4" column="1">
-    <widget class="QLabel" name="destroyersT2IconLabel">
-     <property name="text">
-      <string>DDT2Icon</string>
-     </property>
-    </widget>
+   <item row="5" column="0">
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="2" column="0">
+      <widget class="QLabel" name="destroyersT1NbLabel">
+       <property name="text">
+        <string>T1Nb</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="3">
+      <widget class="QLabel" name="cruisersGoldNbLabel">
+       <property name="text">
+        <string>GoldNb</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="9">
+      <widget class="QLabel" name="carriersT1NbLabel">
+       <property name="text">
+        <string>T1Nb</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="9">
+      <widget class="QLabel" name="carriersGoldNbLabel">
+       <property name="text">
+        <string>GoldNb</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLabel" name="destroyersT2IconLabel">
+       <property name="text">
+        <string>DDT2Icon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="9">
+      <widget class="QLabel" name="carriersT2NbLabel">
+       <property name="text">
+        <string>T2Nb</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="6" colspan="2">
+      <widget class="QLabel" name="battleshipsLabel">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Battleships</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLabel" name="destroyersT3IconLabel">
+       <property name="text">
+        <string>DDT3Icon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="7">
+      <widget class="QLabel" name="battleshipsGoldIconLabel">
+       <property name="text">
+        <string>GoldIcon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="3">
+      <widget class="QLabel" name="cruisersT1NbLabel">
+       <property name="text">
+        <string>T1Nb</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="8">
+      <widget class="Line" name="line_10">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0" colspan="11">
+      <widget class="Line" name="line_6">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="4">
+      <widget class="QLabel" name="cruisersT2IconLabel">
+       <property name="text">
+        <string>CLT2Icon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="10">
+      <widget class="QLabel" name="carriersT2IconLabel">
+       <property name="text">
+        <string>CVT2Icon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="3">
+      <widget class="QLabel" name="cruisersT2NbLabel">
+       <property name="text">
+        <string>T2Nb</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLabel" name="destroyersGoldIconLabel">
+       <property name="text">
+        <string>GoldIcon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" colspan="11">
+      <widget class="Line" name="line_7">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="6">
+      <widget class="QLabel" name="battleshipsT2NbLabel">
+       <property name="text">
+        <string>T2Nb</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="8" rowspan="4">
+      <widget class="Line" name="line_3">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="6">
+      <widget class="QLabel" name="battleshipsT1NbLabel">
+       <property name="text">
+        <string>T1Nb</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="3">
+      <widget class="QLabel" name="cruisersT3NbLabel">
+       <property name="text">
+        <string>T3Nb</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="10">
+      <widget class="QLabel" name="carriersT3IconLabel">
+       <property name="text">
+        <string>CVT3Icon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="4">
+      <widget class="QLabel" name="cruisersGoldIconLabel">
+       <property name="text">
+        <string>GoldIcon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="destroyersGoldNbLabel">
+       <property name="text">
+        <string>GoldNb</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2" rowspan="4">
+      <widget class="Line" name="line">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="4">
+      <widget class="QLabel" name="cruisersT3IconLabel">
+       <property name="text">
+        <string>CLT3Icon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="4">
+      <widget class="QLabel" name="cruisersT1IconLabel">
+       <property name="text">
+        <string>CLT1Icon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="9">
+      <widget class="QLabel" name="carriersT3NbLabel">
+       <property name="text">
+        <string>T3Nb</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="10">
+      <widget class="QLabel" name="carriersGoldIconLabel">
+       <property name="text">
+        <string>GoldIcon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="6">
+      <widget class="QLabel" name="battleshipsT3NbLabel">
+       <property name="text">
+        <string>T3Nb</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="2">
+      <widget class="QLabel" name="destroyersLabel">
+       <property name="text">
+        <string>Destroyers</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="7">
+      <widget class="QLabel" name="battleshipsT1IconLabel">
+       <property name="text">
+        <string>BBT1Icon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="destroyersT3NbLabel">
+       <property name="text">
+        <string>T3Nb</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="Line" name="line_8">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="7">
+      <widget class="QLabel" name="battleshipsT3IconLabel">
+       <property name="text">
+        <string>BBT3Icon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="5" rowspan="4">
+      <widget class="Line" name="line_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3" colspan="2">
+      <widget class="QLabel" name="cruisersLabel">
+       <property name="text">
+        <string>Cruisers</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="6">
+      <widget class="QLabel" name="battleshipsGoldNbLabel">
+       <property name="text">
+        <string>GoldNb</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="7">
+      <widget class="QLabel" name="battleshipsT2IconLabel">
+       <property name="text">
+        <string>BBT2Icon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <widget class="Line" name="line_9">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="destroyersT1IconLabel">
+       <property name="text">
+        <string>DDT1Icon</string>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::RichText</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="10">
+      <widget class="QLabel" name="carriersT1IconLabel">
+       <property name="text">
+        <string>CVT1Icon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="9" colspan="2">
+      <widget class="QLabel" name="carriersLabel">
+       <property name="text">
+        <string>Carriers</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="destroyersT2NbLabel">
+       <property name="text">
+        <string>T2Nb</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="11" rowspan="7">
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
    </item>
-   <item row="4" column="4">
-    <widget class="QLabel" name="cruisersT2IconLabel">
-     <property name="text">
-      <string>CLT2Icon</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="0" colspan="2">
-    <widget class="QLabel" name="destroyersLabel">
-     <property name="text">
-      <string>Destroyers</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="7">
-    <widget class="QLabel" name="battleshipsGoldIconLabel">
-     <property name="text">
-      <string>GoldIcon</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="3">
-    <widget class="QLabel" name="cruisersT2NbLabel">
-     <property name="text">
-      <string>T2Nb</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="9" colspan="2">
-    <widget class="QLabel" name="carriersLabel">
-     <property name="text">
-      <string>Carriers</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="9">
-    <widget class="QLabel" name="carriersGoldNbLabel">
-     <property name="text">
-      <string>GoldNb</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="9">
-    <widget class="QLabel" name="carriersT1NbLabel">
-     <property name="text">
-      <string>T1Nb</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="11">
-    <spacer name="horizontalSpacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="6" column="0">
-    <widget class="QLabel" name="destroyersGoldNbLabel">
-     <property name="text">
-      <string>GoldNb</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="4">
-    <widget class="QLabel" name="cruisersT3IconLabel">
-     <property name="text">
-      <string>CLT3Icon</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="1">
-    <widget class="QLabel" name="destroyersT1IconLabel">
-     <property name="text">
-      <string>DDT1Icon</string>
-     </property>
-     <property name="textFormat">
-      <enum>Qt::RichText</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="1">
-    <widget class="QLabel" name="destroyersT3IconLabel">
-     <property name="text">
-      <string>DDT3Icon</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="2" rowspan="4">
-    <widget class="Line" name="line">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="5" rowspan="4">
-    <widget class="Line" name="line_2">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="8" rowspan="4">
-    <widget class="Line" name="line_3">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0" colspan="11">
-    <widget class="Line" name="line_7">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="2">
-    <widget class="Line" name="line_8">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="5">
-    <widget class="Line" name="line_9">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="8">
-    <widget class="Line" name="line_10">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-    </widget>
+   <item row="17" column="0" rowspan="2">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="totalGoldNbLabel">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>TotalGoldNb</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="totalGoldIconLabel">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>GoldIcon</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>

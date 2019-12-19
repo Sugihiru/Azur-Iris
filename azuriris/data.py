@@ -36,6 +36,10 @@ class Data():
         return cls._shipfus
 
     @classmethod
+    def getShifpuFromId(cls, shipfu_id):
+        return next(x for x in cls._shipfus if x.Shipfu.shipfu_id == shipfu_id)
+
+    @classmethod
     def getNonRetrofitShipfus(cls):
         return [x for x in cls._shipfus if not x.Shipfu.name.endswith(" Kai")]
 
