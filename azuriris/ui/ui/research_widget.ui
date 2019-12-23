@@ -36,7 +36,7 @@
     </widget>
    </item>
    <item row="3" column="0" colspan="6">
-    <widget class="QTableWidget" name="tableWidget">
+    <widget class="QTableWidget" name="strengthenLevelTableWidget">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
        <horstretch>0</horstretch>
