@@ -42,5 +42,6 @@ class UserData():
         """Default values for a research ship in the user data file"""
         return {
             "bp": 0,
-            "level": 1
+            "level": 1,
+            "fate_simul_phase": 0,
         }

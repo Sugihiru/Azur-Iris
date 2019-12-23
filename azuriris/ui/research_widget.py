@@ -1,5 +1,5 @@
 from PySide2.QtWidgets import (QWidget, QLabel, QTableWidget, QSizePolicy,
-                               QTableWidgetItem)
+                               QTableWidgetItem, QAbstractItemView)
 from PySide2.QtGui import QPixmap, QImage, QFont
 from PySide2.QtCore import QSize, Qt
 
@@ -24,13 +24,23 @@ class ResearchWidget(QWidget, Ui_ResearchWidget):
         self.shipIconLabel.setPixmap(QPixmap.fromImage(qimg))
         self.shipNameLabel.setText(self.researchShip.Shipfu.name)
 
-        if self.researchShip.ResearchShip.season <= MAX_FATE_SIMUL_SEASON:
+        if self.hasFateSimulation(self.researchShip):
             self.addFateSimulationTable()
+            if self.researchShipUserData["level"] == 30:
+                self.fateSimulationPhaseSpinBox.setEnabled(True)
+            self.fateSimulationPhaseSpinBox.setValue(
+                self.researchShipUserData["fate_simul_phase"])
+            self.fateSimulationPhaseSpinBox.valueChanged.connect(
+                self.onFieldChanged)
 
         self.researchLevelSpinBox.setValue(self.researchShipUserData["level"])
         self.researchLevelSpinBox.valueChanged.connect(self.onFieldChanged)
-        self.currentBpLineEdit.setText(str(self.researchShipUserData["bp"]))
-        self.currentBpLineEdit.textChanged.connect(self.onFieldChanged)
+        self.currentBpSpinBox.setValue(self.researchShipUserData["bp"])
+        self.currentBpSpinBox.valueChanged.connect(self.onFieldChanged)
+
+    @staticmethod
+    def hasFateSimulation(shipfu):
+        return shipfu.ResearchShip.season <= MAX_FATE_SIMUL_SEASON
 
     def addFateSimulationTable(self):
         """Add the Fate Simulation table widget to the widget's layout"""
@@ -40,7 +50,7 @@ class ResearchWidget(QWidget, Ui_ResearchWidget):
         self.fateSimulationTitleLabel = QLabel(
             "Blueprints needed per Fate Simulation level")
         self.fateSimulationTitleLabel.setFont(boldFont)
-        self.gridLayout.addWidget(self.fateSimulationTitleLabel, 4, 0, 1, 6)
+        self.gridLayout.addWidget(self.fateSimulationTitleLabel, 7, 0, 1, 6)
 
         # Setup table widget
         self.fateSimulationTableWidget = QTableWidget(self)
@@ -49,6 +59,9 @@ class ResearchWidget(QWidget, Ui_ResearchWidget):
         self.fateSimulationTableWidget.setMinimumSize(QSize(620, 55))
         self.fateSimulationTableWidget.setRowCount(1)
         self.fateSimulationTableWidget.setColumnCount(5)
+
+        self.fateSimulationTableWidget.setEditTriggers(
+            QAbstractItemView.NoEditTriggers)
 
         self.fateSimulationTableWidget.horizontalHeader().setVisible(True)
         self.fateSimulationTableWidget.verticalHeader().setVisible(True)
@@ -64,23 +77,39 @@ class ResearchWidget(QWidget, Ui_ResearchWidget):
             self.fateSimulationTableWidget.horizontalHeaderItem(i).setText(
                 f"Phase {i + 1}")
 
-        self.gridLayout.addWidget(self.fateSimulationTableWidget, 5, 0, 1, 6)
+        self.gridLayout.addWidget(self.fateSimulationTableWidget, 8, 0, 1, 6)
 
     def setRequiredBlueprints(self):
         """Compute and display required blueprints"""
-        for i, level in enumerate((5, 10, 15, 20, 25, 30)):
-            if self.researchShipUserData["level"] >= level:
-                req_bp = 0
-            else:
-                req_bp = self.computeRequiredBlueprintsForStrengthenLevel(
-                    level,
-                    self.researchShipUserData["level"],
-                    self.researchShipUserData["bp"],
-                    self.isDecisiveShip(self.researchShip.Shipfu))
+        for i, target_level in enumerate((5, 10, 15, 20, 25, 30)):
+            req_bp = self.computeRequiredBlueprintsForStrengthenLevel(
+                target_level,
+                self.researchShipUserData["level"],
+                self.researchShipUserData["bp"],
+                self.isDecisiveShip(self.researchShip.Shipfu))
 
             item = QTableWidgetItem(str(req_bp))
             item.setTextAlignment(Qt.AlignCenter)
             self.strengthenLevelTableWidget.setItem(0, i, item)
+
+        if self.hasFateSimulation(self.researchShip):
+            req_bp_to_level_30 = \
+                self.computeRequiredBlueprintsForStrengthenLevel(
+                    30,
+                    self.researchShipUserData["level"],
+                    self.researchShipUserData["bp"],
+                    self.isDecisiveShip(self.researchShip.Shipfu))
+            for target_phase in range(1, 6):
+                req_bp = self.computeRequiredBlueprintsForFateSimulation(
+                    target_phase,
+                    self.researchShipUserData["fate_simul_phase"],
+                    self.researchShipUserData["bp"])
+                req_bp += req_bp_to_level_30
+
+                item = QTableWidgetItem(str(req_bp))
+                item.setTextAlignment(Qt.AlignCenter)
+                self.fateSimulationTableWidget.setItem(0, target_phase - 1,
+                                                       item)
 
     @staticmethod
     def computeRequiredBlueprintsForStrengthenLevel(target_level,
@@ -110,9 +139,28 @@ class ResearchWidget(QWidget, Ui_ResearchWidget):
                                  30, 30, 30, 30, 60)
 
         target_level_idx = target_level // 5
-        return (req_bps_per_cap[target_level_idx] -
-                sum(req_bps_per_level[:current_level]) -
-                current_bp)
+        res = (req_bps_per_cap[target_level_idx] -
+               sum(req_bps_per_level[:current_level]) -
+               current_bp)
+        if res < 0:
+            res = 0
+        return res
+
+    @staticmethod
+    def computeRequiredBlueprintsForFateSimulation(target_phase,
+                                                   current_phase,
+                                                   current_bp):
+        if current_phase >= 5 or target_phase <= current_phase:
+            return 0
+
+        req_bps = (10, 20, 30, 40, 65)
+
+        res = (sum(req_bps[:target_phase]) -
+               sum(req_bps[:current_phase]) -
+               current_bp)
+        if res < 0:
+            res = 0
+        return res
 
     @staticmethod
     def isDecisiveShip(shipfu):
@@ -120,6 +168,13 @@ class ResearchWidget(QWidget, Ui_ResearchWidget):
 
     def onFieldChanged(self):
         """Save user data and update required blueprints"""
-        self.researchShipUserData["level"] = self.researchLevelSpinBox.value()
-        self.researchShipUserData["bp"] = int(self.currentBpLineEdit.text())
+        self.researchShipUserData["level"] = \
+            self.researchLevelSpinBox.value() or 0
+        self.researchShipUserData["bp"] = self.currentBpSpinBox.value() or 0
+        self.researchShipUserData["fate_simul_phase"] = \
+            self.fateSimulationPhaseSpinBox.value() or 0
+        if self.researchShipUserData["level"] == 30:
+            self.fateSimulationPhaseSpinBox.setEnabled(True)
+        else:
+            self.fateSimulationPhaseSpinBox.setEnabled(False)
         self.setRequiredBlueprints()
