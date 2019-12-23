@@ -31,7 +31,7 @@ class MainWindow(QMainWindow):
         self.ui.tabWidget.addTab(self.retrofitTab, "")
         self.ui.tabWidget.setTabText(2, self.tr("Retrofit"))
 
-        self.researchTab = ModuleResearch(self.user_data)
+        self.researchTab = ModuleResearch(self.user_data.data["pr"])
         self.ui.tabWidget.addTab(self.researchTab, "")
         self.ui.tabWidget.setTabText(3, self.tr("Research"))
 

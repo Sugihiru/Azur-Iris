@@ -78,8 +78,10 @@ class Data():
     @classmethod
     def getResearchShips(cls):
         if not cls._research_ships:
-            cls._research_ships = db_models.session.query(
-                db_models.ResearchShip, db_models.Shipfu).join(
-                db_models.Shipfu).order_by(
-                db_models.ResearchShip.shipfu_id).all()
+            cls._research_ships = (
+                db_models.session.query(db_models.ResearchShip,
+                                        db_models.Shipfu)
+                                 .join(db_models.Shipfu)
+                                 .order_by(db_models.ResearchShip.shipfu_id)
+                                 .all())
         return cls._research_ships

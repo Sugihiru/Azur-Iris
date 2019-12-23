@@ -27,12 +27,20 @@ class UserData():
         return (shipfu_id in self.data["shipfus"] and
                 self.data["shipfus"][shipfu_id]["owned"])
 
+    @staticmethod
+    def initShipfuData():
+        """Default values for a shipfu in the user data file"""
+        return {
+            "owned": False,
+            "mlb": False,
+            "max_level": False,
+            "max_affection": False
+        }
 
-def initShipfuData():
-    """Default values for a shipfu in the user data file"""
-    return {
-        "owned": False,
-        "mlb": False,
-        "max_level": False,
-        "max_affection": False
-    }
+    @staticmethod
+    def initResearchData():
+        """Default values for a research ship in the user data file"""
+        return {
+            "bp": 0,
+            "level": 1
+        }

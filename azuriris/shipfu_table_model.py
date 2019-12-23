@@ -2,7 +2,7 @@ from PySide2 import QtCore
 from PySide2.QtCore import Qt
 
 from data import Data
-import user_data
+from user_data import UserData
 
 
 CHECKBOXES_COLUMNS_IDX = (6, 7, 8, 9)
@@ -37,7 +37,7 @@ class ShipfuTableModel(QtCore.QAbstractTableModel):
             try:
                 shipfu_user_data = self.user_shipfus_data[shipfu_id]
             except KeyError:
-                shipfu_user_data = user_data.initShipfuData()
+                shipfu_user_data = UserData.initShipfuData()
                 self.user_shipfus_data[shipfu_id] = shipfu_user_data
 
             values = (self.shipfus[row].Shipfu.shipfu_id,
