@@ -234,3 +234,10 @@ class RetrofitCost(Base):
         if self.bp_type_id == 9:
             return "Aircraft Carrier"
         return "Unknown"
+
+
+class ResearchShip(Base):
+    __tablename__ = "research_ships"
+    research_ship_id = Column(Integer, primary_key=True)
+    shipfu_id = Column(String, ForeignKey("shipfus.shipfu_id"), nullable=False)
+    season = Column(Integer, nullable=False)

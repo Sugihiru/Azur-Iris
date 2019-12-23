@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ResearchWidget</class>
+ <widget class="QWidget" name="ResearchWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>765</width>
+    <height>294</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="1" rowspan="2">
+    <widget class="QLabel" name="shipNameLabel">
+     <property name="text">
+      <string>ShipName</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <widget class="QLabel" name="currentBpLabel">
+     <property name="text">
+      <string>Current blueprints owned</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" rowspan="2">
+    <widget class="QLabel" name="shipIconLabel">
+     <property name="text">
+      <string>ShipIcon</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="6">
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>720</width>
+       <height>55</height>
+      </size>
+     </property>
+     <property name="baseSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="verticalScrollMode">
+      <enum>QAbstractItemView::ScrollPerPixel</enum>
+     </property>
+     <property name="horizontalScrollMode">
+      <enum>QAbstractItemView::ScrollPerPixel</enum>
+     </property>
+     <property name="rowCount">
+      <number>1</number>
+     </property>
+     <property name="columnCount">
+      <number>6</number>
+     </property>
+     <attribute name="horizontalHeaderVisible">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="verticalHeaderVisible">
+      <bool>true</bool>
+     </attribute>
+     <row>
+      <property name="text">
+       <string>Required blueprints</string>
+      </property>
+     </row>
+     <column>
+      <property name="text">
+       <string>Level 5</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Level 10</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Level 15</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Level 20</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Level 25</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Level 30</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QLabel" name="researchLevelLabel">
+     <property name="text">
+      <string>Research level</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="6">
+    <widget class="QLabel" name="bpNeededPerLevelTitleLabel">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Blueprints needed per Strengthen level</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="4">
+    <widget class="QLineEdit" name="currentBpLineEdit"/>
+   </item>
+   <item row="0" column="4">
+    <widget class="QSpinBox" name="researchLevelSpinBox">
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>30</number>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -30,6 +30,7 @@ class Data():
                                     .all())
 
     _retrofit_costs = None
+    _research_ships = None
 
     @classmethod
     def getShipfus(cls):
@@ -73,3 +74,12 @@ class Data():
                                  .filter_by(shipfu_id=shipfu_id)
                                  .order_by(db_models.ShipfuStat.level)
                                  .all())
+
+    @classmethod
+    def getResearchShips(cls):
+        if not cls._research_ships:
+            cls._research_ships = db_models.session.query(
+                db_models.ResearchShip, db_models.Shipfu).join(
+                db_models.Shipfu).order_by(
+                db_models.ResearchShip.shipfu_id).all()
+        return cls._research_ships
