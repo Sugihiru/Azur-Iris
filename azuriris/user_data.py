@@ -45,3 +45,10 @@ class UserData():
             "level": 1,
             "fate_simul_phase": 0,
         }
+
+    @staticmethod
+    def initShopEventData():
+        """Default values for an item in a shop event in the user data file"""
+        return {
+            "quantity": 0
+        }

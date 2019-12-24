@@ -31,6 +31,7 @@ class Data():
 
     _retrofit_costs = None
     _research_ships = None
+    _event_shop_items = None
 
     @classmethod
     def getShipfus(cls):
@@ -85,3 +86,12 @@ class Data():
                                  .order_by(db_models.ResearchShip.shipfu_id)
                                  .all())
         return cls._research_ships
+
+    @classmethod
+    def getShopEventItems(cls):
+        if not cls._event_shop_items:
+            cls._event_shop_items = (
+                db_models.session.query(db_models.EventBuyable)
+                                 .order_by(db_models.EventBuyable.event_buyable_id)
+                                 .all())
+        return cls._event_shop_items

@@ -241,3 +241,12 @@ class ResearchShip(Base):
     research_ship_id = Column(Integer, primary_key=True)
     shipfu_id = Column(String, ForeignKey("shipfus.shipfu_id"), nullable=False)
     season = Column(Integer, nullable=False)
+
+
+class EventBuyable(Base):
+    __tablename__ = "event_buyables"
+    event_buyable_id = Column(Integer, primary_key=True)
+    name = Column(String, nullable=False)
+    image = Column(BLOB)
+    price_per_unit = Column(Integer, nullable=False)
+    usual_max_per_event = Column(Integer)
