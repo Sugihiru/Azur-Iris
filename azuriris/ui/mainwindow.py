@@ -5,6 +5,7 @@ from .module_comparison import ModuleComparison
 from .module_retrofit import ModuleRetrofit
 from .module_research import ModuleResearch
 from .module_shopevent import ModuleShopEvent
+from .module_tools import ModuleTools
 from user_data import UserData
 
 from .ui.mainwindow import Ui_MainWindow
@@ -39,6 +40,10 @@ class MainWindow(QMainWindow):
         self.shopEventTab = ModuleShopEvent(self.user_data.data["shop_event"])
         self.ui.tabWidget.addTab(self.shopEventTab, "")
         self.ui.tabWidget.setTabText(4, self.tr("Shop Event"))
+
+        self.toolsTab = ModuleTools()
+        self.ui.tabWidget.addTab(self.toolsTab, "")
+        self.ui.tabWidget.setTabText(5, self.tr("Tools"))
 
         self.ui.tabWidget.currentChanged.connect(self.onTabChange)
 
