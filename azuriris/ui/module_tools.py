@@ -2,6 +2,7 @@ from PySide2.QtWidgets import QWidget
 
 from .tool_mission_cost import ToolMissionCost
 from .tool_leveling import ToolLeveling
+from .tool_stage_exp import ToolStageExp
 from .ui.module_tools import Ui_ModuleTools
 
 
@@ -17,3 +18,7 @@ class ModuleTools(QWidget, Ui_ModuleTools):
         self.levelingTab = ToolLeveling()
         self.tabWidget.addTab(self.levelingTab, "")
         self.tabWidget.setTabText(1, self.tr("Leveling"))
+
+        self.stageExpTab = ToolStageExp()
+        self.tabWidget.addTab(self.stageExpTab, "")
+        self.tabWidget.setTabText(2, self.tr("Stage Experience"))
