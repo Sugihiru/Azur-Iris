@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ToolDamageCalc</class>
+ <widget class="QWidget" name="ToolDamageCalc">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>718</width>
+    <height>568</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" colspan="3">
+    <widget class="QLabel" name="explanationLabel">
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Using this tool, you can compute an estimation of your ship's damage. To do so, you will need a lot of informations. I recommend you to use the Azur Lane Wiki. First, click on the page corresponding to your ship's gun in this &lt;a href=&quot;https://azurlane.koumakan.jp/Category:Equipment&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;page&lt;/span&gt;&lt;/a&gt;. Then, go to this &lt;a href=&quot;https://azurlane.koumakan.jp/Guide:_Equipment#Armor_Multipliers&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;page&lt;/span&gt;&lt;/a&gt; to get the &amp;quot;Armor multiplier&amp;quot; stat corresponding to your gun type and ammo type.&lt;/p&gt;&lt;p&gt;&amp;quot;Damage per volley&amp;quot; and &amp;quot;Theoretical DPS&amp;quot; assume that every shell hits one enemy.&lt;/p&gt;&lt;p&gt;Note: currently, the calculator assumes no bonus firepower/torpedo from fleet formation, skills, nor bonus/malus from level difference.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="margin">
+      <number>0</number>
+     </property>
+     <property name="openExternalLinks">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="2" rowspan="9">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="0" column="1">
+      <widget class="QSpinBox" name="damageStatSpinBox">
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::NoButtons</enum>
+       </property>
+       <property name="maximum">
+        <number>999</number>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="equipmentDmgTitleLabel">
+       <property name="text">
+        <string>Equipment damage:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="shellsPerVolleyTitleLabel">
+       <property name="text">
+        <string>Shells fired per volley:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QSpinBox" name="shellsPerVolleySpinBox">
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::NoButtons</enum>
+       </property>
+       <property name="minimum">
+        <number>1</number>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QSpinBox" name="mediumArmorMultSpinBox">
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::NoButtons</enum>
+       </property>
+       <property name="maximum">
+        <number>999</number>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QDoubleSpinBox" name="fireRateDoubleSpinBox">
+       <property name="locale">
+        <locale language="English" country="UnitedStates"/>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::NoButtons</enum>
+       </property>
+       <property name="value">
+        <double>1.000000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="slotEffTitleLabel">
+       <property name="text">
+        <string>Slot efficiency (%):</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="heavyArmorMultTitleLabel">
+       <property name="text">
+        <string>Heavy Armor multiplier (%):</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="QSpinBox" name="heavyArmorMultSpinBox">
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::NoButtons</enum>
+       </property>
+       <property name="maximum">
+        <number>999</number>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="lightArmorMultTitleLabel">
+       <property name="text">
+        <string>Light Armor multiplier (%):</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QSpinBox" name="lightArmorMultSpinBox">
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::NoButtons</enum>
+       </property>
+       <property name="maximum">
+        <number>999</number>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="fireRateTitleLabel">
+       <property name="text">
+        <string>Fire rate:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="mediumArmorMultTitleLabel">
+       <property name="text">
+        <string>Medium Armor multiplier (%):</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QSpinBox" name="equipmentDmgSpinBox">
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::NoButtons</enum>
+       </property>
+       <property name="maximum">
+        <number>999</number>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="weaponCoeffTitleLabel">
+       <property name="text">
+        <string>Weapon coefficient (%):</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="damageStatTitleLabel">
+       <property name="text">
+        <string>Firepower/Torpedo:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QSpinBox" name="slotEffSpinBox">
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::NoButtons</enum>
+       </property>
+       <property name="maximum">
+        <number>999</number>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QSpinBox" name="weaponCoeffSpinBox">
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::NoButtons</enum>
+       </property>
+       <property name="maximum">
+        <number>999</number>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0" colspan="2">
+      <widget class="Line" name="line">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="5" column="0" colspan="3">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="4" column="0" colspan="3">
+    <widget class="QTableWidget" name="damageTableWidget">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>415</width>
+       <height>115</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>115</height>
+      </size>
+     </property>
+     <row>
+      <property name="text">
+       <string>Damage per shell</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>Damage per volley</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>Theoretical DPS</string>
+      </property>
+     </row>
+     <column>
+      <property name="text">
+       <string>Light</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Medium</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Heavy</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="resultsLabel">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Results:</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>damageStatSpinBox</tabstop>
+  <tabstop>equipmentDmgSpinBox</tabstop>
+  <tabstop>fireRateDoubleSpinBox</tabstop>
+  <tabstop>shellsPerVolleySpinBox</tabstop>
+  <tabstop>weaponCoeffSpinBox</tabstop>
+  <tabstop>slotEffSpinBox</tabstop>
+  <tabstop>lightArmorMultSpinBox</tabstop>
+  <tabstop>mediumArmorMultSpinBox</tabstop>
+  <tabstop>heavyArmorMultSpinBox</tabstop>
+  <tabstop>damageTableWidget</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
