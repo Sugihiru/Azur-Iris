@@ -1,6 +1,6 @@
 import threading
 
-from PySide2.QtWidgets import QMainWindow, QMessageBox
+from PySide2.QtWidgets import QMainWindow
 from PySide2 import QtCore
 
 from .module_collection import ModuleCollection

@@ -13,6 +13,11 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 
+class Version(Base):
+    __tablename__ = "version"
+    version = Column(String, primary_key=True, nullable=False)
+
+
 class Shipfu(Base):
     __tablename__ = "shipfus"
     shipfu_id = Column(String, primary_key=True)
