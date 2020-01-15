@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\shipfu_filter.ui',
-# licensing of '.\shipfu_filter.ui' applies.
+# Form implementation generated from reading ui file 'shipfu_filter.ui',
+# licensing of 'shipfu_filter.ui' applies.
 #
-# Created: Wed Jan 15 15:50:54 2020
+# Created: Wed Jan 15 16:23:30 2020
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -170,6 +170,18 @@ class Ui_ShipfuFilter(object):
 
         self.retranslateUi(ShipfuFilter)
         QtCore.QMetaObject.connectSlotsByName(ShipfuFilter)
+        ShipfuFilter.setTabOrder(self.nameLineEdit, self.rarityComboBox)
+        ShipfuFilter.setTabOrder(self.rarityComboBox, self.nationComboBox)
+        ShipfuFilter.setTabOrder(self.nationComboBox, self.shipTypeComboBox)
+        ShipfuFilter.setTabOrder(self.shipTypeComboBox, self.positionComboBox)
+        ShipfuFilter.setTabOrder(self.positionComboBox, self.buildCheckBox)
+        ShipfuFilter.setTabOrder(self.buildCheckBox, self.dropCheckBox)
+        ShipfuFilter.setTabOrder(self.dropCheckBox, self.shopCheckBox)
+        ShipfuFilter.setTabOrder(self.shopCheckBox, self.eventCheckBox)
+        ShipfuFilter.setTabOrder(self.eventCheckBox, self.researchCheckBox)
+        ShipfuFilter.setTabOrder(self.researchCheckBox, self.collectionCheckBox)
+        ShipfuFilter.setTabOrder(self.collectionCheckBox, self.loginRewardCheckBox)
+        ShipfuFilter.setTabOrder(self.loginRewardCheckBox, self.resetFiltersPushButton)
 
     def retranslateUi(self, ShipfuFilter):
         ShipfuFilter.setWindowTitle(QtWidgets.QApplication.translate("ShipfuFilter", "Form", None, -1))

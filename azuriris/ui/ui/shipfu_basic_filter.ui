@@ -152,6 +152,14 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>nameLineEdit</tabstop>
+  <tabstop>rarityComboBox</tabstop>
+  <tabstop>nationComboBox</tabstop>
+  <tabstop>shipTypeComboBox</tabstop>
+  <tabstop>positionComboBox</tabstop>
+  <tabstop>resetFiltersPushButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

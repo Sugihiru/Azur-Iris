@@ -313,6 +313,21 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>nameLineEdit</tabstop>
+  <tabstop>rarityComboBox</tabstop>
+  <tabstop>nationComboBox</tabstop>
+  <tabstop>shipTypeComboBox</tabstop>
+  <tabstop>positionComboBox</tabstop>
+  <tabstop>buildCheckBox</tabstop>
+  <tabstop>dropCheckBox</tabstop>
+  <tabstop>shopCheckBox</tabstop>
+  <tabstop>eventCheckBox</tabstop>
+  <tabstop>researchCheckBox</tabstop>
+  <tabstop>collectionCheckBox</tabstop>
+  <tabstop>loginRewardCheckBox</tabstop>
+  <tabstop>resetFiltersPushButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

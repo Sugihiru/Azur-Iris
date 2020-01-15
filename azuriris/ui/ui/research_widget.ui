@@ -195,6 +195,12 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>researchLevelSpinBox</tabstop>
+  <tabstop>currentBpSpinBox</tabstop>
+  <tabstop>fateSimulationPhaseSpinBox</tabstop>
+  <tabstop>strengthenLevelTableWidget</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

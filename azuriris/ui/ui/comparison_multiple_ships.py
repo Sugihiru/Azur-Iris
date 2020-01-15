@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\comparison_multiple_ships.ui',
-# licensing of '.\comparison_multiple_ships.ui' applies.
+# Form implementation generated from reading ui file 'comparison_multiple_ships.ui',
+# licensing of 'comparison_multiple_ships.ui' applies.
 #
-# Created: Sun Dec  8 16:36:07 2019
+# Created: Wed Jan 15 16:23:27 2020
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -42,6 +42,7 @@ class Ui_ComparisonMultipleShips(object):
 
         self.retranslateUi(ComparisonMultipleShips)
         QtCore.QMetaObject.connectSlotsByName(ComparisonMultipleShips)
+        ComparisonMultipleShips.setTabOrder(self.levelComboBox, self.shipTableView)
 
     def retranslateUi(self, ComparisonMultipleShips):
         ComparisonMultipleShips.setWindowTitle(QtWidgets.QApplication.translate("ComparisonMultipleShips", "Form", None, -1))

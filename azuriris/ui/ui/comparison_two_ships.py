@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\comparison_two_ships.ui',
-# licensing of '.\comparison_two_ships.ui' applies.
+# Form implementation generated from reading ui file 'comparison_two_ships.ui',
+# licensing of 'comparison_two_ships.ui' applies.
 #
-# Created: Tue Dec 17 15:21:57 2019
+# Created: Wed Jan 15 16:23:27 2020
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!

@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'module_tools.ui',
 # licensing of 'module_tools.ui' applies.
 #
-# Created: Wed Dec 25 12:24:11 2019
+# Created: Wed Jan 15 16:23:29 2020
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\research_widget.ui',
-# licensing of '.\research_widget.ui' applies.
+# Form implementation generated from reading ui file 'research_widget.ui',
+# licensing of 'research_widget.ui' applies.
 #
-# Created: Mon Dec 23 17:56:21 2019
+# Created: Wed Jan 15 16:23:29 2020
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -100,6 +100,9 @@ class Ui_ResearchWidget(object):
 
         self.retranslateUi(ResearchWidget)
         QtCore.QMetaObject.connectSlotsByName(ResearchWidget)
+        ResearchWidget.setTabOrder(self.researchLevelSpinBox, self.currentBpSpinBox)
+        ResearchWidget.setTabOrder(self.currentBpSpinBox, self.fateSimulationPhaseSpinBox)
+        ResearchWidget.setTabOrder(self.fateSimulationPhaseSpinBox, self.strengthenLevelTableWidget)
 
     def retranslateUi(self, ResearchWidget):
         ResearchWidget.setWindowTitle(QtWidgets.QApplication.translate("ResearchWidget", "Form", None, -1))

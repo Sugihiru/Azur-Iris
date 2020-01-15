@@ -173,6 +173,11 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>currentLevelSpinBox</tabstop>
+  <tabstop>currentExpSpinBox</tabstop>
+  <tabstop>tableWidget</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

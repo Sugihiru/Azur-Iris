@@ -113,6 +113,11 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>nbFleetBeforeBossSpinBox</tabstop>
+  <tabstop>clearFleetCostSpinBox</tabstop>
+  <tabstop>bossFleetCostSpinBox</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\tool_damage_calc.ui',
-# licensing of '.\tool_damage_calc.ui' applies.
+# Form implementation generated from reading ui file 'tool_damage_calc.ui',
+# licensing of 'tool_damage_calc.ui' applies.
 #
-# Created: Sat Dec 28 13:36:57 2019
+# Created: Wed Jan 15 16:23:31 2020
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!

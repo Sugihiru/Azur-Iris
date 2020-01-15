@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\tool_leveling.ui',
-# licensing of '.\tool_leveling.ui' applies.
+# Form implementation generated from reading ui file 'tool_leveling.ui',
+# licensing of 'tool_leveling.ui' applies.
 #
-# Created: Thu Dec 26 14:49:13 2019
+# Created: Wed Jan 15 16:23:31 2020
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -96,6 +96,8 @@ class Ui_ToolLeveling(object):
 
         self.retranslateUi(ToolLeveling)
         QtCore.QMetaObject.connectSlotsByName(ToolLeveling)
+        ToolLeveling.setTabOrder(self.currentLevelSpinBox, self.currentExpSpinBox)
+        ToolLeveling.setTabOrder(self.currentExpSpinBox, self.tableWidget)
 
     def retranslateUi(self, ToolLeveling):
         ToolLeveling.setWindowTitle(QtWidgets.QApplication.translate("ToolLeveling", "Form", None, -1))

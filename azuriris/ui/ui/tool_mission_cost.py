@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\tool_mission_cost.ui',
-# licensing of '.\tool_mission_cost.ui' applies.
+# Form implementation generated from reading ui file 'tool_mission_cost.ui',
+# licensing of 'tool_mission_cost.ui' applies.
 #
-# Created: Wed Dec 25 12:50:57 2019
+# Created: Wed Jan 15 16:23:31 2020
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -62,6 +62,8 @@ class Ui_ToolMissionCost(object):
 
         self.retranslateUi(ToolMissionCost)
         QtCore.QMetaObject.connectSlotsByName(ToolMissionCost)
+        ToolMissionCost.setTabOrder(self.nbFleetBeforeBossSpinBox, self.clearFleetCostSpinBox)
+        ToolMissionCost.setTabOrder(self.clearFleetCostSpinBox, self.bossFleetCostSpinBox)
 
     def retranslateUi(self, ToolMissionCost):
         ToolMissionCost.setWindowTitle(QtWidgets.QApplication.translate("ToolMissionCost", "Form", None, -1))

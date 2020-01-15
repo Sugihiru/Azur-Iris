@@ -186,6 +186,12 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>baseExpSpinBox</tabstop>
+  <tabstop>rankComboBox</tabstop>
+  <tabstop>moraleComboBox</tabstop>
+  <tabstop>bonusExpSpinBox</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

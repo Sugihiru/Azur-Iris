@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\module_research.ui',
-# licensing of '.\module_research.ui' applies.
+# Form implementation generated from reading ui file 'module_research.ui',
+# licensing of 'module_research.ui' applies.
 #
-# Created: Mon Dec 23 14:40:22 2019
+# Created: Wed Jan 15 16:23:28 2020
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!

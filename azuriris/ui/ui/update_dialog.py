@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\update_dialog.ui',
-# licensing of '.\update_dialog.ui' applies.
+# Form implementation generated from reading ui file 'update_dialog.ui',
+# licensing of 'update_dialog.ui' applies.
 #
-# Created: Wed Jan  8 17:47:15 2020
+# Created: Wed Jan 15 16:23:32 2020
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!

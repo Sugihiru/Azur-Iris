@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\tool_stage_exp.ui',
-# licensing of '.\tool_stage_exp.ui' applies.
+# Form implementation generated from reading ui file 'tool_stage_exp.ui',
+# licensing of 'tool_stage_exp.ui' applies.
 #
-# Created: Fri Dec 27 14:43:27 2019
+# Created: Wed Jan 15 16:23:32 2020
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -85,6 +85,9 @@ class Ui_ToolStageExp(object):
 
         self.retranslateUi(ToolStageExp)
         QtCore.QMetaObject.connectSlotsByName(ToolStageExp)
+        ToolStageExp.setTabOrder(self.baseExpSpinBox, self.rankComboBox)
+        ToolStageExp.setTabOrder(self.rankComboBox, self.moraleComboBox)
+        ToolStageExp.setTabOrder(self.moraleComboBox, self.bonusExpSpinBox)
 
     def retranslateUi(self, ToolStageExp):
         ToolStageExp.setWindowTitle(QtWidgets.QApplication.translate("ToolStageExp", "Form", None, -1))

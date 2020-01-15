@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\module_shopevent.ui',
-# licensing of '.\module_shopevent.ui' applies.
+# Form implementation generated from reading ui file 'module_shopevent.ui',
+# licensing of 'module_shopevent.ui' applies.
 #
-# Created: Tue Dec 24 16:23:36 2019
+# Created: Wed Jan 15 16:23:29 2020
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!

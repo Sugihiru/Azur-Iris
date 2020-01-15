@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\shipfu_basic_filter.ui',
-# licensing of '.\shipfu_basic_filter.ui' applies.
+# Form implementation generated from reading ui file 'shipfu_basic_filter.ui',
+# licensing of 'shipfu_basic_filter.ui' applies.
 #
-# Created: Wed Jan 15 15:51:02 2020
+# Created: Wed Jan 15 16:23:30 2020
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -85,6 +85,11 @@ class Ui_ShipfuBasicFilter(object):
 
         self.retranslateUi(ShipfuBasicFilter)
         QtCore.QMetaObject.connectSlotsByName(ShipfuBasicFilter)
+        ShipfuBasicFilter.setTabOrder(self.nameLineEdit, self.rarityComboBox)
+        ShipfuBasicFilter.setTabOrder(self.rarityComboBox, self.nationComboBox)
+        ShipfuBasicFilter.setTabOrder(self.nationComboBox, self.shipTypeComboBox)
+        ShipfuBasicFilter.setTabOrder(self.shipTypeComboBox, self.positionComboBox)
+        ShipfuBasicFilter.setTabOrder(self.positionComboBox, self.resetFiltersPushButton)
 
     def retranslateUi(self, ShipfuBasicFilter):
         ShipfuBasicFilter.setWindowTitle(QtWidgets.QApplication.translate("ShipfuBasicFilter", "Form", None, -1))

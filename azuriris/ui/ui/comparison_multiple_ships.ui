@@ -65,6 +65,10 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>levelComboBox</tabstop>
+  <tabstop>shipTableView</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
