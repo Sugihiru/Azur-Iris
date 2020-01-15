@@ -1,7 +1,8 @@
 from PySide2 import QtCore
 from PySide2.QtCore import Qt
 
-from data import Data
+from generic_proxy_shipfu_table_model import GenericProxyShipfuTableModel
+
 from user_data import UserData
 
 
@@ -82,14 +83,9 @@ class ShipfuTableModel(QtCore.QAbstractTableModel):
         return default_flags
 
 
-class ProxyShipfuTableModel(QtCore.QSortFilterProxyModel):
+class ProxyShipfuTableModel(GenericProxyShipfuTableModel):
     def __init__(self):
         super().__init__()
-        # Rarity is already ordered
-        self.rarity_order = [rarity.name for rarity in Data.getRarities()]
-        self.rarity_filter = None
-        self.nation_filter = None
-        self.shiptype_filter = None
 
         self.build_filter = True
         self.drop_filter = True
@@ -100,17 +96,10 @@ class ProxyShipfuTableModel(QtCore.QSortFilterProxyModel):
         self.login_reward_filter = True
 
     def filterAcceptsRow(self, sourceRow, sourceParent):
-        if sourceRow >= self.sourceModel().rowCount():
+        if not super().filterAcceptsRow(sourceRow, sourceParent):
             return False
 
         shipfu = self.sourceModel().shipfus[sourceRow]
-        for (shipfu_value, shipfu_filter) in (
-                (shipfu.Rarity, self.rarity_filter),
-                (shipfu.Nation, self.nation_filter),
-                (shipfu.ShipType, self.shiptype_filter)):
-            if shipfu_filter and shipfu_value != shipfu_filter:
-                return False
-
         obtention_filters = (
             (self.build_filter and shipfu.Shipfu.is_buildable()) or
             (self.drop_filter and shipfu.Shipfu.drops) or
@@ -124,9 +113,7 @@ class ProxyShipfuTableModel(QtCore.QSortFilterProxyModel):
         if not obtention_filters:
             print(shipfu.Shipfu)
             return False
-
-        pattern = self.filterRegExp().pattern().lower()
-        return pattern in shipfu.Shipfu.name.lower()
+        return True
 
     def lessThan(self, source_left, source_right):
         if source_left.column() == 3:  # Sort by rarity

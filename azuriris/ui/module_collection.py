@@ -6,8 +6,8 @@ from .shipfu_filter import ShipfuFilter
 from .shipfu_basic_filter import ShipfuBasicFilter
 from .checkbox_delegate import CheckBoxDelegate
 from shipfu_table_model import ShipfuTableModel, ProxyShipfuTableModel
-from retrofit_shipfu_table_model import (RetrofitShipfuTableModel,
-                                         ProxyRetrofitShipfuTableModel)
+from retrofit_shipfu_table_model import RetrofitShipfuTableModel
+from generic_proxy_shipfu_table_model import GenericProxyShipfuTableModel
 
 from .ui.module_collection import Ui_ModuleCollection
 
@@ -24,7 +24,7 @@ class ModuleCollection(QWidget, Ui_ModuleCollection):
 
         self.retrofitModel = RetrofitShipfuTableModel(
             Data.getRetrofitShipfus(), user_shipfus_data)
-        self.proxyRetrofitModel = ProxyRetrofitShipfuTableModel()
+        self.proxyRetrofitModel = GenericProxyShipfuTableModel()
         self.proxyRetrofitModel.setSourceModel(self.retrofitModel)
         self.retrofitTableView.setModel(self.proxyRetrofitModel)
 
@@ -41,7 +41,8 @@ class ModuleCollection(QWidget, Ui_ModuleCollection):
         self.filters = ShipfuFilter()
         for filterComboBox in (self.filters.rarityComboBox,
                                self.filters.nationComboBox,
-                               self.filters.shipTypeComboBox):
+                               self.filters.shipTypeComboBox,
+                               self.filters.positionComboBox):
             filterComboBox.currentIndexChanged.connect(self.onFilterChanged)
         self.filters.nameLineEdit.textChanged.connect(self.onFilterChanged)
         for cb in (self.filters.buildCheckBox,
@@ -57,7 +58,8 @@ class ModuleCollection(QWidget, Ui_ModuleCollection):
         self.retrofitFilters = ShipfuBasicFilter()
         for filterComboBox in (self.retrofitFilters.rarityComboBox,
                                self.retrofitFilters.nationComboBox,
-                               self.retrofitFilters.shipTypeComboBox):
+                               self.retrofitFilters.shipTypeComboBox,
+                               self.retrofitFilters.positionComboBox):
             filterComboBox.currentIndexChanged.connect(
                 self.onRetrofitFilterChanged)
         self.retrofitFilters.nameLineEdit.textChanged.connect(
@@ -72,6 +74,8 @@ class ModuleCollection(QWidget, Ui_ModuleCollection):
         self.proxyModel.shiptype_filter = \
             self.filters.shipTypeComboBox.itemData(
                 self.filters.shipTypeComboBox.currentIndex())
+        self.proxyModel.position_filter = \
+            self.filters.positionComboBox.currentIndex()
 
         self.proxyModel.setFilterRegExp(self.filters.nameLineEdit.text())
 
@@ -98,6 +102,8 @@ class ModuleCollection(QWidget, Ui_ModuleCollection):
         self.proxyRetrofitModel.shiptype_filter = \
             self.retrofitFilters.shipTypeComboBox.itemData(
                 self.retrofitFilters.shipTypeComboBox.currentIndex())
+        self.proxyRetrofitModel.position_filter = \
+            self.retrofitFilters.positionComboBox.currentIndex()
 
         self.proxyRetrofitModel.setFilterRegExp(
             self.retrofitFilters.nameLineEdit.text())

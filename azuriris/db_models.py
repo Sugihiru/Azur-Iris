@@ -189,6 +189,12 @@ class ShipType(Base):
     name = Column(String, nullable=False)
     abbreviation = Column(String)
 
+    def isMainFleet(self):
+        return self.ship_type_id in (5, 6, 7, 8, 9, 10, 13)
+
+    def isVanguard(self):
+        return not self.isMainFleet()
+
 
 class Nation(Base):
     __tablename__ = "nations"

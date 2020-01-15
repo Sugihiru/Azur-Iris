@@ -4,8 +4,9 @@ from .comparison_two_ships import ComparisonTwoShips
 from .comparison_multiple_ships import ComparisonMultipleShips
 from .checkbox_delegate import CheckBoxDelegate
 from .shipfu_basic_filter import ShipfuBasicFilter
-from comparison_shipfu_table_model import (ComparisonShipfuTableModel,
-                                           ProxyComparisonShipfuTableModel)
+from comparison_shipfu_table_model import ComparisonShipfuTableModel
+from generic_proxy_shipfu_table_model import GenericProxyShipfuTableModel
+
 from .ui.module_comparison import Ui_ModuleComparison
 from data import Data
 
@@ -17,7 +18,7 @@ class ModuleComparison(QWidget, Ui_ModuleComparison):
 
         self.model = ComparisonShipfuTableModel()
         self.model.dataChanged.connect(self.displaySelectedShipfus)
-        self.proxyModel = ProxyComparisonShipfuTableModel()
+        self.proxyModel = GenericProxyShipfuTableModel()
         self.proxyModel.setSourceModel(self.model)
         self.shipTableView.setModel(self.proxyModel)
 
@@ -27,7 +28,8 @@ class ModuleComparison(QWidget, Ui_ModuleComparison):
         self.filters = ShipfuBasicFilter()
         for filterComboBox in (self.filters.rarityComboBox,
                                self.filters.nationComboBox,
-                               self.filters.shipTypeComboBox):
+                               self.filters.shipTypeComboBox,
+                               self.filters.positionComboBox):
             filterComboBox.currentIndexChanged.connect(self.onFilterChanged)
         self.filters.nameLineEdit.textChanged.connect(self.onFilterChanged)
         self.comparisonGridLayout.addWidget(self.filters, 0, 0)
@@ -54,6 +56,8 @@ class ModuleComparison(QWidget, Ui_ModuleComparison):
         self.proxyModel.shiptype_filter = \
             self.filters.shipTypeComboBox.itemData(
                 self.filters.shipTypeComboBox.currentIndex())
+        self.proxyModel.position_filter = \
+            self.filters.positionComboBox.currentIndex()
 
         self.proxyModel.setFilterRegExp(self.filters.nameLineEdit.text())
         self.proxyModel.invalidateFilter()

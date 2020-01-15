@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file '.\shipfu_basic_filter.ui',
 # licensing of '.\shipfu_basic_filter.ui' applies.
 #
-# Created: Mon Dec  9 13:21:52 2019
+# Created: Wed Jan 15 15:51:02 2020
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -49,6 +49,15 @@ class Ui_ShipfuBasicFilter(object):
         self.shipTypeComboBox = QtWidgets.QComboBox(ShipfuBasicFilter)
         self.shipTypeComboBox.setObjectName("shipTypeComboBox")
         self.horizontalLayout.addWidget(self.shipTypeComboBox)
+        self.positionLabel = QtWidgets.QLabel(ShipfuBasicFilter)
+        self.positionLabel.setObjectName("positionLabel")
+        self.horizontalLayout.addWidget(self.positionLabel)
+        self.positionComboBox = QtWidgets.QComboBox(ShipfuBasicFilter)
+        self.positionComboBox.setObjectName("positionComboBox")
+        self.positionComboBox.addItem("")
+        self.positionComboBox.addItem("")
+        self.positionComboBox.addItem("")
+        self.horizontalLayout.addWidget(self.positionComboBox)
         self.gridLayout.addLayout(self.horizontalLayout, 1, 0, 1, 1)
         self.filterTitle1Label = QtWidgets.QLabel(ShipfuBasicFilter)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
@@ -84,6 +93,10 @@ class Ui_ShipfuBasicFilter(object):
         self.rarityLabel.setText(QtWidgets.QApplication.translate("ShipfuBasicFilter", "Rarity", None, -1))
         self.nationLabel.setText(QtWidgets.QApplication.translate("ShipfuBasicFilter", "Nation", None, -1))
         self.shipTypeLabel.setText(QtWidgets.QApplication.translate("ShipfuBasicFilter", "Ship type", None, -1))
+        self.positionLabel.setText(QtWidgets.QApplication.translate("ShipfuBasicFilter", "Position", None, -1))
+        self.positionComboBox.setItemText(0, QtWidgets.QApplication.translate("ShipfuBasicFilter", "Main Fleet/Vanguard", None, -1))
+        self.positionComboBox.setItemText(1, QtWidgets.QApplication.translate("ShipfuBasicFilter", "Main Fleet", None, -1))
+        self.positionComboBox.setItemText(2, QtWidgets.QApplication.translate("ShipfuBasicFilter", "Vanguard", None, -1))
         self.filterTitle1Label.setText(QtWidgets.QApplication.translate("ShipfuBasicFilter", "Basic filters", None, -1))
         self.resetFiltersPushButton.setText(QtWidgets.QApplication.translate("ShipfuBasicFilter", "Reset filters", None, -1))
 

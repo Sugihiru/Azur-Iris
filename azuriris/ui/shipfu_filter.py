@@ -29,7 +29,8 @@ class ShipfuFilter(QWidget, Ui_ShipfuFilter):
         self.nameLineEdit.setText("")
         for comboBox in (self.rarityComboBox,
                          self.nationComboBox,
-                         self.shipTypeComboBox):
+                         self.shipTypeComboBox,
+                         self.positionComboBox):
             comboBox.setCurrentIndex(0)
 
         for checkbox in (self.buildCheckBox,

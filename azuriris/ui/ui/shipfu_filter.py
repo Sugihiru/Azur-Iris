@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file '.\shipfu_filter.ui',
 # licensing of '.\shipfu_filter.ui' applies.
 #
-# Created: Mon Dec  9 13:28:39 2019
+# Created: Wed Jan 15 15:50:54 2020
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -13,7 +13,7 @@ from PySide2 import QtCore, QtGui, QtWidgets
 class Ui_ShipfuFilter(object):
     def setupUi(self, ShipfuFilter):
         ShipfuFilter.setObjectName("ShipfuFilter")
-        ShipfuFilter.resize(584, 300)
+        ShipfuFilter.resize(585, 300)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -73,6 +73,15 @@ class Ui_ShipfuFilter(object):
         self.shipTypeComboBox = QtWidgets.QComboBox(ShipfuFilter)
         self.shipTypeComboBox.setObjectName("shipTypeComboBox")
         self.horizontalLayout_3.addWidget(self.shipTypeComboBox)
+        self.positionLabel = QtWidgets.QLabel(ShipfuFilter)
+        self.positionLabel.setObjectName("positionLabel")
+        self.horizontalLayout_3.addWidget(self.positionLabel)
+        self.positionComboBox = QtWidgets.QComboBox(ShipfuFilter)
+        self.positionComboBox.setObjectName("positionComboBox")
+        self.positionComboBox.addItem("")
+        self.positionComboBox.addItem("")
+        self.positionComboBox.addItem("")
+        self.horizontalLayout_3.addWidget(self.positionComboBox)
         self.gridLayout.addLayout(self.horizontalLayout_3, 1, 0, 1, 9)
         self.eventHLayout = QtWidgets.QHBoxLayout()
         self.eventHLayout.setObjectName("eventHLayout")
@@ -171,6 +180,10 @@ class Ui_ShipfuFilter(object):
         self.rarityLabel.setText(QtWidgets.QApplication.translate("ShipfuFilter", "Rarity", None, -1))
         self.nationLabel.setText(QtWidgets.QApplication.translate("ShipfuFilter", "Nation", None, -1))
         self.shipTypeLabel.setText(QtWidgets.QApplication.translate("ShipfuFilter", "Ship type", None, -1))
+        self.positionLabel.setText(QtWidgets.QApplication.translate("ShipfuFilter", "Position", None, -1))
+        self.positionComboBox.setItemText(0, QtWidgets.QApplication.translate("ShipfuFilter", "Main Fleet/Vanguard", None, -1))
+        self.positionComboBox.setItemText(1, QtWidgets.QApplication.translate("ShipfuFilter", "Main Fleet", None, -1))
+        self.positionComboBox.setItemText(2, QtWidgets.QApplication.translate("ShipfuFilter", "Vanguard", None, -1))
         self.eventLabel.setText(QtWidgets.QApplication.translate("ShipfuFilter", "Events", None, -1))
         self.dropLabel.setText(QtWidgets.QApplication.translate("ShipfuFilter", "Drops", None, -1))
         self.collectionLabel.setText(QtWidgets.QApplication.translate("ShipfuFilter", "Collection", None, -1))

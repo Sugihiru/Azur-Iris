@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>584</width>
+    <width>585</width>
     <height>300</height>
    </rect>
   </property>
@@ -116,6 +116,32 @@
      </item>
      <item>
       <widget class="QComboBox" name="shipTypeComboBox"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="positionLabel">
+       <property name="text">
+        <string>Position</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="positionComboBox">
+       <item>
+        <property name="text">
+         <string>Main Fleet/Vanguard</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Main Fleet</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Vanguard</string>
+        </property>
+       </item>
+      </widget>
      </item>
     </layout>
    </item>
