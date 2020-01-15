@@ -58,7 +58,12 @@ def get_update_url():
 def check_app_version():
     ret = dict()
 
-    res = requests.get(API_BASE_URL + "/get_app_version")
+    try:
+        res = requests.get(API_BASE_URL + "/get_app_version")
+    except Exception:
+        ret["error"] = True
+        return ret
+
     if res.status_code == 200:
         if res.text != APP_VERSION:
             ret["error"] = False

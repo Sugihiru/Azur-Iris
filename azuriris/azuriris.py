@@ -7,7 +7,10 @@ from ui.mainwindow import MainWindow
 
 
 def main():
-    app.check_and_update_data()
+    try:
+        app.check_and_update_data()
+    except Exception:
+        pass
 
     qapp = QtWidgets.QApplication(sys.argv)
     mw = MainWindow()
