@@ -11,7 +11,8 @@ class ComparisonShipfuTableModel(QtCore.QAbstractTableModel):
         super().__init__()
         self.shipfus = Data.getShipfus()
         self.id_shipfus_to_compare = list()
-        self.headers = ["Id", "Compare", "Name", "Rarity", "Type", "Nation"]
+        self.headers = ["Id", "Compare", "Image", "Name", "Rarity", "Type",
+                        "Nation"]
 
     def rowCount(self, parent=None):
         return len(self.shipfus)
@@ -29,6 +30,7 @@ class ComparisonShipfuTableModel(QtCore.QAbstractTableModel):
             shipfu_id = self.shipfus[row].Shipfu.shipfu_id
             values = (shipfu_id,
                       shipfu_id in self.id_shipfus_to_compare,
+                      self.shipfus[row].Shipfu.image,
                       self.shipfus[row].Shipfu.name,
                       self.shipfus[row].Rarity.name,
                       self.shipfus[row].ShipType.name,

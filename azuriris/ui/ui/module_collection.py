@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'module_collection.ui',
-# licensing of 'module_collection.ui' applies.
+# Form implementation generated from reading ui file '.\module_collection.ui',
+# licensing of '.\module_collection.ui' applies.
 #
-# Created: Wed Jan 15 16:23:27 2020
+# Created: Thu Feb 13 12:01:13 2020
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -58,6 +58,8 @@ class Ui_ModuleCollection(object):
         self.retrofitTableView.setHorizontalScrollMode(QtWidgets.QAbstractItemView.ScrollPerPixel)
         self.retrofitTableView.setSortingEnabled(True)
         self.retrofitTableView.setObjectName("retrofitTableView")
+        self.retrofitTableView.verticalHeader().setDefaultSectionSize(50)
+        self.retrofitTableView.verticalHeader().setMinimumSectionSize(50)
         self.retrofitGridLayout.addWidget(self.retrofitTableView, 1, 0, 1, 1)
         self.widget_2 = QtWidgets.QWidget(self.retrofitTab)
         self.widget_2.setObjectName("widget_2")

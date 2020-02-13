@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'module_retrofit.ui',
-# licensing of 'module_retrofit.ui' applies.
+# Form implementation generated from reading ui file '.\module_retrofit.ui',
+# licensing of '.\module_retrofit.ui' applies.
 #
-# Created: Wed Jan 15 16:23:28 2020
+# Created: Thu Feb 13 12:18:44 2020
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -73,13 +73,6 @@ class Ui_ModuleRetrofit(object):
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.platesGridLayout.addItem(spacerItem, 0, 8, 2, 1)
         self.gridLayout.addLayout(self.platesGridLayout, 21, 0, 1, 12)
-        self.titlePerShipTypeLabel = QtWidgets.QLabel(ModuleRetrofit)
-        font = QtGui.QFont()
-        font.setWeight(75)
-        font.setBold(True)
-        self.titlePerShipTypeLabel.setFont(font)
-        self.titlePerShipTypeLabel.setObjectName("titlePerShipTypeLabel")
-        self.gridLayout.addWidget(self.titlePerShipTypeLabel, 0, 0, 1, 12)
         self.titleGlobalNeededLabel = QtWidgets.QLabel(ModuleRetrofit)
         font = QtGui.QFont()
         font.setWeight(75)
@@ -99,6 +92,9 @@ class Ui_ModuleRetrofit(object):
         self.resourcesPerShipTableView.setSortingEnabled(True)
         self.resourcesPerShipTableView.setWordWrap(True)
         self.resourcesPerShipTableView.setObjectName("resourcesPerShipTableView")
+        self.resourcesPerShipTableView.horizontalHeader().setMinimumSectionSize(50)
+        self.resourcesPerShipTableView.verticalHeader().setDefaultSectionSize(50)
+        self.resourcesPerShipTableView.verticalHeader().setMinimumSectionSize(50)
         self.gridLayout.addWidget(self.resourcesPerShipTableView, 23, 0, 1, 12)
         self.gridLayout_2 = QtWidgets.QGridLayout()
         self.gridLayout_2.setObjectName("gridLayout_2")
@@ -301,6 +297,16 @@ class Ui_ModuleRetrofit(object):
         spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem2)
         self.gridLayout.addLayout(self.horizontalLayout, 17, 0, 2, 1)
+        self.infoLabel = QtWidgets.QLabel(ModuleRetrofit)
+        self.infoLabel.setObjectName("infoLabel")
+        self.gridLayout.addWidget(self.infoLabel, 2, 0, 1, 1)
+        self.titlePerShipTypeLabel = QtWidgets.QLabel(ModuleRetrofit)
+        font = QtGui.QFont()
+        font.setWeight(75)
+        font.setBold(True)
+        self.titlePerShipTypeLabel.setFont(font)
+        self.titlePerShipTypeLabel.setObjectName("titlePerShipTypeLabel")
+        self.gridLayout.addWidget(self.titlePerShipTypeLabel, 3, 0, 1, 1)
 
         self.retranslateUi(ModuleRetrofit)
         QtCore.QMetaObject.connectSlotsByName(ModuleRetrofit)
@@ -318,7 +324,6 @@ class Ui_ModuleRetrofit(object):
         self.aircraftPlatesNbLabel.setText(QtWidgets.QApplication.translate("ModuleRetrofit", "{nb} T3 aircraft plates", None, -1))
         self.auxPlatesIconLabel.setText(QtWidgets.QApplication.translate("ModuleRetrofit", "AuxPlatesIcon", None, -1))
         self.torpedoPlatesIconLabel.setText(QtWidgets.QApplication.translate("ModuleRetrofit", "TorpedoPlatesIcon", None, -1))
-        self.titlePerShipTypeLabel.setText(QtWidgets.QApplication.translate("ModuleRetrofit", "Resources needed per ship type", None, -1))
         self.titleGlobalNeededLabel.setText(QtWidgets.QApplication.translate("ModuleRetrofit", "Global resources needed", None, -1))
         self.destroyersT1NbLabel.setText(QtWidgets.QApplication.translate("ModuleRetrofit", "T1Nb", None, -1))
         self.cruisersGoldNbLabel.setText(QtWidgets.QApplication.translate("ModuleRetrofit", "GoldNb", None, -1))
@@ -358,4 +363,6 @@ class Ui_ModuleRetrofit(object):
         self.destroyersT2NbLabel.setText(QtWidgets.QApplication.translate("ModuleRetrofit", "T2Nb", None, -1))
         self.totalGoldNbLabel.setText(QtWidgets.QApplication.translate("ModuleRetrofit", "TotalGoldNb", None, -1))
         self.totalGoldIconLabel.setText(QtWidgets.QApplication.translate("ModuleRetrofit", "GoldIcon", None, -1))
+        self.infoLabel.setText(QtWidgets.QApplication.translate("ModuleRetrofit", "<html><head/><body><p>Please register the retrofits that you\'ve already done <a href=\"retrofit_tab\"><span style=\" text-decoration: underline; color:#007af4;\">here</span></a> before using this tool.</p></body></html>", None, -1))
+        self.titlePerShipTypeLabel.setText(QtWidgets.QApplication.translate("ModuleRetrofit", "Resources needed per ship type", None, -1))
 

@@ -1,9 +1,9 @@
 from PySide2.QtWidgets import QWidget
-from PySide2 import QtWidgets, QtGui
 
 from data import Data
 from .shipfu_filter import ShipfuFilter
 from .shipfu_basic_filter import ShipfuBasicFilter
+from .pixmap_delegate import PixmapDelegate
 from .checkbox_delegate import CheckBoxDelegate
 from shipfu_table_model import ShipfuTableModel, ProxyShipfuTableModel
 from retrofit_shipfu_table_model import RetrofitShipfuTableModel
@@ -37,6 +37,8 @@ class ModuleCollection(QWidget, Ui_ModuleCollection):
         self.retrofitTableView.setItemDelegateForColumn(
             self.retrofitModel.columnCount() - 1,
             CheckBoxDelegate(self.retrofitTableView))
+        self.retrofitTableView.setItemDelegateForColumn(
+            1, PixmapDelegate(self.shipTableView))
 
         self.filters = ShipfuFilter()
         for filterComboBox in (self.filters.rarityComboBox,
@@ -109,16 +111,3 @@ class ModuleCollection(QWidget, Ui_ModuleCollection):
             self.retrofitFilters.nameLineEdit.text())
 
         self.proxyRetrofitModel.invalidateFilter()
-
-
-class PixmapDelegate(QtWidgets.QItemDelegate):
-    def __init__(self, parent):
-        QtWidgets.QItemDelegate.__init__(self, parent)
-
-    def paint(self, painter, option, index):
-        """
-        Paint a checkbox without the label.
-        """
-        img = QtGui.QImage.fromData(index.data())
-        pixmap = QtGui.QPixmap.fromImage(img)
-        self.drawDecoration(painter, option, option.rect, pixmap)

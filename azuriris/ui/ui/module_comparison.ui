@@ -38,6 +38,12 @@
          <property name="sortingEnabled">
           <bool>true</bool>
          </property>
+         <attribute name="verticalHeaderMinimumSectionSize">
+          <number>50</number>
+         </attribute>
+         <attribute name="verticalHeaderDefaultSectionSize">
+          <number>50</number>
+         </attribute>
         </widget>
        </item>
        <item row="2" column="0" colspan="2">

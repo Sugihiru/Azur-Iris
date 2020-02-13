@@ -2,7 +2,7 @@ from PySide2.QtWidgets import QWidget
 from PySide2.QtGui import QPixmap
 
 from data import Data
-
+from .pixmap_delegate import PixmapDelegate
 from .ui.module_retrofit import Ui_ModuleRetrofit
 from shipfu_retrofit_cost_table_model import (
     ShipfuRetrofitCostTableModel, ProxyShipfuRetrofitCostTableModel)
@@ -83,6 +83,9 @@ class ModuleRetrofit(QWidget, Ui_ModuleRetrofit):
                                 ":/plates/AuxT3Plate.png"),):
             label.setPixmap(QPixmap(imgpath))
         self.setTotalRetrofitCostInfos()
+
+        self.resourcesPerShipTableView.setItemDelegateForColumn(
+            1, PixmapDelegate(self.resourcesPerShipTableView))
 
     def setTotalRetrofitCostInfos(self):
         self.setTotalRetrofitCostPerType()

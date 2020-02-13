@@ -3,6 +3,7 @@ from PySide2.QtWidgets import QWidget, QPushButton, QMessageBox
 from .comparison_two_ships import ComparisonTwoShips
 from .comparison_multiple_ships import ComparisonMultipleShips
 from .checkbox_delegate import CheckBoxDelegate
+from .pixmap_delegate import PixmapDelegate
 from .shipfu_basic_filter import ShipfuBasicFilter
 from comparison_shipfu_table_model import ComparisonShipfuTableModel
 from generic_proxy_shipfu_table_model import GenericProxyShipfuTableModel
@@ -24,6 +25,8 @@ class ModuleComparison(QWidget, Ui_ModuleComparison):
 
         self.shipTableView.setItemDelegateForColumn(
             1, CheckBoxDelegate(self.shipTableView))
+        self.shipTableView.setItemDelegateForColumn(
+            2, PixmapDelegate(self.shipTableView))
 
         self.filters = ShipfuBasicFilter()
         for filterComboBox in (self.filters.rarityComboBox,

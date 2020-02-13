@@ -43,6 +43,8 @@ class MainWindow(QMainWindow):
         self.ui.tabWidget.setTabText(1, self.tr("Comparison"))
 
         self.retrofitTab = ModuleRetrofit(self.user_data)
+        self.retrofitTab.infoLabel.linkActivated.connect(
+            self.redirectToRetrofitTab)
         self.ui.tabWidget.addTab(self.retrofitTab, "")
         self.ui.tabWidget.setTabText(2, self.tr("Retrofit"))
 
@@ -83,3 +85,7 @@ class MainWindow(QMainWindow):
 
             self.ui.statusbar.showMessage(infoMessage, 2000)
             self.timer.stop()
+
+    def redirectToRetrofitTab(self):
+        self.ui.tabWidget.setCurrentIndex(0)
+        self.collectionTab.tabWidget.setCurrentIndex(1)

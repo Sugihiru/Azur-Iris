@@ -12,7 +12,8 @@ class RetrofitShipfuTableModel(QtCore.QAbstractTableModel):
         else:
             self.shipfus = list()
         self.user_shipfus_data = user_shipfus_data
-        self.headers = ["Id", "Name", "Rarity", "Type", "Nation", "Owned"]
+        self.headers = ["Id", "Image", "Name", "Rarity", "Type", "Nation",
+                        "Owned"]
 
     def rowCount(self, parent=None):
         return len(self.shipfus)
@@ -35,6 +36,7 @@ class RetrofitShipfuTableModel(QtCore.QAbstractTableModel):
                 self.user_shipfus_data[shipfu_id] = shipfu_user_data
 
             values = (self.shipfus[row].Shipfu.shipfu_id,
+                      self.shipfus[row].Shipfu.image,
                       self.shipfus[row].Shipfu.name,
                       self.shipfus[row].Rarity.name,
                       self.shipfus[row].ShipType.name,

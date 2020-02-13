@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'module_comparison.ui',
-# licensing of 'module_comparison.ui' applies.
+# Form implementation generated from reading ui file '.\module_comparison.ui',
+# licensing of '.\module_comparison.ui' applies.
 #
-# Created: Wed Jan 15 16:23:28 2020
+# Created: Thu Feb 13 12:15:10 2020
 #      by: pyside2-uic  running on PySide2 5.13.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -28,6 +28,8 @@ class Ui_ModuleComparison(object):
         self.shipTableView.setHorizontalScrollMode(QtWidgets.QAbstractItemView.ScrollPerPixel)
         self.shipTableView.setSortingEnabled(True)
         self.shipTableView.setObjectName("shipTableView")
+        self.shipTableView.verticalHeader().setDefaultSectionSize(50)
+        self.shipTableView.verticalHeader().setMinimumSectionSize(50)
         self.comparisonGridLayout.addWidget(self.shipTableView, 8, 0, 1, 2)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")

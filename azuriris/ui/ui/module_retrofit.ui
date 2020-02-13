@@ -143,19 +143,6 @@
      </item>
     </layout>
    </item>
-   <item row="0" column="0" colspan="12">
-    <widget class="QLabel" name="titlePerShipTypeLabel">
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>Resources needed per ship type</string>
-     </property>
-    </widget>
-   </item>
    <item row="15" column="0" colspan="12">
     <widget class="QLabel" name="titleGlobalNeededLabel">
      <property name="font">
@@ -192,6 +179,15 @@
      <property name="wordWrap">
       <bool>true</bool>
      </property>
+     <attribute name="horizontalHeaderMinimumSectionSize">
+      <number>50</number>
+     </attribute>
+     <attribute name="verticalHeaderMinimumSectionSize">
+      <number>50</number>
+     </attribute>
+     <attribute name="verticalHeaderDefaultSectionSize">
+      <number>50</number>
+     </attribute>
     </widget>
    </item>
    <item row="5" column="0">
@@ -633,6 +629,26 @@
       </spacer>
      </item>
     </layout>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="infoLabel">
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Please register the retrofits that you've already done &lt;a href=&quot;retrofit_tab&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;here&lt;/span&gt;&lt;/a&gt; before using this tool.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="titlePerShipTypeLabel">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Resources needed per ship type</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
