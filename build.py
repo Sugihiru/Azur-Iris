@@ -15,4 +15,5 @@ PyInstaller.__main__.run([
     '--add-data=%s' % "azuriris.data;.",
     '--icon=%s' % os.path.join("azuriris.ico"),
     os.path.join('azuriris', 'azuriris.py'),
+    '--noconsole',
 ])
